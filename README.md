@@ -7,6 +7,88 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Ejecutar el proyecto
+
+### Con Docker (recomendado)
+
+**Requisitos:** Docker y Docker Compose
+
+1. Levantar los contenedores:
+   ```bash
+   docker compose up -d --build
+   ```
+
+2. Instalar dependencias de PHP:
+   ```bash
+   docker compose exec app composer install
+   ```
+
+3. Configurar el entorno (copiar `.env.example` a `.env` si no existe):
+   ```bash
+   docker compose exec app cp .env.example .env
+   docker compose exec app php artisan key:generate
+   ```
+
+4. Ajustar en `.env` la conexión a la base de datos:
+   ```
+   DB_HOST=mariadb
+   DB_DATABASE=foodmigu
+   DB_USERNAME=foodmigu
+   DB_PASSWORD=secret
+   ```
+
+5. Ejecutar las migraciones:
+   ```bash
+   docker compose exec app php artisan migrate
+   ```
+
+6. (Opcional) Compilar assets con Node:
+   ```bash
+   docker compose --profile frontend up -d
+   ```
+
+La aplicación estará disponible en **http://localhost:8000**
+
+#### Error de permisos (storage/logs)
+
+Si aparece el error `Permission denied` al escribir en `storage/logs` o `bootstrap/cache`:
+
+```bash
+docker compose exec app chown -R www-data:www-data storage bootstrap/cache
+docker compose exec app chmod -R 775 storage bootstrap/cache
+```
+
+El entrypoint del contenedor ya aplica estos permisos al iniciar. Si persiste el error, reconstruye con `docker compose up -d --build`.
+
+### Sin Docker
+
+**Requisitos:** PHP 8.0, Composer, MariaDB/MySQL, Node.js
+
+1. Instalar dependencias:
+   ```bash
+   composer install
+   npm install
+   ```
+
+2. Configurar `.env` y generar la clave:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+3. Ejecutar migraciones:
+   ```bash
+   php artisan migrate
+   ```
+
+4. Compilar assets y levantar el servidor:
+   ```bash
+   npm run dev
+   php artisan serve
+   ```
+
+---
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
