@@ -5,6 +5,9 @@ import Dashboard from '../pages/Dashboard.vue';
 import MenuCategoryList from '../modules/menuCategories/MenuCategoryList.vue';
 import MenuCategoryCreate from '../modules/menuCategories/MenuCategoryCreate.vue';
 import MenuCategoryEdit from '../modules/menuCategories/MenuCategoryEdit.vue';
+import MenuList from '../modules/menus/MenuList.vue';
+import MenuCreate from '../modules/menus/MenuCreate.vue';
+import MenuEdit from '../modules/menus/MenuEdit.vue';
 
 const routes = [
     {
@@ -39,6 +42,24 @@ const routes = [
         path: '/menu-categories/:id/edit',
         name: 'menu-categories.edit',
         component: MenuCategoryEdit,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/menus',
+        name: 'menus.index',
+        component: MenuList,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/menus/create',
+        name: 'menus.create',
+        component: MenuCreate,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/menus/:id/edit',
+        name: 'menus.edit',
+        component: MenuEdit,
         meta: { requiresAuth: true },
     },
 ];

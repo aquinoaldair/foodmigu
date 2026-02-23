@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\MenuCategoryController;
+use App\Http\Controllers\Api\MenuController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->apiResource('menu-categories', MenuCategoryController::class);
+Route::middleware('auth:sanctum')->apiResource('menus', MenuController::class);

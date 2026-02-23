@@ -25,6 +25,13 @@ class MenuCategory extends Model
         'is_active' => 'boolean',
     ];
 
+    public function menus()
+    {
+        return $this->belongsToMany(Menu::class, 'menu_menu_category')
+            ->withPivot('display_order')
+            ->withTimestamps();
+    }
+
     public static function selectionTypes(): array
     {
         return [
