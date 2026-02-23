@@ -29203,7 +29203,7 @@ var _hoisted_1 = {
   "class": "min-h-screen bg-gray-50"
 };
 var _hoisted_2 = {
-  "class": "max-w-3xl mx-auto py-6 sm:px-6 lg:px-8"
+  "class": "max-w-5xl mx-auto py-6 sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
   "class": "bg-white shadow rounded-lg p-6 relative"
@@ -29247,7 +29247,7 @@ var _hoisted_1 = {
   "class": "min-h-screen bg-gray-50"
 };
 var _hoisted_2 = {
-  "class": "max-w-3xl mx-auto py-6 sm:px-6 lg:px-8"
+  "class": "max-w-5xl mx-auto py-6 sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
   "class": "bg-white shadow rounded-lg p-6 relative"
