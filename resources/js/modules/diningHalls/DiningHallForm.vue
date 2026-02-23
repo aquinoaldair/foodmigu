@@ -13,19 +13,6 @@
         </div>
 
         <div>
-            <label for="code" class="block text-sm font-medium text-gray-700">Código</label>
-            <input
-                id="code"
-                v-model="form.code"
-                type="text"
-                class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                :class="{ 'border-red-500': errors.code }"
-                placeholder="Ej: norte, empresa-x"
-            />
-            <p v-if="errors.code" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.code) ? errors.code[0] : errors.code }}</p>
-        </div>
-
-        <div>
             <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
             <textarea
                 id="description"
@@ -93,6 +80,11 @@ const props = defineProps({
         type: String,
         default: 'Guardar',
     },
+    mode: {
+        type: String,
+        default: 'create',
+        validator: (v) => ['create', 'edit'].includes(v),
+    },
 });
 
 const emit = defineEmits(['submit', 'cancel', 'update:modelValue']);
@@ -122,7 +114,7 @@ watch(form, (val) => emit('update:modelValue', val), { deep: true });
 function handleSubmit() {
     const payload = {
         name: form.name.trim(),
-        code: form.code.trim(),
+        ...(props.mode === 'edit' && { code: form.code.trim() }),
         description: form.description?.trim() || null,
         is_active: Boolean(form.is_active),
     };

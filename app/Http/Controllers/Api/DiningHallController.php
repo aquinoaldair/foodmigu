@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DiningHall;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class DiningHallController extends Controller
@@ -26,12 +27,18 @@ class DiningHallController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string'],
-            'code' => ['required', 'string', 'unique:dining_halls,code'],
+            'code' => ['nullable', 'string', 'unique:dining_halls,code'],
             'description' => ['nullable', 'string'],
             'is_active' => ['boolean'],
         ]);
 
         $validated['is_active'] = $validated['is_active'] ?? true;
+
+        if (empty(trim((string) ($validated['code'] ?? '')))) {
+            $validated['code'] = $this->generateUniqueCode($validated['name']);
+        } else {
+            $validated['code'] = trim($validated['code']);
+        }
 
         $hall = DiningHall::create($validated);
 
@@ -76,6 +83,19 @@ class DiningHallController extends Controller
             'success' => true,
             'data' => null,
         ]);
+    }
+
+    private function generateUniqueCode(string $name): string
+    {
+        $baseSlug = Str::slug($name);
+        $code = $baseSlug ?: 'comedor';
+        $counter = 1;
+        while (DiningHall::where('code', $code)->exists()) {
+            $code = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $code;
     }
 
     public function publicUrl(DiningHall $diningHall): JsonResponse

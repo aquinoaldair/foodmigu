@@ -13,6 +13,7 @@
                 :model-value="hall"
                 :loading="loading"
                 :errors="errors"
+                mode="edit"
                 @submit="handleSubmit"
                 @cancel="goToList"
             />

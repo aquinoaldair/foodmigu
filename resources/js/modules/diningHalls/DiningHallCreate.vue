@@ -9,6 +9,7 @@
             :model-value="initialValues"
             :loading="loading"
             :errors="errors"
+            mode="create"
             submit-label="Crear comedor"
             @submit="handleSubmit"
             @cancel="goToList"
@@ -27,7 +28,6 @@ const router = useRouter();
 
 const initialValues = {
     name: '',
-    code: '',
     description: '',
     is_active: true,
 };

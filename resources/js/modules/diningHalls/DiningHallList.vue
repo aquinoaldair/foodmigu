@@ -24,7 +24,6 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Activo</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comensales</th>
                         <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
@@ -34,9 +33,6 @@
                     <tr v-for="hall in halls" :key="hall.id" class="hover:bg-gray-50 transition-colors">
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             {{ hall.name }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                            {{ hall.code }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <span
@@ -79,7 +75,7 @@
                         </td>
                     </tr>
                     <tr v-if="!halls.length">
-                        <td colspan="5" class="px-6 py-12 text-center text-gray-500">
+                        <td colspan="4" class="px-6 py-12 text-center text-gray-500">
                             No hay comedores registrados. Crea uno para comenzar.
                         </td>
                     </tr>
