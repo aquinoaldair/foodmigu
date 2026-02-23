@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\DashboardPdfController;
 use App\Http\Controllers\Api\DinerController;
 use App\Http\Controllers\Api\DiningHallController;
 use App\Http\Controllers\Api\MenuCategoryController;
@@ -36,6 +37,10 @@ Route::middleware('auth:sanctum')->prefix('dashboard')->group(function () {
     Route::get('/weeks', [DashboardController::class, 'weeks']);
     Route::get('/week/{id}', [DashboardController::class, 'week']);
     Route::get('/day/{dayId}', [DashboardController::class, 'day']);
+});
+Route::middleware('auth:sanctum')->prefix('dashboard/pdf')->group(function () {
+    Route::get('/day/{dayId}', [DashboardPdfController::class, 'day']);
+    Route::get('/week/{weekId}', [DashboardPdfController::class, 'week']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

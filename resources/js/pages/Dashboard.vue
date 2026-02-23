@@ -69,9 +69,21 @@
                 <!-- Vista: Detalle semana (días) -->
                 <div v-else-if="view === 'week'" class="space-y-4">
                     <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-                        <h2 class="text-xl font-bold text-gray-900 mb-2">{{ weekDetail?.title }}</h2>
-                        <p class="text-sm text-gray-500">Comedor: {{ weekDetail?.dining_hall?.name ?? '-' }}</p>
-                        <p class="text-gray-500 mt-1">{{ weekDetail?.total_diners ?? 0 }} comensales</p>
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-900 mb-2">{{ weekDetail?.title }}</h2>
+                                <p class="text-sm text-gray-500">Comedor: {{ weekDetail?.dining_hall?.name ?? '-' }}</p>
+                                <p class="text-gray-500 mt-1">{{ weekDetail?.total_diners ?? 0 }} comensales</p>
+                            </div>
+                            <button
+                                type="button"
+                                :disabled="downloadingPdf"
+                                @click="downloadPdfWeek"
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                            >
+                                {{ downloadingPdf ? 'Descargando...' : 'Descargar Resumen Semanal' }}
+                            </button>
+                        </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div
@@ -105,11 +117,23 @@
                 <!-- Vista: Detalle día -->
                 <div v-else-if="view === 'day'" class="space-y-6">
                     <div class="bg-white rounded-xl shadow-sm p-6">
-                        <h2 class="text-xl font-bold text-gray-900 mb-2">
-                            {{ dayDetail?.day ? formatDayDate(dayDetail.day.date) : '' }}
-                        </h2>
-                        <p class="text-gray-500">Comedor: {{ dayDetail?.dining_hall?.name ?? '-' }}</p>
-                        <p class="text-gray-500 mb-4 text-sm">{{ dayDetail?.day?.build_title }}</p>
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-900 mb-2">
+                                    {{ dayDetail?.day ? formatDayDate(dayDetail.day.date) : '' }}
+                                </h2>
+                                <p class="text-gray-500">Comedor: {{ dayDetail?.dining_hall?.name ?? '-' }}</p>
+                                <p class="text-gray-500 text-sm">{{ dayDetail?.day?.build_title }}</p>
+                            </div>
+                            <button
+                                type="button"
+                                :disabled="downloadingPdf"
+                                @click="downloadPdfDay"
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                            >
+                                {{ downloadingPdf ? 'Descargando...' : 'Descargar PDF Día' }}
+                            </button>
+                        </div>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div class="rounded-lg bg-gray-50 p-4">
                                 <p class="text-sm text-gray-500">Total comensales</p>
@@ -253,6 +277,7 @@ const weeks = ref([]);
 const weekDetail = ref(null);
 const dayDetail = ref(null);
 const activeTab = ref('selected');
+const downloadingPdf = ref(false);
 
 const viewTitle = computed(() => {
     if (view.value === 'weeks') return 'Métricas de Menús Semanales';
@@ -339,6 +364,71 @@ async function openDay(dayId) {
         error.value = e.response?.data?.message ?? 'Error al cargar';
     } finally {
         loadingData.value = false;
+    }
+}
+
+function triggerBlobDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename || 'documento.pdf';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+async function downloadPdfDay() {
+    if (!selectedDiningHallId.value || !dayDetail.value?.day?.id) return;
+    downloadingPdf.value = true;
+    error.value = null;
+    try {
+        const res = await dashboardApi.downloadPdfDay(
+            dayDetail.value.day.id,
+            selectedDiningHallId.value
+        );
+        const blob = res.data;
+        if (blob.type === 'application/json') {
+            const text = await blob.text();
+            const json = JSON.parse(text);
+            error.value = json.message ?? 'Error al descargar PDF';
+            return;
+        }
+        const disposition = res.headers?.['content-disposition'];
+        const filenameMatch = disposition?.match(/filename\*?=(?:UTF-8'')?"?([^";\n]+)"?/i)
+            || disposition?.match(/filename="?([^";\n]+)"?/i);
+        const filename = filenameMatch ? filenameMatch[1].trim() : `dia_${dayDetail.value.day.date}_${(dayDetail.value.dining_hall?.name ?? 'comedor').replace(/\s+/g, '_')}.pdf`;
+        triggerBlobDownload(blob, filename);
+    } catch (e) {
+        error.value = e.response?.data?.message ?? 'Error al descargar PDF';
+    } finally {
+        downloadingPdf.value = false;
+    }
+}
+
+async function downloadPdfWeek() {
+    if (!selectedDiningHallId.value || !selectedWeekId.value) return;
+    downloadingPdf.value = true;
+    error.value = null;
+    try {
+        const res = await dashboardApi.downloadPdfWeek(
+            selectedWeekId.value,
+            selectedDiningHallId.value
+        );
+        const blob = res.data;
+        if (blob.type === 'application/json') {
+            const text = await blob.text();
+            const json = JSON.parse(text);
+            error.value = json.message ?? 'Error al descargar PDF';
+            return;
+        }
+        const disposition = res.headers?.['content-disposition'];
+        const filenameMatch = disposition?.match(/filename\*?=(?:UTF-8'')?"?([^";\n]+)"?/i)
+            || disposition?.match(/filename="?([^";\n]+)"?/i);
+        const filename = filenameMatch ? filenameMatch[1].trim() : `resumen_semana_${(weekDetail.value?.title ?? 'semana').replace(/\s+/g, '_')}_${(weekDetail.value?.dining_hall?.name ?? 'comedor').replace(/\s+/g, '_')}.pdf`;
+        triggerBlobDownload(blob, filename);
+    } catch (e) {
+        error.value = e.response?.data?.message ?? 'Error al descargar PDF';
+    } finally {
+        downloadingPdf.value = false;
     }
 }
 
