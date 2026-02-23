@@ -1,5 +1,6 @@
 <template>
     <div class="min-h-screen bg-gray-50 px-4 py-6 pb-24">
+        <LoadingOverlay :show="saving" message="Guardando selección..." />
         <div class="max-w-md mx-auto">
             <router-link
                 :to="{ name: 'public.menus', params: { code } }"
@@ -215,6 +216,7 @@
 import { ref, computed, reactive, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { publicMenuApi, getStoredDiner } from './api';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 
 const route = useRoute();
 const code = computed(() => route.params.code);

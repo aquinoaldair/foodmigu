@@ -1,5 +1,6 @@
 <template>
     <div class="min-h-screen bg-gray-50 px-4 py-6 pb-24">
+        <LoadingOverlay :show="loading" message="Buscando..." />
         <div class="max-w-md mx-auto">
             <router-link
                 :to="{ name: 'public.landing', params: { code } }"
@@ -68,6 +69,7 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 import { useRouter, useRoute } from 'vue-router';
 import { publicMenuApi, setStoredDiner } from './api';
 

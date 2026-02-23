@@ -1,7 +1,8 @@
 <template>
     <div class="min-h-screen bg-gray-50">
         <div class="max-w-3xl mx-auto py-6 sm:px-6 lg:px-8">
-            <div class="bg-white shadow rounded-lg p-6">
+            <div class="bg-white shadow rounded-lg p-6 relative">
+                <LoadingOverlay :show="loading" message="Guardando..." />
                 <div v-if="successMessage" class="mb-4 p-4 rounded-md bg-green-50 text-green-800 text-sm">
                     {{ successMessage }}
                 </div>
@@ -23,6 +24,7 @@
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import MenuCategoryForm from './MenuCategoryForm.vue';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 import { menuCategoryApi } from './api';
 
 const router = useRouter();

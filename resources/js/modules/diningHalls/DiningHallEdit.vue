@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 relative">
+        <LoadingOverlay :show="loading" message="Actualizando..." />
         <div v-if="successMessage" class="mb-4 p-4 rounded-md bg-green-50 text-green-800 text-sm">
             {{ successMessage }}
         </div>
@@ -26,6 +27,7 @@
 import { ref, reactive, onMounted, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import DiningHallForm from './DiningHallForm.vue';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 import { diningHallApi } from './api';
 
 const router = useRouter();

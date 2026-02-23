@@ -1,6 +1,7 @@
 
 <template>
     <div class="min-h-screen bg-gray-50">
+        <LoadingOverlay :show="saving || publishing" :message="publishing ? 'Publicando...' : 'Procesando...'" />
         <div class="max-w-6xl mx-auto py-6 sm:px-6 lg:px-8">
             <div v-if="loadingData" class="text-center py-12 text-gray-500">Cargando...</div>
             <template v-else-if="build">
@@ -120,6 +121,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { weeklyMenuBuildApi } from './api';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 import WeeklyMenuCalendar from './WeeklyMenuCalendar.vue';
 import WeeklyMenuDayEditor from './WeeklyMenuDayEditor.vue';
 

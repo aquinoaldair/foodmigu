@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 relative">
+        <LoadingOverlay :show="deleting" message="Eliminando..." />
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-xl font-semibold text-gray-900">Comedores</h1>
             <router-link
@@ -125,6 +126,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { diningHallApi } from './api';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 
 const halls = ref([]);
 const loading = ref(true);

@@ -1,7 +1,8 @@
 <template>
     <div class="min-h-screen bg-gray-50">
         <div class="max-w-xl mx-auto py-6 sm:px-6 lg:px-8">
-            <div class="bg-white shadow rounded-lg p-6">
+            <div class="bg-white shadow rounded-lg p-6 relative">
+                <LoadingOverlay :show="loading" message="Creando..." />
                 <router-link
                     :to="{ name: 'weekly-menu-builds.index' }"
                     class="inline-block text-sm text-gray-600 hover:text-gray-900 mb-4"
@@ -112,6 +113,7 @@
 import { ref, reactive, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { weeklyMenuBuildApi } from './api';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 import { menuApi } from '../menus/api';
 import { diningHallApi } from '../diningHalls/api';
 

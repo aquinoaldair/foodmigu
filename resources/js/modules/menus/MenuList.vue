@@ -1,5 +1,6 @@
 <template>
     <div class="min-h-screen bg-gray-50">
+        <LoadingOverlay :show="deleting" message="Eliminando..." />
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div class="bg-white shadow rounded-lg overflow-hidden">
                 <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
@@ -132,6 +133,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { menuApi } from './api';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 
 const menus = ref([]);
 const loading = ref(true);

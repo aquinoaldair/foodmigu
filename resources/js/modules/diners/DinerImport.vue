@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 relative">
+        <LoadingOverlay :show="loading" message="Importando..." />
         <router-link
             :to="{ name: 'diners.index', params: { id: diningHallId } }"
             class="inline-block text-sm text-gray-600 hover:text-gray-900 mb-4"
@@ -63,6 +64,7 @@
 import { ref, reactive, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { dinerApi } from './api';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 
 const route = useRoute();
 const diningHallId = computed(() => route.params.id);

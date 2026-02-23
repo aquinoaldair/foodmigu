@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 relative">
+        <LoadingOverlay :show="deleting" message="Eliminando..." />
         <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
             <div class="flex items-center gap-3">
                 <router-link
@@ -134,6 +135,7 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { dinerApi } from './api';
+import LoadingOverlay from '../../components/LoadingOverlay.vue';
 import { diningHallApi } from '../diningHalls/api';
 
 const route = useRoute();
