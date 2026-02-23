@@ -1,31 +1,38 @@
 <template>
-    <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mx-auto">
+    <div class="min-h-screen bg-gray-50 px-4 py-6 pb-24">
+        <div class="max-w-md mx-auto">
             <div class="flex items-center justify-between mb-6">
                 <router-link
                     :to="{ name: 'public.menus', params: { code } }"
-                    class="text-sm text-gray-600 hover:text-gray-900"
+                    class="py-2 text-gray-600 hover:text-gray-900 transition"
                 >
                     ← Menús
                 </router-link>
                 <button
                     type="button"
                     @click="salir"
-                    class="text-sm text-gray-600 hover:text-gray-900"
+                    class="py-2 text-gray-600 hover:text-gray-900 transition"
                 >
                     Salir
                 </button>
             </div>
 
-            <div v-if="loading" class="py-12 text-center text-gray-500">Cargando...</div>
-            <div v-else-if="error" class="bg-red-50 border border-red-200 rounded-xl p-6">
-                <p class="text-red-700">{{ error }}</p>
+            <div v-if="loading" class="flex items-center justify-center py-24 transition-all duration-200">
+                <div class="flex flex-col items-center gap-3">
+                    <div class="w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
+                    <p class="text-base text-gray-500">Cargando...</p>
+                </div>
             </div>
-            <div v-else-if="!diner" class="bg-amber-50 border border-amber-200 rounded-xl p-6">
-                <p class="text-amber-800">Debes identificarte primero.</p>
+            <div v-else-if="error" class="bg-white rounded-2xl shadow-sm p-5 mb-4">
+                <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+                    <p class="text-red-700">{{ error }}</p>
+                </div>
+            </div>
+            <div v-else-if="!diner" class="bg-white rounded-2xl shadow-sm p-5 mb-4">
+                <p class="text-amber-800 mb-4">Debes identificarte primero.</p>
                 <router-link
                     :to="{ name: 'public.identify', params: { code } }"
-                    class="mt-3 inline-block px-4 py-2 text-sm font-medium text-amber-800 bg-amber-100 rounded-lg"
+                    class="inline-flex items-center justify-center w-full py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"
                 >
                     Identificarse
                 </router-link>
@@ -35,24 +42,24 @@
                     <h1 class="text-xl font-bold text-gray-900">
                         {{ day ? formatDate(day.date) : '' }}
                     </h1>
-                    <p v-if="day?.weekly_menu_build?.title" class="text-gray-600 text-sm mt-1">
+                    <p v-if="day?.weekly_menu_build?.title" class="text-gray-500 text-sm mt-1">
                         {{ day.weekly_menu_build.title }}
                     </p>
                 </div>
 
-                <div v-if="deadlinePassed" class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-6">
-                    <p class="text-amber-800 font-medium">
+                <div v-if="deadlinePassed" class="mb-6 rounded-xl px-4 py-3 bg-red-50 border border-red-200">
+                    <p class="text-red-700 font-medium">
                         El plazo para modificar la selección ha finalizado.
                     </p>
                 </div>
 
-                <form @submit.prevent="submit" class="space-y-6">
+                <form @submit.prevent="submit" class="space-y-6 transition-all duration-200">
                     <div
                         v-for="group in byCategory"
                         :key="group.category.id"
-                        class="bg-white rounded-2xl shadow-sm p-6"
+                        class="bg-white rounded-2xl shadow-sm p-5 mb-4"
                     >
-                        <h2 class="text-lg font-semibold text-gray-900 mb-1">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-3">
                             {{ group.category.name }}
                             <span v-if="group.category.is_required" class="text-red-500">*</span>
                         </h2>
@@ -60,146 +67,138 @@
                             v-if="group.category.selection_type === 'none' && !group.category.is_required"
                             class="text-sm text-gray-500 mb-3"
                         >
-                            Opcional. Márcalo únicamente si lo necesitas.
+                            Opcional. Márcalo si lo vas a requerir.
                         </p>
 
                         <div
                             v-if="group.category.selection_type === 'none' && !group.category.is_required"
-                            class="space-y-2 mt-2"
+                            class="space-y-2"
                         >
                             <label
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="flex items-start gap-3 p-4 rounded-xl border cursor-pointer hover:bg-gray-50"
+                                class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
                                 :class="
                                     selectionMultiple(group.category.id).includes(item.id)
                                         ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200'
+                                        : 'border-gray-200 bg-white'
                                 "
                             >
+                                <span class="flex-1">
+                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                    <span v-if="item.description" class="text-sm text-gray-500">
+                                        {{ item.description }}
+                                    </span>
+                                </span>
                                 <input
                                     type="checkbox"
                                     :value="item.id"
                                     :checked="selectionMultiple(group.category.id).includes(item.id)"
                                     :disabled="deadlinePassed"
-                                    class="mt-1 h-5 w-5 rounded border-gray-300 text-blue-600"
+                                    class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0"
                                     @change="toggleMultiple(group.category.id, item.id)"
                                 />
-                                <span class="flex-1">
-                                    <span class="font-medium text-gray-900">{{ item.name }}</span>
-                                    <span v-if="item.description" class="block text-sm text-gray-500">
-                                        {{ item.description }}
-                                    </span>
-                                </span>
                             </label>
                         </div>
 
                         <div
                             v-if="group.category.selection_type === 'none' && group.category.is_required"
-                            class="space-y-2 mt-2"
+                            class="space-y-2"
                         >
                             <div
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 bg-gray-50 cursor-not-allowed"
+                                class="flex justify-between items-center gap-3 p-4 rounded-xl border border-gray-200 bg-gray-50 cursor-not-allowed"
                             >
-                                <input
-                                    type="checkbox"
-                                    :checked="true"
-                                    disabled
-                                    class="h-5 w-5 rounded border-gray-300 text-blue-600"
-                                />
                                 <span class="flex-1">
-                                    <span class="font-medium text-gray-900">{{ item.name }}</span>
-                                    <span v-if="item.description" class="block text-sm text-gray-500">
+                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                    <span v-if="item.description" class="text-sm text-gray-500">
                                         {{ item.description }}
                                     </span>
                                 </span>
+                                <input type="checkbox" :checked="true" disabled class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0" />
                             </div>
                         </div>
 
-                        <div
-                            v-if="group.category.selection_type === 'single'"
-                            class="space-y-2 mt-2"
-                        >
+                        <div v-if="group.category.selection_type === 'single'" class="space-y-2">
                             <label
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="flex items-start gap-3 p-4 rounded-xl border cursor-pointer hover:bg-gray-50"
+                                class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
                                 :class="
                                     selectionSingle(group.category.id) === item.id
                                         ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200'
+                                        : 'border-gray-200 bg-white'
                                 "
                             >
+                                <span class="flex-1">
+                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                    <span v-if="item.description" class="text-sm text-gray-500">
+                                        {{ item.description }}
+                                    </span>
+                                </span>
                                 <input
                                     type="radio"
                                     :name="`cat_${group.category.id}`"
                                     :value="item.id"
                                     :checked="selectionSingle(group.category.id) === item.id"
                                     :disabled="deadlinePassed"
-                                    class="mt-1 h-5 w-5 text-blue-600"
+                                    class="h-5 w-5 text-blue-600 shrink-0"
                                     @change="setSingle(group.category.id, item.id)"
                                 />
-                                <span class="flex-1">
-                                    <span class="font-medium text-gray-900">{{ item.name }}</span>
-                                    <span v-if="item.description" class="block text-sm text-gray-500">
-                                        {{ item.description }}
-                                    </span>
-                                </span>
                             </label>
                         </div>
 
-                        <div
-                            v-if="group.category.selection_type === 'multiple'"
-                            class="space-y-2 mt-2"
-                        >
+                        <div v-if="group.category.selection_type === 'multiple'" class="space-y-2">
                             <label
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="flex items-start gap-3 p-4 rounded-xl border cursor-pointer hover:bg-gray-50"
+                                class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
                                 :class="
                                     selectionMultiple(group.category.id).includes(item.id)
                                         ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200'
+                                        : 'border-gray-200 bg-white'
                                 "
                             >
+                                <span class="flex-1">
+                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                    <span v-if="item.description" class="text-sm text-gray-500">
+                                        {{ item.description }}
+                                    </span>
+                                </span>
                                 <input
                                     type="checkbox"
                                     :value="item.id"
                                     :checked="selectionMultiple(group.category.id).includes(item.id)"
                                     :disabled="deadlinePassed"
-                                    class="mt-1 h-5 w-5 rounded border-gray-300 text-blue-600"
+                                    class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0"
                                     @change="toggleMultiple(group.category.id, item.id)"
                                 />
-                                <span class="flex-1">
-                                    <span class="font-medium text-gray-900">{{ item.name }}</span>
-                                    <span v-if="item.description" class="block text-sm text-gray-500">
-                                        {{ item.description }}
-                                    </span>
-                                </span>
                             </label>
                         </div>
                     </div>
 
                     <div v-if="submitError" class="text-red-600 text-sm">{{ submitError }}</div>
 
-                    <button
-                        type="submit"
-                        :disabled="saving || deadlinePassed"
-                        class="w-full py-4 px-6 text-lg font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        {{ saving ? 'Guardando...' : 'Guardar selección' }}
-                    </button>
+                    <div v-if="saved" class="rounded-xl px-4 py-3 bg-green-50 border border-green-200 text-green-800 text-center font-medium">
+                        ✓ Selección guardada correctamente
+                    </div>
                 </form>
-
-                <div
-                    v-if="saved"
-                    class="mt-6 p-4 rounded-xl bg-green-50 border border-green-200 text-green-800 text-center"
-                >
-                    ✓ Selección guardada correctamente
-                </div>
             </template>
+        </div>
+
+        <div
+            v-if="diner && !loading && !error && day && !deadlinePassed"
+            class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg"
+        >
+            <button
+                type="button"
+                :disabled="saving"
+                @click="submit"
+                class="w-full py-4 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+                {{ saving ? 'Guardando...' : 'Guardar selección' }}
+            </button>
         </div>
     </div>
 </template>

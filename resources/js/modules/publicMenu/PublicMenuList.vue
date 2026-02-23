@@ -1,58 +1,59 @@
 <template>
-    <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mx-auto">
+    <div class="min-h-screen bg-gray-50 px-4 py-6 pb-24">
+        <div class="max-w-md mx-auto">
             <button
                 type="button"
                 @click="salir"
-                class="inline-block text-sm text-gray-600 hover:text-gray-900 mb-6"
+                class="inline-flex items-center justify-center w-full py-3 mb-6 rounded-xl text-lg font-semibold bg-gray-200 text-gray-700 active:scale-95 transition"
             >
                 ← Salir
             </button>
 
-            <p v-if="diner" class="text-sm text-gray-600 mb-6">
-                Hola, <strong>{{ diner.name }}</strong>
+            <p v-if="diner" class="text-base text-gray-600 mb-6">
+                Hola, <strong class="text-gray-900">{{ diner.name }}</strong>
             </p>
 
-            <div v-if="loading" class="py-12 text-center text-gray-500">Cargando menús...</div>
-            <div v-else-if="!diner" class="bg-amber-50 border border-amber-200 rounded-xl p-6">
-                <p class="text-amber-800">Debes identificarte primero.</p>
+            <div v-if="loading" class="flex items-center justify-center py-24 transition-all duration-200">
+                <div class="flex flex-col items-center gap-3">
+                    <div class="w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
+                    <p class="text-base text-gray-500">Cargando menús...</p>
+                </div>
+            </div>
+            <div v-else-if="!diner" class="bg-white rounded-2xl shadow-sm p-5 mb-4">
+                <p class="text-amber-800 mb-4">Debes identificarte primero.</p>
                 <router-link
                     :to="{ name: 'public.identify', params: { code } }"
-                    class="mt-3 inline-block px-4 py-2 text-sm font-medium text-amber-800 bg-amber-100 rounded-lg"
+                    class="inline-flex items-center justify-center w-full py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"
                 >
                     Identificarse
                 </router-link>
             </div>
-            <div v-else-if="menuBuilds.length === 0" class="bg-white rounded-2xl shadow-sm p-8 text-center">
+            <div v-else-if="menuBuilds.length === 0" class="bg-white rounded-2xl shadow-sm p-5 mb-4 text-center">
                 <p class="text-gray-600">No hay menús publicados disponibles.</p>
             </div>
-            <div v-else class="space-y-4">
+            <div v-else class="space-y-4 transition-all duration-200">
                 <div
                     v-for="build in menuBuilds"
                     :key="build.id"
-                    class="bg-white rounded-2xl shadow-sm overflow-hidden"
+                    class="bg-white rounded-2xl shadow-sm p-5 mb-4"
                 >
-                    <div class="p-6">
-                        <h2 class="text-lg font-bold text-gray-900 mb-4">{{ build.title }}</h2>
-                        <div class="space-y-3">
-                            <router-link
-                                v-for="day in build.days"
-                                :key="day.id"
-                                :to="{ name: 'public.day', params: { code, dayId: day.id } }"
-                                class="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:bg-gray-50"
-                            >
-                                <span class="font-medium text-gray-900">
-                                    {{ formatDate(day.date) }}
-                                </span>
-                                <span
-                                    v-if="hasSelection(day.id)"
-                                    class="text-sm text-green-600 font-medium"
-                                >
-                                    ✓ Seleccionado
-                                </span>
-                                <span v-else class="text-sm text-gray-500">Seleccionar</span>
-                            </router-link>
-                        </div>
+                    <h2 class="text-lg font-bold text-gray-900 mb-1">{{ build.title }}</h2>
+                    <p class="text-sm text-gray-500 mb-4">Selecciona un día</p>
+                    <div class="flex flex-wrap gap-2">
+                        <router-link
+                            v-for="day in build.days"
+                            :key="day.id"
+                            :to="{ name: 'public.day', params: { code, dayId: day.id } }"
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition active:scale-95"
+                            :class="
+                                hasSelection(day.id)
+                                    ? 'bg-green-100 text-green-700'
+                                    : 'bg-blue-100 text-blue-700'
+                            "
+                        >
+                            {{ formatDateShort(day.date) }}
+                            <span v-if="hasSelection(day.id)">✓</span>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -74,14 +75,10 @@ const menuBuilds = ref([]);
 const loading = ref(true);
 const selectionCache = ref({});
 
-function formatDate(d) {
+function formatDateShort(d) {
     if (!d) return '';
     const date = typeof d === 'string' ? new Date(d) : d;
-    return date.toLocaleDateString('es-ES', {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long',
-    });
+    return date.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
 }
 
 function hasSelection(dayId) {
