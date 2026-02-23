@@ -12,6 +12,9 @@ import MenuEdit from '../modules/menus/MenuEdit.vue';
 import WeeklyMenuBuildList from '../modules/weeklyMenuBuilds/WeeklyMenuBuildList.vue';
 import WeeklyMenuBuildCreate from '../modules/weeklyMenuBuilds/WeeklyMenuBuildCreate.vue';
 import WeeklyMenuBuildEdit from '../modules/weeklyMenuBuilds/WeeklyMenuBuildEdit.vue';
+import DiningHallList from '../modules/diningHalls/DiningHallList.vue';
+import DiningHallCreate from '../modules/diningHalls/DiningHallCreate.vue';
+import DiningHallEdit from '../modules/diningHalls/DiningHallEdit.vue';
 
 const routes = [
     {
@@ -78,6 +81,21 @@ const routes = [
                 path: 'weekly-menu-builds/:id/edit',
                 name: 'weekly-menu-builds.edit',
                 component: WeeklyMenuBuildEdit,
+            },
+            {
+                path: 'dining-halls',
+                name: 'dining-halls.index',
+                component: DiningHallList,
+            },
+            {
+                path: 'dining-halls/create',
+                name: 'dining-halls.create',
+                component: DiningHallCreate,
+            },
+            {
+                path: 'dining-halls/:id/edit',
+                name: 'dining-halls.edit',
+                component: DiningHallEdit,
             },
         ],
     },

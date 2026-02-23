@@ -38,6 +38,9 @@ const titles = {
     'weekly-menu-builds.index': 'Construcción Semanal',
     'weekly-menu-builds.create': 'Nueva Semana',
     'weekly-menu-builds.edit': 'Editar Semana',
+    'dining-halls.index': 'Comedores',
+    'dining-halls.create': 'Nuevo Comedor',
+    'dining-halls.edit': 'Editar Comedor',
 };
 
 const pageTitle = computed(() => titles[route.name] ?? 'Panel');

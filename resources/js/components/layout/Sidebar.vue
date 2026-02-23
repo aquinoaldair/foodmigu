@@ -23,6 +23,9 @@
                 <li>
                     <NavItem to="/weekly-menu-builds" label="Construcción Semanal" icon="calendar" />
                 </li>
+                <li>
+                    <NavItem to="/dining-halls" label="Comedores" icon="building" />
+                </li>
             </ul>
         </nav>
     </aside>

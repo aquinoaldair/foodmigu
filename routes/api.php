@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\DiningHallController;
 use App\Http\Controllers\Api\MenuCategoryController;
 use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\WeeklyMenuBuildController;
@@ -21,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user()->load('roles.permissions');
 });
 
+Route::middleware('auth:sanctum')->apiResource('dining-halls', DiningHallController::class);
 Route::middleware('auth:sanctum')->apiResource('menu-categories', MenuCategoryController::class);
 Route::middleware('auth:sanctum')->apiResource('menus', MenuController::class);
 Route::middleware('auth:sanctum')->post('weekly-menu-builds/{weekly_menu_build}/publish', [WeeklyMenuBuildController::class, 'publish']);

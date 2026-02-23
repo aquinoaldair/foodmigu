@@ -39,14 +39,14 @@
                                 v-model="item.name"
                                 type="text"
                                 placeholder="Nombre del platillo"
-                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                                class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
                                 :disabled="readonly"
                             />
                             <textarea
                                 v-model="item.description"
                                 rows="2"
                                 placeholder="Descripción"
-                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                                class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
                                 :disabled="readonly"
                             />
                             <input
@@ -55,7 +55,7 @@
                                 step="0.01"
                                 min="0"
                                 placeholder="Precio"
-                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                                class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
                                 :disabled="readonly"
                             />
                         </div>

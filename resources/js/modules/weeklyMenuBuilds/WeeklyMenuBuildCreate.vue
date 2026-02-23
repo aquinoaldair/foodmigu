@@ -17,7 +17,7 @@
                             v-model="form.title"
                             type="text"
                             required
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                            class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                             :class="{ 'border-red-500': errors.title }"
                         />
                         <p v-if="errors.title" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.title) ? errors.title[0] : errors.title }}</p>
@@ -30,7 +30,7 @@
                                 v-model="form.start_date"
                                 type="date"
                                 required
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                 :class="{ 'border-red-500': errors.start_date }"
                             />
                             <p v-if="errors.start_date" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.start_date) ? errors.start_date[0] : errors.start_date }}</p>
@@ -42,7 +42,7 @@
                                 v-model="form.end_date"
                                 type="date"
                                 required
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                 :class="{ 'border-red-500': errors.end_date }"
                             />
                             <p v-if="errors.end_date" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.end_date) ? errors.end_date[0] : errors.end_date }}</p>
@@ -54,7 +54,7 @@
                             id="menu_id"
                             v-model="form.menu_id"
                             required
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                            class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                             :class="{ 'border-red-500': errors.menu_id }"
                         >
                             <option value="">Seleccionar menú</option>

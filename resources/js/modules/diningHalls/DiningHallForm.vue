@@ -13,33 +13,31 @@
         </div>
 
         <div>
-            <label for="selection_type" class="block text-sm font-medium text-gray-700">Tipo de selección</label>
-            <select
-                id="selection_type"
-                v-model="form.selection_type"
+            <label for="code" class="block text-sm font-medium text-gray-700">Código</label>
+            <input
+                id="code"
+                v-model="form.code"
+                type="text"
                 class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                :class="{ 'border-red-500': errors.selection_type }"
-            >
-                <option
-                    v-for="(label, value) in selectionTypes"
-                    :key="value"
-                    :value="value"
-                >
-                    {{ label }}
-                </option>
-            </select>
-            <p v-if="errors.selection_type" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.selection_type) ? errors.selection_type[0] : errors.selection_type }}</p>
+                :class="{ 'border-red-500': errors.code }"
+                placeholder="Ej: norte, empresa-x"
+            />
+            <p v-if="errors.code" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.code) ? errors.code[0] : errors.code }}</p>
         </div>
 
-        <div class="flex items-center gap-6">
-            <label class="flex items-center">
-                <input
-                    v-model="form.is_required"
-                    type="checkbox"
-                    class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                />
-                <span class="ml-2 text-sm text-gray-700">Obligatorio</span>
-            </label>
+        <div>
+            <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
+            <textarea
+                id="description"
+                v-model="form.description"
+                rows="3"
+                class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                :class="{ 'border-red-500': errors.description }"
+            />
+            <p v-if="errors.description" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.description) ? errors.description[0] : errors.description }}</p>
+        </div>
+
+        <div class="flex items-center">
             <label class="flex items-center">
                 <input
                     v-model="form.is_active"
@@ -48,19 +46,6 @@
                 />
                 <span class="ml-2 text-sm text-gray-700">Activo</span>
             </label>
-        </div>
-
-        <div>
-            <label for="display_order" class="block text-sm font-medium text-gray-700">Orden de visualización</label>
-            <input
-                id="display_order"
-                v-model.number="form.display_order"
-                type="number"
-                min="0"
-                class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                :class="{ 'border-red-500': errors.display_order }"
-            />
-            <p v-if="errors.display_order" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.display_order) ? errors.display_order[0] : errors.display_order }}</p>
         </div>
 
         <div class="flex gap-3 pt-4">
@@ -85,17 +70,15 @@
 
 <script setup>
 import { reactive, watch } from 'vue';
-import { SELECTION_TYPES } from './constants';
 
 const props = defineProps({
     modelValue: {
         type: Object,
         default: () => ({
             name: '',
-            selection_type: 'none',
-            is_required: false,
+            code: '',
+            description: '',
             is_active: true,
-            display_order: 0,
         }),
     },
     loading: {
@@ -114,14 +97,11 @@ const props = defineProps({
 
 const emit = defineEmits(['submit', 'cancel', 'update:modelValue']);
 
-const selectionTypes = SELECTION_TYPES;
-
 const form = reactive({
     name: props.modelValue?.name ?? '',
-    selection_type: props.modelValue?.selection_type ?? 'none',
-    is_required: props.modelValue?.is_required ?? false,
+    code: props.modelValue?.code ?? '',
+    description: props.modelValue?.description ?? '',
     is_active: props.modelValue?.is_active ?? true,
-    display_order: props.modelValue?.display_order ?? 0,
 });
 
 watch(
@@ -129,10 +109,9 @@ watch(
     (newVal) => {
         if (newVal) {
             form.name = newVal.name ?? '';
-            form.selection_type = newVal.selection_type ?? 'none';
-            form.is_required = newVal.is_required ?? false;
+            form.code = newVal.code ?? '';
+            form.description = newVal.description ?? '';
             form.is_active = newVal.is_active ?? true;
-            form.display_order = newVal.display_order ?? 0;
         }
     },
     { deep: true }
@@ -143,10 +122,9 @@ watch(form, (val) => emit('update:modelValue', val), { deep: true });
 function handleSubmit() {
     const payload = {
         name: form.name.trim(),
-        selection_type: form.selection_type,
-        is_required: Boolean(form.is_required),
+        code: form.code.trim(),
+        description: form.description?.trim() || null,
         is_active: Boolean(form.is_active),
-        display_order: Number(form.display_order) || 0,
     };
     emit('submit', payload);
 }

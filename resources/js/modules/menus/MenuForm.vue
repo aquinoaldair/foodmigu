@@ -13,7 +13,7 @@
                         id="name"
                         v-model="form.name"
                         type="text"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                        class="mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                         :class="{ 'border-red-500': errors.name }"
                     />
                     <p v-if="errors.name" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.name) ? errors.name[0] : errors.name }}</p>
@@ -57,7 +57,7 @@
                             v-model.number="displayOrders[category.id]"
                             type="number"
                             min="0"
-                            class="w-20 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                            class="w-20 px-3 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
                         />
                     </div>
                 </div>

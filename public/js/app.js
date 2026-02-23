@@ -22459,7 +22459,8 @@ __webpack_require__.r(__webpack_exports__);
       chart: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>',
       folder: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.348l-1.72-1.71a.75.75 0 00-.53-.22H7.5a2.25 2.25 0 00-2.25 2.25v11.25A2.25 2.25 0 007.5 21h9a2.25 2.25 0 002.25-2.25V8.25a.75.75 0 00-.22-.53l-1.72-1.71a.75.75 0 00-.53-.22H9.06a.75.75 0 01-.53-.22L7.19 5.47a.75.75 0 00-.53-.22H4.5A2.25 2.25 0 002.25 7.5v5.298" /></svg>',
       menu: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>',
-      calendar: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>'
+      calendar: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>',
+      building: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
     };
     var iconSvg = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _icons$props$icon;
@@ -22555,7 +22556,10 @@ __webpack_require__.r(__webpack_exports__);
       'menus.edit': 'Editar Menú',
       'weekly-menu-builds.index': 'Construcción Semanal',
       'weekly-menu-builds.create': 'Nueva Semana',
-      'weekly-menu-builds.edit': 'Editar Semana'
+      'weekly-menu-builds.edit': 'Editar Semana',
+      'dining-halls.index': 'Comedores',
+      'dining-halls.create': 'Nuevo Comedor',
+      'dining-halls.edit': 'Editar Comedor'
     };
     var pageTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _titles$route$name;
@@ -22612,6 +22616,508 @@ __webpack_require__.r(__webpack_exports__);
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       Sidebar: _components_layout_Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       Topbar: _components_layout_Topbar_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=script&setup=true&lang=js"
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=script&setup=true&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
+/* harmony import */ var _DiningHallForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DiningHallForm.vue */ "./resources/js/modules/diningHalls/DiningHallForm.vue");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api */ "./resources/js/modules/diningHalls/api.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  __name: 'DiningHallCreate',
+  setup: function setup(__props, _ref) {
+    var __expose = _ref.expose;
+    __expose();
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
+    var initialValues = {
+      name: '',
+      code: '',
+      description: '',
+      is_active: true
+    };
+    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var errors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
+    var successMessage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
+    function goToList() {
+      router.push({
+        name: 'dining-halls.index'
+      });
+    }
+    function handleSubmit(_x) {
+      return _handleSubmit.apply(this, arguments);
+    }
+    function _handleSubmit() {
+      _handleSubmit = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(payload) {
+        var _e$response$data$erro, _e$response, validationErrors, _e$response$data$mess, _e$response2, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              loading.value = true;
+              Object.keys(errors).forEach(function (k) {
+                return delete errors[k];
+              });
+              _context.p = 1;
+              _context.n = 2;
+              return _api__WEBPACK_IMPORTED_MODULE_3__.diningHallApi.create(payload);
+            case 2:
+              successMessage.value = 'Comedor creado correctamente.';
+              setTimeout(goToList, 1500);
+              _context.n = 4;
+              break;
+            case 3:
+              _context.p = 3;
+              _t = _context.v;
+              validationErrors = (_e$response$data$erro = (_e$response = _t.response) === null || _e$response === void 0 || (_e$response = _e$response.data) === null || _e$response === void 0 ? void 0 : _e$response.errors) !== null && _e$response$data$erro !== void 0 ? _e$response$data$erro : {};
+              Object.assign(errors, validationErrors);
+              if (!Object.keys(validationErrors).length) {
+                errors._general = (_e$response$data$mess = (_e$response2 = _t.response) === null || _e$response2 === void 0 || (_e$response2 = _e$response2.data) === null || _e$response2 === void 0 ? void 0 : _e$response2.message) !== null && _e$response$data$mess !== void 0 ? _e$response$data$mess : 'Error al crear el comedor';
+              }
+            case 4:
+              _context.p = 4;
+              loading.value = false;
+              return _context.f(4);
+            case 5:
+              return _context.a(2);
+          }
+        }, _callee, null, [[1, 3, 4, 5]]);
+      }));
+      return _handleSubmit.apply(this, arguments);
+    }
+    var __returned__ = {
+      router: router,
+      initialValues: initialValues,
+      loading: loading,
+      errors: errors,
+      successMessage: successMessage,
+      goToList: goToList,
+      handleSubmit: handleSubmit,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
+      get useRouter() {
+        return vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter;
+      },
+      DiningHallForm: _DiningHallForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      get diningHallApi() {
+        return _api__WEBPACK_IMPORTED_MODULE_3__.diningHallApi;
+      }
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=script&setup=true&lang=js"
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=script&setup=true&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
+/* harmony import */ var _DiningHallForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DiningHallForm.vue */ "./resources/js/modules/diningHalls/DiningHallForm.vue");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api */ "./resources/js/modules/diningHalls/api.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  __name: 'DiningHallEdit',
+  setup: function setup(__props, _ref) {
+    var __expose = _ref.expose;
+    __expose();
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRoute)();
+    var hall = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var loadingData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
+    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var errors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
+    var successMessage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
+    var hallId = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return route.params.id;
+    });
+    function goToList() {
+      router.push({
+        name: 'dining-halls.index'
+      });
+    }
+    function fetchHall() {
+      return _fetchHall.apply(this, arguments);
+    }
+    function _fetchHall() {
+      _fetchHall = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var _yield$diningHallApi$, data, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              loadingData.value = true;
+              _context.p = 1;
+              _context.n = 2;
+              return _api__WEBPACK_IMPORTED_MODULE_3__.diningHallApi.getById(hallId.value);
+            case 2:
+              _yield$diningHallApi$ = _context.v;
+              data = _yield$diningHallApi$.data;
+              hall.value = data.data;
+              _context.n = 4;
+              break;
+            case 3:
+              _context.p = 3;
+              _t = _context.v;
+              hall.value = null;
+            case 4:
+              _context.p = 4;
+              loadingData.value = false;
+              return _context.f(4);
+            case 5:
+              return _context.a(2);
+          }
+        }, _callee, null, [[1, 3, 4, 5]]);
+      }));
+      return _fetchHall.apply(this, arguments);
+    }
+    function handleSubmit(_x) {
+      return _handleSubmit.apply(this, arguments);
+    }
+    function _handleSubmit() {
+      _handleSubmit = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(payload) {
+        var _e$response$data$erro, _e$response, validationErrors, _e$response$data$mess, _e$response2, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              loading.value = true;
+              Object.keys(errors).forEach(function (k) {
+                return delete errors[k];
+              });
+              _context2.p = 1;
+              _context2.n = 2;
+              return _api__WEBPACK_IMPORTED_MODULE_3__.diningHallApi.update(hallId.value, payload);
+            case 2:
+              successMessage.value = 'Comedor actualizado correctamente.';
+              setTimeout(goToList, 1500);
+              _context2.n = 4;
+              break;
+            case 3:
+              _context2.p = 3;
+              _t2 = _context2.v;
+              validationErrors = (_e$response$data$erro = (_e$response = _t2.response) === null || _e$response === void 0 || (_e$response = _e$response.data) === null || _e$response === void 0 ? void 0 : _e$response.errors) !== null && _e$response$data$erro !== void 0 ? _e$response$data$erro : {};
+              Object.assign(errors, validationErrors);
+              if (!Object.keys(validationErrors).length) {
+                errors._general = (_e$response$data$mess = (_e$response2 = _t2.response) === null || _e$response2 === void 0 || (_e$response2 = _e$response2.data) === null || _e$response2 === void 0 ? void 0 : _e$response2.message) !== null && _e$response$data$mess !== void 0 ? _e$response$data$mess : 'Error al actualizar el comedor';
+              }
+            case 4:
+              _context2.p = 4;
+              loading.value = false;
+              return _context2.f(4);
+            case 5:
+              return _context2.a(2);
+          }
+        }, _callee2, null, [[1, 3, 4, 5]]);
+      }));
+      return _handleSubmit.apply(this, arguments);
+    }
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(fetchHall);
+    var __returned__ = {
+      router: router,
+      route: route,
+      hall: hall,
+      loadingData: loadingData,
+      loading: loading,
+      errors: errors,
+      successMessage: successMessage,
+      hallId: hallId,
+      goToList: goToList,
+      fetchHall: fetchHall,
+      handleSubmit: handleSubmit,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
+      get useRouter() {
+        return vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter;
+      },
+      get useRoute() {
+        return vue_router__WEBPACK_IMPORTED_MODULE_1__.useRoute;
+      },
+      DiningHallForm: _DiningHallForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      get diningHallApi() {
+        return _api__WEBPACK_IMPORTED_MODULE_3__.diningHallApi;
+      }
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=script&setup=true&lang=js"
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=script&setup=true&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  __name: 'DiningHallForm',
+  props: {
+    modelValue: {
+      type: Object,
+      "default": function _default() {
+        return {
+          name: '',
+          code: '',
+          description: '',
+          is_active: true
+        };
+      }
+    },
+    loading: {
+      type: Boolean,
+      "default": false
+    },
+    errors: {
+      type: Object,
+      "default": function _default() {
+        return {};
+      }
+    },
+    submitLabel: {
+      type: String,
+      "default": 'Guardar'
+    }
+  },
+  emits: ['submit', 'cancel', 'update:modelValue'],
+  setup: function setup(__props, _ref) {
+    var _props$modelValue$nam, _props$modelValue, _props$modelValue$cod, _props$modelValue2, _props$modelValue$des, _props$modelValue3, _props$modelValue$is_, _props$modelValue4;
+    var __expose = _ref.expose,
+      __emit = _ref.emit;
+    __expose();
+    var props = __props;
+    var emit = __emit;
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      name: (_props$modelValue$nam = (_props$modelValue = props.modelValue) === null || _props$modelValue === void 0 ? void 0 : _props$modelValue.name) !== null && _props$modelValue$nam !== void 0 ? _props$modelValue$nam : '',
+      code: (_props$modelValue$cod = (_props$modelValue2 = props.modelValue) === null || _props$modelValue2 === void 0 ? void 0 : _props$modelValue2.code) !== null && _props$modelValue$cod !== void 0 ? _props$modelValue$cod : '',
+      description: (_props$modelValue$des = (_props$modelValue3 = props.modelValue) === null || _props$modelValue3 === void 0 ? void 0 : _props$modelValue3.description) !== null && _props$modelValue$des !== void 0 ? _props$modelValue$des : '',
+      is_active: (_props$modelValue$is_ = (_props$modelValue4 = props.modelValue) === null || _props$modelValue4 === void 0 ? void 0 : _props$modelValue4.is_active) !== null && _props$modelValue$is_ !== void 0 ? _props$modelValue$is_ : true
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(function () {
+      return props.modelValue;
+    }, function (newVal) {
+      if (newVal) {
+        var _newVal$name, _newVal$code, _newVal$description, _newVal$is_active;
+        form.name = (_newVal$name = newVal.name) !== null && _newVal$name !== void 0 ? _newVal$name : '';
+        form.code = (_newVal$code = newVal.code) !== null && _newVal$code !== void 0 ? _newVal$code : '';
+        form.description = (_newVal$description = newVal.description) !== null && _newVal$description !== void 0 ? _newVal$description : '';
+        form.is_active = (_newVal$is_active = newVal.is_active) !== null && _newVal$is_active !== void 0 ? _newVal$is_active : true;
+      }
+    }, {
+      deep: true
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(form, function (val) {
+      return emit('update:modelValue', val);
+    }, {
+      deep: true
+    });
+    function handleSubmit() {
+      var _form$description;
+      var payload = {
+        name: form.name.trim(),
+        code: form.code.trim(),
+        description: ((_form$description = form.description) === null || _form$description === void 0 ? void 0 : _form$description.trim()) || null,
+        is_active: Boolean(form.is_active)
+      };
+      emit('submit', payload);
+    }
+    var __returned__ = {
+      props: props,
+      emit: emit,
+      form: form,
+      handleSubmit: handleSubmit,
+      reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
+      watch: vue__WEBPACK_IMPORTED_MODULE_0__.watch
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=script&setup=true&lang=js"
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=script&setup=true&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api */ "./resources/js/modules/diningHalls/api.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  __name: 'DiningHallList',
+  setup: function setup(__props, _ref) {
+    var __expose = _ref.expose;
+    __expose();
+    var halls = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
+    var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var hallToDelete = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var deleting = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    function fetchHalls() {
+      return _fetchHalls.apply(this, arguments);
+    }
+    function _fetchHalls() {
+      _fetchHalls = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var _data$data, _yield$diningHallApi$, data, _e$response$data$mess, _e$response, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              loading.value = true;
+              error.value = null;
+              _context.p = 1;
+              _context.n = 2;
+              return _api__WEBPACK_IMPORTED_MODULE_1__.diningHallApi.getAll();
+            case 2:
+              _yield$diningHallApi$ = _context.v;
+              data = _yield$diningHallApi$.data;
+              halls.value = (_data$data = data.data) !== null && _data$data !== void 0 ? _data$data : [];
+              _context.n = 4;
+              break;
+            case 3:
+              _context.p = 3;
+              _t = _context.v;
+              error.value = (_e$response$data$mess = (_e$response = _t.response) === null || _e$response === void 0 || (_e$response = _e$response.data) === null || _e$response === void 0 ? void 0 : _e$response.message) !== null && _e$response$data$mess !== void 0 ? _e$response$data$mess : 'Error al cargar los comedores';
+            case 4:
+              _context.p = 4;
+              loading.value = false;
+              return _context.f(4);
+            case 5:
+              return _context.a(2);
+          }
+        }, _callee, null, [[1, 3, 4, 5]]);
+      }));
+      return _fetchHalls.apply(this, arguments);
+    }
+    function confirmDelete(hall) {
+      hallToDelete.value = hall;
+    }
+    function executeDelete() {
+      return _executeDelete.apply(this, arguments);
+    }
+    function _executeDelete() {
+      _executeDelete = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var _e$response$data$mess2, _e$response2, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              if (hallToDelete.value) {
+                _context2.n = 1;
+                break;
+              }
+              return _context2.a(2);
+            case 1:
+              deleting.value = true;
+              _context2.p = 2;
+              _context2.n = 3;
+              return _api__WEBPACK_IMPORTED_MODULE_1__.diningHallApi["delete"](hallToDelete.value.id);
+            case 3:
+              halls.value = halls.value.filter(function (h) {
+                return h.id !== hallToDelete.value.id;
+              });
+              hallToDelete.value = null;
+              _context2.n = 5;
+              break;
+            case 4:
+              _context2.p = 4;
+              _t2 = _context2.v;
+              error.value = (_e$response$data$mess2 = (_e$response2 = _t2.response) === null || _e$response2 === void 0 || (_e$response2 = _e$response2.data) === null || _e$response2 === void 0 ? void 0 : _e$response2.message) !== null && _e$response$data$mess2 !== void 0 ? _e$response$data$mess2 : 'Error al eliminar el comedor';
+            case 5:
+              _context2.p = 5;
+              deleting.value = false;
+              return _context2.f(5);
+            case 6:
+              return _context2.a(2);
+          }
+        }, _callee2, null, [[2, 4, 5, 6]]);
+      }));
+      return _executeDelete.apply(this, arguments);
+    }
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(fetchHalls);
+    var __returned__ = {
+      halls: halls,
+      loading: loading,
+      error: error,
+      hallToDelete: hallToDelete,
+      deleting: deleting,
+      fetchHalls: fetchHalls,
+      confirmDelete: confirmDelete,
+      executeDelete: executeDelete,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      get diningHallApi() {
+        return _api__WEBPACK_IMPORTED_MODULE_1__.diningHallApi;
+      }
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -24916,6 +25422,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/weekly-menu-builds",
     label: "Construcción Semanal",
     icon: "calendar"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavItem"], {
+    to: "/dining-halls",
+    label: "Comedores",
+    icon: "building"
   })])])])], 2 /* CLASS */);
 }
 
@@ -25017,6 +25527,354 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.sidebarOpen = !$setup.sidebarOpen;
     })
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)])])]);
+}
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=template&id=001d5782"
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=template&id=001d5782 ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "bg-white rounded-xl shadow-sm p-6"
+};
+var _hoisted_2 = {
+  key: 0,
+  "class": "mb-4 p-4 rounded-md bg-green-50 text-green-800 text-sm"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$setup.successMessage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.successMessage), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+    "class": "text-xl font-semibold text-gray-900 mb-6"
+  }, "Nuevo Comedor", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DiningHallForm"], {
+    "model-value": $setup.initialValues,
+    loading: $setup.loading,
+    errors: $setup.errors,
+    "submit-label": "Crear comedor",
+    onSubmit: $setup.handleSubmit,
+    onCancel: $setup.goToList
+  }, null, 8 /* PROPS */, ["loading", "errors"])]);
+}
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=template&id=e16cdde0"
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=template&id=e16cdde0 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "bg-white rounded-xl shadow-sm p-6"
+};
+var _hoisted_2 = {
+  key: 0,
+  "class": "mb-4 p-4 rounded-md bg-green-50 text-green-800 text-sm"
+};
+var _hoisted_3 = {
+  key: 1,
+  "class": "text-gray-500"
+};
+var _hoisted_4 = {
+  key: 3,
+  "class": "text-red-600"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$setup.successMessage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.successMessage), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.loadingData ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, " Cargando... ")) : $setup.hall ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 2
+  }, [_cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+    "class": "text-xl font-semibold text-gray-900 mb-6"
+  }, "Editar Comedor", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DiningHallForm"], {
+    "model-value": $setup.hall,
+    loading: $setup.loading,
+    errors: $setup.errors,
+    onSubmit: $setup.handleSubmit,
+    onCancel: $setup.goToList
+  }, null, 8 /* PROPS */, ["model-value", "loading", "errors"])], 64 /* STABLE_FRAGMENT */)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, " Comedor no encontrado. "))]);
+}
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=template&id=4c0842ca"
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=template&id=4c0842ca ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  key: 0,
+  "class": "mt-1 text-sm text-red-600"
+};
+var _hoisted_2 = {
+  key: 0,
+  "class": "mt-1 text-sm text-red-600"
+};
+var _hoisted_3 = {
+  key: 0,
+  "class": "mt-1 text-sm text-red-600"
+};
+var _hoisted_4 = {
+  "class": "flex items-center"
+};
+var _hoisted_5 = {
+  "class": "flex items-center"
+};
+var _hoisted_6 = {
+  "class": "flex gap-3 pt-4"
+};
+var _hoisted_7 = ["disabled"];
+var _hoisted_8 = {
+  key: 0
+};
+var _hoisted_9 = {
+  key: 1
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", {
+    onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.handleSubmit, ["prevent"]),
+    "class": "space-y-4"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "name",
+    "class": "block text-sm font-medium text-gray-700"
+  }, "Nombre", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    id: "name",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.form.name = $event;
+    }),
+    type: "text",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+      'border-red-500': $props.errors.name
+    }])
+  }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.name]]), $props.errors.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($props.errors.name) ? $props.errors.name[0] : $props.errors.name), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "code",
+    "class": "block text-sm font-medium text-gray-700"
+  }, "Código", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    id: "code",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.form.code = $event;
+    }),
+    type: "text",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+      'border-red-500': $props.errors.code
+    }]),
+    placeholder: "Ej: norte, empresa-x"
+  }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.code]]), $props.errors.code ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($props.errors.code) ? $props.errors.code[0] : $props.errors.code), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "description",
+    "class": "block text-sm font-medium text-gray-700"
+  }, "Descripción", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    id: "description",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $setup.form.description = $event;
+    }),
+    rows: "3",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+      'border-red-500': $props.errors.description
+    }])
+  }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.description]]), $props.errors.description ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($props.errors.description) ? $props.errors.description[0] : $props.errors.description), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $setup.form.is_active = $event;
+    }),
+    type: "checkbox",
+    "class": "rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.form.is_active]]), _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "ml-2 text-sm text-gray-700"
+  }, "Activo", -1 /* CACHED */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "submit",
+    disabled: $props.loading,
+    "class": "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+  }, [$props.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_8, "Guardando...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.submitLabel), 1 /* TEXT */))], 8 /* PROPS */, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.$emit('cancel');
+    }),
+    "class": "inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+  }, " Cancelar ")])], 32 /* NEED_HYDRATION */);
+}
+
+/***/ },
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=template&id=fffd2cb8"
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=template&id=fffd2cb8 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+
+var _hoisted_1 = {
+  "class": "bg-white rounded-xl shadow-sm p-6"
+};
+var _hoisted_2 = {
+  "class": "flex justify-between items-center mb-6"
+};
+var _hoisted_3 = {
+  key: 0,
+  "class": "py-12 text-center text-gray-500"
+};
+var _hoisted_4 = {
+  key: 1,
+  "class": "py-6"
+};
+var _hoisted_5 = {
+  "class": "text-red-600"
+};
+var _hoisted_6 = {
+  key: 2,
+  "class": "overflow-x-auto"
+};
+var _hoisted_7 = {
+  "class": "min-w-full divide-y divide-gray-200"
+};
+var _hoisted_8 = {
+  "class": "bg-white divide-y divide-gray-200"
+};
+var _hoisted_9 = {
+  "class": "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+};
+var _hoisted_10 = {
+  "class": "px-6 py-4 whitespace-nowrap text-sm text-gray-600"
+};
+var _hoisted_11 = {
+  "class": "px-6 py-4 whitespace-nowrap"
+};
+var _hoisted_12 = {
+  "class": "px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
+};
+var _hoisted_13 = ["onClick"];
+var _hoisted_14 = {
+  key: 0
+};
+var _hoisted_15 = {
+  key: 3,
+  "class": "fixed inset-0 z-50 overflow-y-auto",
+  "aria-labelledby": "modal-title",
+  role: "dialog",
+  "aria-modal": "true"
+};
+var _hoisted_16 = {
+  "class": "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+};
+var _hoisted_17 = {
+  "class": "inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
+};
+var _hoisted_18 = {
+  "class": "mt-2 text-sm text-gray-500"
+};
+var _hoisted_19 = {
+  "class": "mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense"
+};
+var _hoisted_20 = ["disabled"];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+    "class": "text-xl font-semibold text-gray-900"
+  }, "Comedores", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'dining-halls.create'
+    },
+    "class": "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return _toConsumableArray(_cache[1] || (_cache[1] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Nuevo Comedor ", -1 /* CACHED */)]));
+    }),
+    _: 1 /* STABLE */
+  })]), $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, " Cargando... ")) : $setup.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.error), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_7, [_cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+    "class": "bg-gray-50"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    scope: "col",
+    "class": "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+  }, "Nombre"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    scope: "col",
+    "class": "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+  }, "Código"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    scope: "col",
+    "class": "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+  }, "Activo"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    scope: "col",
+    "class": "px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+  }, "Acciones")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.halls, function (hall) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: hall.id,
+      "class": "hover:bg-gray-50 transition-colors"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(hall.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(hall.code), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(hall.is_active ? 'px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800' : 'px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600')
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(hall.is_active ? 'Sí' : 'No'), 3 /* TEXT, CLASS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      to: {
+        name: 'dining-halls.edit',
+        params: {
+          id: hall.id
+        }
+      },
+      "class": "text-blue-600 hover:text-blue-900 mr-4"
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return _toConsumableArray(_cache[3] || (_cache[3] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar ", -1 /* CACHED */)]));
+      }),
+      _: 1 /* STABLE */
+    }, 8 /* PROPS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      onClick: function onClick($event) {
+        return $setup.confirmDelete(hall);
+      },
+      "class": "text-red-600 hover:text-red-900"
+    }, " Eliminar ", 8 /* PROPS */, _hoisted_13)])]);
+  }), 128 /* KEYED_FRAGMENT */)), !$setup.halls.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", _hoisted_14, _toConsumableArray(_cache[4] || (_cache[4] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+    colspan: "4",
+    "class": "px-6 py-12 text-center text-gray-500"
+  }, " No hay comedores registrados. Crea uno para comenzar. ", -1 /* CACHED */)])))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])), $setup.hallToDelete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity",
+    "aria-hidden": "true"
+  }, null, -1 /* CACHED */)), _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "hidden sm:inline-block sm:align-middle sm:h-screen",
+    "aria-hidden": "true"
+  }, "​", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+    "class": "text-lg leading-6 font-medium text-gray-900",
+    id: "modal-title"
+  }, " Confirmar eliminación ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_18, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ¿Estás seguro de eliminar el comedor ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.hallToDelete.name), 1 /* TEXT */), _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("? Esta acción no se puede deshacer. ", -1 /* CACHED */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: $setup.executeDelete,
+    disabled: $setup.deleting,
+    "class": "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 sm:col-start-2 sm:text-sm disabled:opacity-50"
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.deleting ? 'Eliminando...' : 'Eliminar'), 9 /* TEXT, PROPS */, _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.hallToDelete = null;
+    }),
+    "class": "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:col-start-1 sm:text-sm"
+  }, " Cancelar ")])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ },
@@ -25170,7 +26028,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.name = $event;
     }),
     type: "text",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $props.errors.name
     }])
   }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.name]]), $props.errors.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($props.errors.name) ? $props.errors.name[0] : $props.errors.name), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -25181,7 +26039,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $setup.form.selection_type = $event;
     }),
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $props.errors.selection_type
     }])
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.selectionTypes, function (label, value) {
@@ -25215,7 +26073,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     type: "number",
     min: "0",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $props.errors.display_order
     }])
   }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.display_order, void 0, {
@@ -25585,7 +26443,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.name = $event;
     }),
     type: "text",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $props.errors.name
     }])
   }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.name]]), $props.errors.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($props.errors.name) ? $props.errors.name[0] : $props.errors.name), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25621,7 +26479,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       },
       type: "number",
       min: "0",
-      "class": "w-20 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+      "class": "w-20 px-3 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
     }, null, 8 /* PROPS */, _hoisted_12), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.displayOrders[category.id], void 0, {
       number: true
     }]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
@@ -25890,7 +26748,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     type: "text",
     required: "",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $setup.errors.title
     }])
   }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.title]]), $setup.errors.title ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($setup.errors.title) ? $setup.errors.title[0] : $setup.errors.title), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -25903,7 +26761,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     type: "date",
     required: "",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $setup.errors.start_date
     }])
   }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.start_date]]), $setup.errors.start_date ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($setup.errors.start_date) ? $setup.errors.start_date[0] : $setup.errors.start_date), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -25916,7 +26774,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     type: "date",
     required: "",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $setup.errors.end_date
     }])
   }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.end_date]]), $setup.errors.end_date ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Array.isArray($setup.errors.end_date) ? $setup.errors.end_date[0] : $setup.errors.end_date), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -25928,7 +26786,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.menu_id = $event;
     }),
     required: "",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mt-1 block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm", {
       'border-red-500': $setup.errors.menu_id
     }])
   }, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
@@ -26426,7 +27284,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         },
         type: "text",
         placeholder: "Nombre del platillo",
-        "class": "block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm",
+        "class": "block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm",
         disabled: $props.readonly
       }, null, 8 /* PROPS */, _hoisted_11), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, item.name]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
         "onUpdate:modelValue": function onUpdateModelValue($event) {
@@ -26434,7 +27292,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         },
         rows: "2",
         placeholder: "Descripción",
-        "class": "block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm",
+        "class": "block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm",
         disabled: $props.readonly
       }, null, 8 /* PROPS */, _hoisted_12), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, item.description]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": function onUpdateModelValue($event) {
@@ -26444,7 +27302,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         step: "0.01",
         min: "0",
         placeholder: "Precio",
-        "class": "block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm",
+        "class": "block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm",
         disabled: $props.readonly
       }, null, 8 /* PROPS */, _hoisted_13), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, item.price, void 0, {
         number: true
@@ -26728,6 +27586,40 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ },
 
+/***/ "./resources/js/modules/diningHalls/api.js"
+/*!*************************************************!*\
+  !*** ./resources/js/modules/diningHalls/api.js ***!
+  \*************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   diningHallApi: () => (/* binding */ diningHallApi)
+/* harmony export */ });
+/* harmony import */ var _api_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/axios */ "./resources/js/api/axios.js");
+
+var BASE_URL = '/api/dining-halls';
+var diningHallApi = {
+  getAll: function getAll() {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get(BASE_URL);
+  },
+  getById: function getById(id) {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("".concat(BASE_URL, "/").concat(id));
+  },
+  create: function create(data) {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(BASE_URL, data);
+  },
+  update: function update(id, data) {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].put("".concat(BASE_URL, "/").concat(id), data);
+  },
+  "delete": function _delete(id) {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("".concat(BASE_URL, "/").concat(id));
+  }
+};
+
+/***/ },
+
 /***/ "./resources/js/modules/menuCategories/api.js"
 /*!****************************************************!*\
   !*** ./resources/js/modules/menuCategories/api.js ***!
@@ -26880,10 +27772,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_weeklyMenuBuilds_WeeklyMenuBuildList_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../modules/weeklyMenuBuilds/WeeklyMenuBuildList.vue */ "./resources/js/modules/weeklyMenuBuilds/WeeklyMenuBuildList.vue");
 /* harmony import */ var _modules_weeklyMenuBuilds_WeeklyMenuBuildCreate_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../modules/weeklyMenuBuilds/WeeklyMenuBuildCreate.vue */ "./resources/js/modules/weeklyMenuBuilds/WeeklyMenuBuildCreate.vue");
 /* harmony import */ var _modules_weeklyMenuBuilds_WeeklyMenuBuildEdit_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../modules/weeklyMenuBuilds/WeeklyMenuBuildEdit.vue */ "./resources/js/modules/weeklyMenuBuilds/WeeklyMenuBuildEdit.vue");
+/* harmony import */ var _modules_diningHalls_DiningHallList_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../modules/diningHalls/DiningHallList.vue */ "./resources/js/modules/diningHalls/DiningHallList.vue");
+/* harmony import */ var _modules_diningHalls_DiningHallCreate_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../modules/diningHalls/DiningHallCreate.vue */ "./resources/js/modules/diningHalls/DiningHallCreate.vue");
+/* harmony import */ var _modules_diningHalls_DiningHallEdit_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../modules/diningHalls/DiningHallEdit.vue */ "./resources/js/modules/diningHalls/DiningHallEdit.vue");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+
 
 
 
@@ -26956,6 +27854,18 @@ var routes = [{
     path: 'weekly-menu-builds/:id/edit',
     name: 'weekly-menu-builds.edit',
     component: _modules_weeklyMenuBuilds_WeeklyMenuBuildEdit_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+  }, {
+    path: 'dining-halls',
+    name: 'dining-halls.index',
+    component: _modules_diningHalls_DiningHallList_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
+  }, {
+    path: 'dining-halls/create',
+    name: 'dining-halls.create',
+    component: _modules_diningHalls_DiningHallCreate_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+  }, {
+    path: 'dining-halls/:id/edit',
+    name: 'dining-halls.edit',
+    component: _modules_diningHalls_DiningHallEdit_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
   }]
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
@@ -46871,6 +47781,122 @@ if (false) // removed by dead control flow
 
 /***/ },
 
+/***/ "./resources/js/modules/diningHalls/DiningHallCreate.vue"
+/*!***************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallCreate.vue ***!
+  \***************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DiningHallCreate_vue_vue_type_template_id_001d5782__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DiningHallCreate.vue?vue&type=template&id=001d5782 */ "./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=template&id=001d5782");
+/* harmony import */ var _DiningHallCreate_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DiningHallCreate.vue?vue&type=script&setup=true&lang=js */ "./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DiningHallCreate_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DiningHallCreate_vue_vue_type_template_id_001d5782__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/modules/diningHalls/DiningHallCreate.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallEdit.vue"
+/*!*************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallEdit.vue ***!
+  \*************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DiningHallEdit_vue_vue_type_template_id_e16cdde0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DiningHallEdit.vue?vue&type=template&id=e16cdde0 */ "./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=template&id=e16cdde0");
+/* harmony import */ var _DiningHallEdit_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DiningHallEdit.vue?vue&type=script&setup=true&lang=js */ "./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DiningHallEdit_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DiningHallEdit_vue_vue_type_template_id_e16cdde0__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/modules/diningHalls/DiningHallEdit.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallForm.vue"
+/*!*************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallForm.vue ***!
+  \*************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DiningHallForm_vue_vue_type_template_id_4c0842ca__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DiningHallForm.vue?vue&type=template&id=4c0842ca */ "./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=template&id=4c0842ca");
+/* harmony import */ var _DiningHallForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DiningHallForm.vue?vue&type=script&setup=true&lang=js */ "./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DiningHallForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DiningHallForm_vue_vue_type_template_id_4c0842ca__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/modules/diningHalls/DiningHallForm.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallList.vue"
+/*!*************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallList.vue ***!
+  \*************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DiningHallList_vue_vue_type_template_id_fffd2cb8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DiningHallList.vue?vue&type=template&id=fffd2cb8 */ "./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=template&id=fffd2cb8");
+/* harmony import */ var _DiningHallList_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DiningHallList.vue?vue&type=script&setup=true&lang=js */ "./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DiningHallList_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DiningHallList_vue_vue_type_template_id_fffd2cb8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/modules/diningHalls/DiningHallList.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ },
+
 /***/ "./resources/js/modules/menuCategories/MenuCategoryCreate.vue"
 /*!********************************************************************!*\
   !*** ./resources/js/modules/menuCategories/MenuCategoryCreate.vue ***!
@@ -47370,6 +48396,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
+/***/ "./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=script&setup=true&lang=js"
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=script&setup=true&lang=js ***!
+  \**************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallCreate_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallCreate_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallCreate.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=script&setup=true&lang=js"
+/*!************************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=script&setup=true&lang=js ***!
+  \************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallEdit_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallEdit_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallEdit.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=script&setup=true&lang=js"
+/*!************************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=script&setup=true&lang=js ***!
+  \************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallForm.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=script&setup=true&lang=js"
+/*!************************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=script&setup=true&lang=js ***!
+  \************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallList_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallList_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallList.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ },
+
 /***/ "./resources/js/modules/menuCategories/MenuCategoryCreate.vue?vue&type=script&setup=true&lang=js"
 /*!*******************************************************************************************************!*\
   !*** ./resources/js/modules/menuCategories/MenuCategoryCreate.vue?vue&type=script&setup=true&lang=js ***!
@@ -47686,6 +48776,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminLayout_vue_vue_type_template_id_bafdabb6__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AdminLayout_vue_vue_type_template_id_bafdabb6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AdminLayout.vue?vue&type=template&id=bafdabb6 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/AdminLayout.vue?vue&type=template&id=bafdabb6");
+
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=template&id=001d5782"
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=template&id=001d5782 ***!
+  \*********************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallCreate_vue_vue_type_template_id_001d5782__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallCreate_vue_vue_type_template_id_001d5782__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallCreate.vue?vue&type=template&id=001d5782 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallCreate.vue?vue&type=template&id=001d5782");
+
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=template&id=e16cdde0"
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=template&id=e16cdde0 ***!
+  \*******************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallEdit_vue_vue_type_template_id_e16cdde0__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallEdit_vue_vue_type_template_id_e16cdde0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallEdit.vue?vue&type=template&id=e16cdde0 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallEdit.vue?vue&type=template&id=e16cdde0");
+
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=template&id=4c0842ca"
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=template&id=4c0842ca ***!
+  \*******************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallForm_vue_vue_type_template_id_4c0842ca__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallForm_vue_vue_type_template_id_4c0842ca__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallForm.vue?vue&type=template&id=4c0842ca */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallForm.vue?vue&type=template&id=4c0842ca");
+
+
+/***/ },
+
+/***/ "./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=template&id=fffd2cb8"
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=template&id=fffd2cb8 ***!
+  \*******************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallList_vue_vue_type_template_id_fffd2cb8__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DiningHallList_vue_vue_type_template_id_fffd2cb8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DiningHallList.vue?vue&type=template&id=fffd2cb8 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/modules/diningHalls/DiningHallList.vue?vue&type=template&id=fffd2cb8");
 
 
 /***/ },
