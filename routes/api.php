@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\DinerController;
 use App\Http\Controllers\Api\DiningHallController;
 use App\Http\Controllers\Api\MenuCategoryController;
@@ -29,6 +30,12 @@ Route::prefix('public/day')->group(function () {
     Route::get('{dayId}', [PublicMenuController::class, 'dayDetail']);
     Route::post('{dayId}/select', [PublicMenuController::class, 'select']);
     Route::get('{dayId}/selections', [PublicMenuController::class, 'mySelections']);
+});
+
+Route::middleware('auth:sanctum')->prefix('dashboard')->group(function () {
+    Route::get('/weeks', [DashboardController::class, 'weeks']);
+    Route::get('/week/{id}', [DashboardController::class, 'week']);
+    Route::get('/day/{dayId}', [DashboardController::class, 'day']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -26720,10 +26720,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
 /* harmony import */ var _stores_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stores/auth */ "./resources/js/stores/auth.js");
+/* harmony import */ var _modules_dashboard_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/dashboard/api */ "./resources/js/modules/dashboard/api.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+
 
 
 
@@ -26735,8 +26740,180 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
     var authStore = (0,_stores_auth__WEBPACK_IMPORTED_MODULE_2__.useAuthStore)();
     var loading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var loadingData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('weeks');
+    var selectedWeekId = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var selectedDiningHallId = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var weeks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+    var weekDetail = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var dayDetail = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+    var activeTab = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('selected');
+    var viewTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      var _weekDetail$value$tit, _weekDetail$value, _dayDetail$value$day;
+      if (view.value === 'weeks') return 'Métricas de Menús Semanales';
+      if (view.value === 'week') return (_weekDetail$value$tit = (_weekDetail$value = weekDetail.value) === null || _weekDetail$value === void 0 ? void 0 : _weekDetail$value.title) !== null && _weekDetail$value$tit !== void 0 ? _weekDetail$value$tit : 'Detalle semana';
+      return dayDetail.value ? "D\xEDa: ".concat(formatDayDate((_dayDetail$value$day = dayDetail.value.day) === null || _dayDetail$value$day === void 0 ? void 0 : _dayDetail$value$day.date)) : 'Detalle día';
+    });
+    function formatDate(d) {
+      if (!d) return '';
+      return new Date(d).toLocaleDateString('es-ES');
+    }
+    function formatDayDate(d) {
+      if (!d) return '';
+      var date = typeof d === 'string' ? new Date(d + 'T12:00:00') : d;
+      return date.toLocaleDateString('es-ES', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long'
+      });
+    }
+    function progressWidth(d) {
+      if (!d || d.total_diners === 0) return 0;
+      return Math.round(d.total_selected / d.total_diners * 100);
+    }
+    function progressColor(d) {
+      var pct = progressWidth(d);
+      if (pct >= 70) return 'bg-green-500';
+      if (pct >= 40) return 'bg-amber-500';
+      return 'bg-red-400';
+    }
+    function groupByCategory(options) {
+      if (!(options !== null && options !== void 0 && options.length)) return [];
+      var byCat = {};
+      var _iterator = _createForOfIteratorHelper(options),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _opt$menu_category_id;
+          var opt = _step.value;
+          var cid = (_opt$menu_category_id = opt.menu_category_id) !== null && _opt$menu_category_id !== void 0 ? _opt$menu_category_id : 'uncategorized';
+          if (!byCat[cid]) {
+            var _opt$menu_category_na;
+            byCat[cid] = {
+              category_id: cid,
+              category_name: (_opt$menu_category_na = opt.menu_category_name) !== null && _opt$menu_category_na !== void 0 ? _opt$menu_category_na : '-',
+              options: []
+            };
+          }
+          byCat[cid].options.push(opt);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+      return Object.values(byCat);
+    }
+    function fetchWeeks() {
+      return _fetchWeeks.apply(this, arguments);
+    }
+    function _fetchWeeks() {
+      _fetchWeeks = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var _data$data, _yield$dashboardApi$w, data, _e$response$data$mess2, _e$response2, _t;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              loadingData.value = true;
+              error.value = null;
+              _context2.p = 1;
+              _context2.n = 2;
+              return _modules_dashboard_api__WEBPACK_IMPORTED_MODULE_3__.dashboardApi.weeks();
+            case 2:
+              _yield$dashboardApi$w = _context2.v;
+              data = _yield$dashboardApi$w.data;
+              weeks.value = (_data$data = data.data) !== null && _data$data !== void 0 ? _data$data : [];
+              _context2.n = 4;
+              break;
+            case 3:
+              _context2.p = 3;
+              _t = _context2.v;
+              error.value = (_e$response$data$mess2 = (_e$response2 = _t.response) === null || _e$response2 === void 0 || (_e$response2 = _e$response2.data) === null || _e$response2 === void 0 ? void 0 : _e$response2.message) !== null && _e$response$data$mess2 !== void 0 ? _e$response$data$mess2 : 'Error al cargar';
+            case 4:
+              _context2.p = 4;
+              loadingData.value = false;
+              return _context2.f(4);
+            case 5:
+              return _context2.a(2);
+          }
+        }, _callee2, null, [[1, 3, 4, 5]]);
+      }));
+      return _fetchWeeks.apply(this, arguments);
+    }
+    function openWeek(item) {
+      var _item$dining_hall, _item$dining_hall2;
+      selectedWeekId.value = item.weekly_menu_build_id;
+      selectedDiningHallId.value = (_item$dining_hall = item.dining_hall) === null || _item$dining_hall === void 0 ? void 0 : _item$dining_hall.id;
+      view.value = 'week';
+      loadingData.value = true;
+      error.value = null;
+      _modules_dashboard_api__WEBPACK_IMPORTED_MODULE_3__.dashboardApi.week(item.weekly_menu_build_id, (_item$dining_hall2 = item.dining_hall) === null || _item$dining_hall2 === void 0 ? void 0 : _item$dining_hall2.id).then(function (_ref2) {
+        var data = _ref2.data;
+        weekDetail.value = data.data;
+      })["catch"](function (e) {
+        var _e$response$data$mess, _e$response;
+        error.value = (_e$response$data$mess = (_e$response = e.response) === null || _e$response === void 0 || (_e$response = _e$response.data) === null || _e$response === void 0 ? void 0 : _e$response.message) !== null && _e$response$data$mess !== void 0 ? _e$response$data$mess : 'Error al cargar';
+      })["finally"](function () {
+        loadingData.value = false;
+      });
+    }
+    function openDay(_x) {
+      return _openDay.apply(this, arguments);
+    }
+    function _openDay() {
+      _openDay = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(dayId) {
+        var _yield$dashboardApi$d, data, _e$response$data$mess3, _e$response3, _t2;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
+            case 0:
+              view.value = 'day';
+              loadingData.value = true;
+              error.value = null;
+              _context3.p = 1;
+              _context3.n = 2;
+              return _modules_dashboard_api__WEBPACK_IMPORTED_MODULE_3__.dashboardApi.day(dayId, selectedDiningHallId.value);
+            case 2:
+              _yield$dashboardApi$d = _context3.v;
+              data = _yield$dashboardApi$d.data;
+              dayDetail.value = data.data;
+              _context3.n = 4;
+              break;
+            case 3:
+              _context3.p = 3;
+              _t2 = _context3.v;
+              error.value = (_e$response$data$mess3 = (_e$response3 = _t2.response) === null || _e$response3 === void 0 || (_e$response3 = _e$response3.data) === null || _e$response3 === void 0 ? void 0 : _e$response3.message) !== null && _e$response$data$mess3 !== void 0 ? _e$response$data$mess3 : 'Error al cargar';
+            case 4:
+              _context3.p = 4;
+              loadingData.value = false;
+              return _context3.f(4);
+            case 5:
+              return _context3.a(2);
+          }
+        }, _callee3, null, [[1, 3, 4, 5]]);
+      }));
+      return _openDay.apply(this, arguments);
+    }
+    function goBack() {
+      if (view.value === 'day') {
+        view.value = 'week';
+        dayDetail.value = null;
+        loadingData.value = true;
+        _modules_dashboard_api__WEBPACK_IMPORTED_MODULE_3__.dashboardApi.week(selectedWeekId.value, selectedDiningHallId.value).then(function (_ref3) {
+          var data = _ref3.data;
+          weekDetail.value = data.data;
+        })["catch"](function () {})["finally"](function () {
+          loadingData.value = false;
+        });
+      } else if (view.value === 'week') {
+        view.value = 'weeks';
+        weekDetail.value = null;
+        selectedWeekId.value = null;
+        selectedDiningHallId.value = null;
+        fetchWeeks();
+      }
+    }
     var handleLogout = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
@@ -26758,20 +26935,47 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee, null, [[1,, 3, 4]]);
       }));
       return function handleLogout() {
-        return _ref2.apply(this, arguments);
+        return _ref4.apply(this, arguments);
       };
     }();
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      if (view.value === 'weeks') fetchWeeks();
+    });
     var __returned__ = {
       router: router,
       authStore: authStore,
       loading: loading,
+      loadingData: loadingData,
+      error: error,
+      view: view,
+      selectedWeekId: selectedWeekId,
+      selectedDiningHallId: selectedDiningHallId,
+      weeks: weeks,
+      weekDetail: weekDetail,
+      dayDetail: dayDetail,
+      activeTab: activeTab,
+      viewTitle: viewTitle,
+      formatDate: formatDate,
+      formatDayDate: formatDayDate,
+      progressWidth: progressWidth,
+      progressColor: progressColor,
+      groupByCategory: groupByCategory,
+      fetchWeeks: fetchWeeks,
+      openWeek: openWeek,
+      openDay: openDay,
+      goBack: goBack,
       handleLogout: handleLogout,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       get useRouter() {
         return vue_router__WEBPACK_IMPORTED_MODULE_1__.useRouter;
       },
       get useAuthStore() {
         return _stores_auth__WEBPACK_IMPORTED_MODULE_2__.useAuthStore;
+      },
+      get dashboardApi() {
+        return _modules_dashboard_api__WEBPACK_IMPORTED_MODULE_3__.dashboardApi;
       }
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -30071,6 +30275,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 
 var _hoisted_1 = {
   "class": "min-h-screen bg-gray-50"
@@ -30079,42 +30289,305 @@ var _hoisted_2 = {
   "class": "max-w-7xl mx-auto py-6 sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
-  "class": "bg-white shadow rounded-lg p-6"
+  "class": "flex flex-wrap items-center justify-between gap-4 mb-6"
 };
 var _hoisted_4 = {
-  "class": "flex justify-between items-center"
+  "class": "text-2xl font-bold text-gray-900"
 };
-var _hoisted_5 = ["disabled"];
-var _hoisted_6 = {
-  key: 0
+var _hoisted_5 = {
+  "class": "flex gap-2"
 };
+var _hoisted_6 = ["disabled"];
 var _hoisted_7 = {
-  key: 1
+  key: 0,
+  "class": "flex items-center justify-center py-24"
 };
 var _hoisted_8 = {
-  "class": "mt-6 border-t border-gray-200 pt-6"
+  key: 1,
+  "class": "bg-red-50 border border-red-200 rounded-xl p-6"
 };
 var _hoisted_9 = {
-  "class": "grid grid-cols-1 gap-4 sm:grid-cols-2"
+  "class": "text-red-700"
 };
 var _hoisted_10 = {
-  "class": "mt-1 text-sm text-gray-900"
+  key: 0,
+  "class": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
 };
-var _hoisted_11 = {
-  "class": "mt-1 text-sm text-gray-900"
+var _hoisted_11 = ["onClick"];
+var _hoisted_12 = {
+  "class": "text-lg font-bold text-gray-900 mb-1"
+};
+var _hoisted_13 = {
+  "class": "text-sm text-gray-500 mb-2"
+};
+var _hoisted_14 = {
+  "class": "text-sm text-gray-500 mt-2"
+};
+var _hoisted_15 = ["onClick"];
+var _hoisted_16 = {
+  "class": "space-y-4"
+};
+var _hoisted_17 = {
+  "class": "bg-white rounded-xl shadow-sm p-6 mb-6"
+};
+var _hoisted_18 = {
+  "class": "text-xl font-bold text-gray-900 mb-2"
+};
+var _hoisted_19 = {
+  "class": "text-sm text-gray-500"
+};
+var _hoisted_20 = {
+  "class": "text-gray-500 mt-1"
+};
+var _hoisted_21 = {
+  "class": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+};
+var _hoisted_22 = ["onClick"];
+var _hoisted_23 = {
+  "class": "text-base font-semibold text-gray-900 mb-2"
+};
+var _hoisted_24 = {
+  "class": "text-sm text-gray-600"
+};
+var _hoisted_25 = {
+  "class": "text-sm text-gray-600"
+};
+var _hoisted_26 = {
+  "class": "text-sm text-gray-600"
+};
+var _hoisted_27 = {
+  "class": "mt-3 h-2 rounded-full bg-gray-200 overflow-hidden"
+};
+var _hoisted_28 = ["onClick"];
+var _hoisted_29 = {
+  "class": "space-y-6"
+};
+var _hoisted_30 = {
+  "class": "bg-white rounded-xl shadow-sm p-6"
+};
+var _hoisted_31 = {
+  "class": "text-xl font-bold text-gray-900 mb-2"
+};
+var _hoisted_32 = {
+  "class": "text-gray-500"
+};
+var _hoisted_33 = {
+  "class": "text-gray-500 mb-4 text-sm"
+};
+var _hoisted_34 = {
+  "class": "grid grid-cols-1 sm:grid-cols-3 gap-4"
+};
+var _hoisted_35 = {
+  "class": "rounded-lg bg-gray-50 p-4"
+};
+var _hoisted_36 = {
+  "class": "text-2xl font-bold text-gray-900"
+};
+var _hoisted_37 = {
+  "class": "rounded-lg bg-green-50 p-4"
+};
+var _hoisted_38 = {
+  "class": "text-2xl font-bold text-green-700"
+};
+var _hoisted_39 = {
+  "class": "rounded-lg bg-amber-50 p-4"
+};
+var _hoisted_40 = {
+  "class": "text-2xl font-bold text-amber-700"
+};
+var _hoisted_41 = {
+  "class": "bg-white rounded-xl shadow-sm p-6"
+};
+var _hoisted_42 = {
+  "class": "space-y-4"
+};
+var _hoisted_43 = {
+  "class": "font-medium text-gray-900 mb-3"
+};
+var _hoisted_44 = {
+  "class": "space-y-2"
+};
+var _hoisted_45 = {
+  "class": "text-gray-700"
+};
+var _hoisted_46 = {
+  "class": "font-semibold text-gray-900"
+};
+var _hoisted_47 = {
+  "class": "bg-white rounded-xl shadow-sm p-6"
+};
+var _hoisted_48 = {
+  "class": "flex flex-wrap gap-2"
+};
+var _hoisted_49 = {
+  "class": "bg-white rounded-xl shadow-sm p-6"
+};
+var _hoisted_50 = {
+  "class": "flex gap-2 mb-4"
+};
+var _hoisted_51 = {
+  key: 0,
+  "class": "overflow-x-auto"
+};
+var _hoisted_52 = {
+  "class": "min-w-full divide-y divide-gray-200"
+};
+var _hoisted_53 = {
+  "class": "divide-y divide-gray-200"
+};
+var _hoisted_54 = {
+  "class": "px-4 py-3 text-sm text-gray-900"
+};
+var _hoisted_55 = {
+  "class": "px-4 py-3 text-sm text-gray-900"
+};
+var _hoisted_56 = {
+  "class": "px-4 py-3 text-sm text-gray-600"
+};
+var _hoisted_57 = {
+  "class": "space-y-1"
+};
+var _hoisted_58 = {
+  key: 1,
+  "class": "overflow-x-auto"
+};
+var _hoisted_59 = {
+  "class": "min-w-full divide-y divide-gray-200"
+};
+var _hoisted_60 = {
+  "class": "divide-y divide-gray-200"
+};
+var _hoisted_61 = {
+  "class": "px-4 py-3 text-sm text-gray-900"
+};
+var _hoisted_62 = {
+  "class": "px-4 py-3 text-sm text-gray-900"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-    "class": "text-2xl font-bold text-gray-900"
-  }, "Dashboard", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  var _$setup$weekDetail, _$setup$weekDetail$di, _$setup$weekDetail2, _$setup$weekDetail$to, _$setup$weekDetail3, _$setup$weekDetail$da, _$setup$weekDetail4, _$setup$dayDetail, _$setup$dayDetail$din, _$setup$dayDetail2, _$setup$dayDetail3, _$setup$dayDetail$sum, _$setup$dayDetail4, _$setup$dayDetail$sum2, _$setup$dayDetail5, _$setup$dayDetail$sum3, _$setup$dayDetail6, _$setup$dayDetail$cou, _$setup$dayDetail7, _$setup$dayDetail$tot, _$setup$dayDetail8, _$setup$dayDetail$din2, _$setup$dayDetail9, _$setup$dayDetail$din3, _$setup$dayDetail0, _$setup$dayDetail$din4, _$setup$dayDetail1, _$setup$dayDetail$din5, _$setup$dayDetail10;
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.viewTitle), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [$setup.view !== 'weeks' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
+    type: "button",
+    onClick: $setup.goBack,
+    "class": "inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+  }, " ← Volver ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: $setup.handleLogout,
     disabled: $setup.loading,
-    "class": "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50"
-  }, [$setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_6, "Cerrando sesión...")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_7, "Cerrar sesión"))], 8 /* PROPS */, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("dl", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("dt", {
-    "class": "text-sm font-medium text-gray-500"
-  }, "Nombre", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("dd", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.authStore.userName), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("dt", {
-    "class": "text-sm font-medium text-gray-500"
-  }, "Rol", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("dd", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.authStore.userRole), 1 /* TEXT */)])])])])])]);
+    "class": "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 disabled:opacity-50"
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loading ? 'Cerrando...' : 'Cerrar sesión'), 9 /* TEXT, PROPS */, _hoisted_6)])]), $setup.loadingData ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _toConsumableArray(_cache[2] || (_cache[2] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "flex flex-col items-center gap-3"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-gray-500"
+  }, "Cargando...")], -1 /* CACHED */)])))) : $setup.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.error), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 2
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Vista: Lista semanas + comedor "), $setup.view === 'weeks' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.weeks, function (item) {
+    var _item$dining_hall, _item$dining_hall$nam, _item$dining_hall2;
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: "".concat(item.weekly_menu_build_id, "-").concat((_item$dining_hall = item.dining_hall) === null || _item$dining_hall === void 0 ? void 0 : _item$dining_hall.id),
+      "class": "bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition cursor-pointer",
+      onClick: function onClick($event) {
+        return $setup.openWeek(item);
+      }
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, "Comedor: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_item$dining_hall$nam = (_item$dining_hall2 = item.dining_hall) === null || _item$dining_hall2 === void 0 ? void 0 : _item$dining_hall2.name) !== null && _item$dining_hall$nam !== void 0 ? _item$dining_hall$nam : '-'), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(item.status === 'published' ? 'inline-block px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800' : 'inline-block px-2 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800')
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.status === 'published' ? 'Publicado' : 'Borrador'), 3 /* TEXT, CLASS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.published_at ? $setup.formatDate(item.published_at) : 'Sin publicar'), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "mt-4 w-full py-2 rounded-lg text-sm font-medium bg-blue-600 text-white hover:bg-blue-700",
+      onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+        return $setup.openWeek(item);
+      }, ["stop"])
+    }, " Ver detalle ", 8 /* PROPS */, _hoisted_15)], 8 /* PROPS */, _hoisted_11);
+  }), 128 /* KEYED_FRAGMENT */))])) : $setup.view === 'week' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 1
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Vista: Detalle semana (días) "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$weekDetail = $setup.weekDetail) === null || _$setup$weekDetail === void 0 ? void 0 : _$setup$weekDetail.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, "Comedor: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$weekDetail$di = (_$setup$weekDetail2 = $setup.weekDetail) === null || _$setup$weekDetail2 === void 0 || (_$setup$weekDetail2 = _$setup$weekDetail2.dining_hall) === null || _$setup$weekDetail2 === void 0 ? void 0 : _$setup$weekDetail2.name) !== null && _$setup$weekDetail$di !== void 0 ? _$setup$weekDetail$di : '-'), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$weekDetail$to = (_$setup$weekDetail3 = $setup.weekDetail) === null || _$setup$weekDetail3 === void 0 ? void 0 : _$setup$weekDetail3.total_diners) !== null && _$setup$weekDetail$to !== void 0 ? _$setup$weekDetail$to : 0) + " comensales", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)((_$setup$weekDetail$da = (_$setup$weekDetail4 = $setup.weekDetail) === null || _$setup$weekDetail4 === void 0 ? void 0 : _$setup$weekDetail4.days) !== null && _$setup$weekDetail$da !== void 0 ? _$setup$weekDetail$da : [], function (d) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: d.id,
+      "class": "bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition cursor-pointer",
+      onClick: function onClick($event) {
+        return $setup.openDay(d.id);
+      }
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.formatDayDate(d.date)), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_24, "Total: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(d.total_diners), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_25, "Ya eligieron: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(d.total_selected), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_26, "Pendientes: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(d.total_diners - d.total_selected), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["h-full rounded-full transition", $setup.progressColor(d)]),
+      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
+        width: $setup.progressWidth(d) + '%'
+      })
+    }, null, 6 /* CLASS, STYLE */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "mt-4 w-full py-2 rounded-lg text-sm font-medium bg-blue-600 text-white hover:bg-blue-700",
+      onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+        return $setup.openDay(d.id);
+      }, ["stop"])
+    }, " Ver día ", 8 /* PROPS */, _hoisted_28)], 8 /* PROPS */, _hoisted_22);
+  }), 128 /* KEYED_FRAGMENT */))])])], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */)) : $setup.view === 'day' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 2
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Vista: Detalle día "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail = $setup.dayDetail) !== null && _$setup$dayDetail !== void 0 && _$setup$dayDetail.day ? $setup.formatDayDate($setup.dayDetail.day.date) : ''), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_32, "Comedor: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail$din = (_$setup$dayDetail2 = $setup.dayDetail) === null || _$setup$dayDetail2 === void 0 || (_$setup$dayDetail2 = _$setup$dayDetail2.dining_hall) === null || _$setup$dayDetail2 === void 0 ? void 0 : _$setup$dayDetail2.name) !== null && _$setup$dayDetail$din !== void 0 ? _$setup$dayDetail$din : '-'), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail3 = $setup.dayDetail) === null || _$setup$dayDetail3 === void 0 || (_$setup$dayDetail3 = _$setup$dayDetail3.day) === null || _$setup$dayDetail3 === void 0 ? void 0 : _$setup$dayDetail3.build_title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-sm text-gray-500"
+  }, "Total comensales", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail$sum = (_$setup$dayDetail4 = $setup.dayDetail) === null || _$setup$dayDetail4 === void 0 || (_$setup$dayDetail4 = _$setup$dayDetail4.summary) === null || _$setup$dayDetail4 === void 0 ? void 0 : _$setup$dayDetail4.total_diners) !== null && _$setup$dayDetail$sum !== void 0 ? _$setup$dayDetail$sum : 0), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [_cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-sm text-gray-500"
+  }, "Ya eligieron", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail$sum2 = (_$setup$dayDetail5 = $setup.dayDetail) === null || _$setup$dayDetail5 === void 0 || (_$setup$dayDetail5 = _$setup$dayDetail5.summary) === null || _$setup$dayDetail5 === void 0 ? void 0 : _$setup$dayDetail5.total_selected) !== null && _$setup$dayDetail$sum2 !== void 0 ? _$setup$dayDetail$sum2 : 0), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [_cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-sm text-gray-500"
+  }, "Pendientes", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail$sum3 = (_$setup$dayDetail6 = $setup.dayDetail) === null || _$setup$dayDetail6 === void 0 || (_$setup$dayDetail6 = _$setup$dayDetail6.summary) === null || _$setup$dayDetail6 === void 0 ? void 0 : _$setup$dayDetail6.total_pending) !== null && _$setup$dayDetail$sum3 !== void 0 ? _$setup$dayDetail$sum3 : 0), 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+    "class": "text-lg font-semibold text-gray-900 mb-4"
+  }, "Conteo por opción", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.groupByCategory((_$setup$dayDetail$cou = (_$setup$dayDetail7 = $setup.dayDetail) === null || _$setup$dayDetail7 === void 0 ? void 0 : _$setup$dayDetail7.count_by_option) !== null && _$setup$dayDetail$cou !== void 0 ? _$setup$dayDetail$cou : []), function (cat) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: cat.category_id,
+      "class": "border border-gray-200 rounded-xl p-4"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(cat.category_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(cat.options, function (opt) {
+      return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+        key: opt.item_id,
+        "class": "flex justify-between items-center py-1"
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(opt.item_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(opt.total_selections), 1 /* TEXT */)]);
+    }), 128 /* KEYED_FRAGMENT */))])]);
+  }), 128 /* KEYED_FRAGMENT */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+    "class": "text-lg font-semibold text-gray-900 mb-4"
+  }, "Totales por categoría", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)((_$setup$dayDetail$tot = (_$setup$dayDetail8 = $setup.dayDetail) === null || _$setup$dayDetail8 === void 0 ? void 0 : _$setup$dayDetail8.total_by_category) !== null && _$setup$dayDetail$tot !== void 0 ? _$setup$dayDetail$tot : [], function (c) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
+      key: c.menu_category_id,
+      "class": "inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-800 text-sm font-medium"
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.menu_category_name) + ": " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(c.total_selections), 1 /* TEXT */);
+  }), 128 /* KEYED_FRAGMENT */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.activeTab === 'selected' ? 'border-blue-600 text-blue-600' : 'border-gray-300 text-gray-600', "px-4 py-2 border-b-2 font-medium"]),
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.activeTab = 'selected';
+    })
+  }, " Ya eligieron (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail$din2 = (_$setup$dayDetail9 = $setup.dayDetail) === null || _$setup$dayDetail9 === void 0 || (_$setup$dayDetail9 = _$setup$dayDetail9.diners_selected) === null || _$setup$dayDetail9 === void 0 ? void 0 : _$setup$dayDetail9.length) !== null && _$setup$dayDetail$din2 !== void 0 ? _$setup$dayDetail$din2 : 0) + ") ", 3 /* TEXT, CLASS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.activeTab === 'pending' ? 'border-blue-600 text-blue-600' : 'border-gray-300 text-gray-600', "px-4 py-2 border-b-2 font-medium"]),
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $setup.activeTab = 'pending';
+    })
+  }, " Pendientes (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$dayDetail$din3 = (_$setup$dayDetail0 = $setup.dayDetail) === null || _$setup$dayDetail0 === void 0 || (_$setup$dayDetail0 = _$setup$dayDetail0.diners_pending) === null || _$setup$dayDetail0 === void 0 ? void 0 : _$setup$dayDetail0.length) !== null && _$setup$dayDetail$din3 !== void 0 ? _$setup$dayDetail$din3 : 0) + ") ", 3 /* TEXT, CLASS */)]), $setup.activeTab === 'selected' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_52, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+    "class": "bg-gray-50"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    "class": "px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase"
+  }, "ID"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    "class": "px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase"
+  }, "Nombre"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    "class": "px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase"
+  }, "Opciones elegidas")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_53, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)((_$setup$dayDetail$din4 = (_$setup$dayDetail1 = $setup.dayDetail) === null || _$setup$dayDetail1 === void 0 ? void 0 : _$setup$dayDetail1.diners_selected) !== null && _$setup$dayDetail$din4 !== void 0 ? _$setup$dayDetail$din4 : [], function (d) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: d.diner_id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(d.id_code), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(d.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(d.options_by_category, function (cat, i) {
+      var _cat$items;
+      return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
+        key: i,
+        "class": "block"
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(cat.category_name) + ":", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(((_cat$items = cat.items) === null || _cat$items === void 0 ? void 0 : _cat$items.join(', ')) || '-'), 1 /* TEXT */)]);
+    }), 128 /* KEYED_FRAGMENT */))])])]);
+  }), 128 /* KEYED_FRAGMENT */))])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_58, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_59, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+    "class": "bg-gray-50"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    "class": "px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase"
+  }, "ID"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    "class": "px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase"
+  }, "Nombre")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_60, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)((_$setup$dayDetail$din5 = (_$setup$dayDetail10 = $setup.dayDetail) === null || _$setup$dayDetail10 === void 0 ? void 0 : _$setup$dayDetail10.diners_pending) !== null && _$setup$dayDetail$din5 !== void 0 ? _$setup$dayDetail$din5 : [], function (d) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: d.diner_id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_61, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(d.id_code), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(d.name), 1 /* TEXT */)]);
+  }), 128 /* KEYED_FRAGMENT */))])])]))])])], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64 /* STABLE_FRAGMENT */))])]);
 }
 
 /***/ },
@@ -30315,6 +30788,41 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ },
+
+/***/ "./resources/js/modules/dashboard/api.js"
+/*!***********************************************!*\
+  !*** ./resources/js/modules/dashboard/api.js ***!
+  \***********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   dashboardApi: () => (/* binding */ dashboardApi)
+/* harmony export */ });
+/* harmony import */ var _api_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/axios */ "./resources/js/api/axios.js");
+
+var dashboardApi = {
+  weeks: function weeks() {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/dashboard/weeks');
+  },
+  week: function week(id, diningHallId) {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/dashboard/week/".concat(id), {
+      params: {
+        dining_hall_id: diningHallId
+      }
+    });
+  },
+  day: function day(dayId, diningHallId) {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/dashboard/day/".concat(dayId), {
+      params: {
+        dining_hall_id: diningHallId
+      }
+    });
+  }
+};
 
 /***/ },
 
