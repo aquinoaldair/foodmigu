@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/app{any?}', function () {
+    return view('app');
+})->where('any', '.*');
+
 // SPA Authentication (cookie-based with Sanctum)
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');

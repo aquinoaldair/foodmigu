@@ -1,11 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Foodmigu
 
 ## Ejecutar el proyecto
 
@@ -89,58 +82,153 @@ El entrypoint del contenedor ya aplica estos permisos al iniciar. Si persiste el
 
 ---
 
-## About Laravel
+## Probar la autenticación (SPA + Sanctum)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 1. Datos de prueba
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Ejecutar los seeders para crear roles, permisos y un usuario de prueba:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+# Con Docker
+docker compose exec app php artisan db:seed
 
-## Learning Laravel
+# Sin Docker
+php artisan db:seed
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Esto crea un usuario administrador:
+- **Email:** `admin@example.com`
+- **Contraseña:** `password`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Compilar assets del frontend
 
-## Laravel Sponsors
+Asegurarse de que los assets de Vue están compilados:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+# Con Docker (perfil frontend)
+docker compose --profile frontend up -d
 
-### Premium Partners
+# O manualmente
+npm run dev
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### 3. Probar el flujo
 
-## Contributing
+1. Abrir el navegador en **http://localhost:8000/app**
+2. Serás redirigido a `/app/login` si no hay sesión.
+3. Iniciar sesión con `admin@example.com` / `password`
+4. Tras el login correcto, serás redirigido al Dashboard donde verás tu nombre y rol.
+5. Probar el botón **Cerrar sesión** para volver a la pantalla de login.
+6. Si intentas acceder a `/app/dashboard` sin estar autenticado, serás redirigido a login.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Verificar sesión expirada
 
-## Code of Conduct
+Para simular que la sesión expiró: cerrar el navegador, borrar las cookies del sitio, o esperar a que la sesión caduque. Al hacer una acción que requiera autenticación, el interceptor 401 redirigirá automáticamente a login.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5. Si la sesión se pierde al recargar la página
 
-## Security Vulnerabilities
+Asegúrate de que `.env` tenga el dominio correcto para Sanctum. Si accedes por `http://localhost:8000`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+APP_URL=http://localhost:8000
+SANCTUM_STATEFUL_DOMAINS=localhost:8000,127.0.0.1:8000
+```
 
-## License
+Luego ejecuta `php artisan config:clear` (o `config:cache` en producción).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## Configuración para producción
+
+### 1. Variables de entorno
+
+Configura tu `.env` con los valores adecuados para producción:
+
+```env
+# Entorno
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://tudominio.com
+
+# Base de datos (usar credenciales seguras)
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=foodmigu
+DB_USERNAME=foodmigu
+DB_PASSWORD=tu_password_seguro
+
+# Sesión (database requiere: php artisan session:table && php artisan migrate)
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+SESSION_SECURE_COOKIE=true
+SESSION_DOMAIN=.tudominio.com
+
+# Sanctum (SPA + autenticación) - dominio exacto sin protocolo
+SANCTUM_STATEFUL_DOMAINS=tudominio.com,www.tudominio.com
+
+# Cache (recomendado Redis en producción)
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+```
+
+### 2. Sanctum y sesión (SPA)
+
+Para que la autenticación funcione correctamente en producción:
+
+- **`SANCTUM_STATEFUL_DOMAINS`**: debe incluir el dominio desde el que se sirve la SPA (sin `https://`). Si usas subdominios, incluye ambos:
+  ```
+  SANCTUM_STATEFUL_DOMAINS=tudominio.com,www.tudominio.com
+  ```
+- **`SESSION_DOMAIN`**: si la app y la API están en el mismo dominio, usa `.tudominio.com` (con punto) para compartir cookies entre subdominios. Si solo usas `tudominio.com`, déjalo en `null`.
+- **`SESSION_SECURE_COOKIE`**: debe ser `true` si usas HTTPS.
+
+### 3. Compilar assets
+
+```bash
+npm ci
+npm run production
+```
+
+Esto minifica JS y CSS en `public/js` y `public/css`.
+
+### 4. Optimizaciones de Laravel
+
+```bash
+# Cache de configuración y rutas
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+# Enlazar storage (uploads públicos)
+php artisan storage:link
+
+# Ejecutar migraciones
+php artisan migrate --force
+```
+
+### 5. Permisos
+
+```bash
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+```
+
+### 6. Checklist de despliegue
+
+| Paso | Comando/Acción |
+|------|----------------|
+| Dependencias PHP | `composer install --no-dev --optimize-autoloader` |
+| Dependencias Node | `npm ci` |
+| Compilar assets | `npm run production` |
+| Migraciones | `php artisan migrate --force` |
+| Caches | `php artisan config:cache` y `route:cache` |
+| Storage link | `php artisan storage:link` |
+| Permisos | `storage` y `bootstrap/cache` escribibles por el servidor web |
+| `.env` | Verificar `APP_DEBUG=false` y `APP_ENV=production` |
+
+### 7. Con Docker en producción
+
+- Usa imágenes específicas (ej. `php:8.2-fpm-alpine`) en lugar de `latest`.
+- No expongas puertos de debug.
+- Considera usar un proxy inverso (Nginx, Caddy) con HTTPS.
+- Asegúrate de que `APP_URL` y `SANCTUM_STATEFUL_DOMAINS` reflejen el dominio público.

@@ -31,7 +31,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Login successful',
-            'user' => Auth::user(),
+            'user' => Auth::user()->load('roles.permissions'),
         ]);
     }
 
