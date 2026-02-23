@@ -2,9 +2,11 @@ import api from '../../api/axios';
 
 const STORAGE_KEY = 'foodmigu_public_diner';
 
+const storage = typeof sessionStorage !== 'undefined' ? sessionStorage : localStorage;
+
 export function getStoredDiner(code) {
     try {
-        const raw = localStorage.getItem(`${STORAGE_KEY}_${code}`);
+        const raw = storage.getItem(`${STORAGE_KEY}_${code}`);
         return raw ? JSON.parse(raw) : null;
     } catch {
         return null;
@@ -12,11 +14,11 @@ export function getStoredDiner(code) {
 }
 
 export function setStoredDiner(code, diner) {
-    localStorage.setItem(`${STORAGE_KEY}_${code}`, JSON.stringify(diner));
+    storage.setItem(`${STORAGE_KEY}_${code}`, JSON.stringify(diner));
 }
 
 export function clearStoredDiner(code) {
-    localStorage.removeItem(`${STORAGE_KEY}_${code}`);
+    storage.removeItem(`${STORAGE_KEY}_${code}`);
 }
 
 export const publicMenuApi = {

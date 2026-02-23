@@ -1,12 +1,21 @@
 <template>
     <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto">
-            <router-link
-                :to="{ name: 'public.menus', params: { code } }"
-                class="inline-block text-sm text-gray-600 hover:text-gray-900 mb-6"
-            >
-                ← Menús
-            </router-link>
+            <div class="flex items-center justify-between mb-6">
+                <router-link
+                    :to="{ name: 'public.menus', params: { code } }"
+                    class="text-sm text-gray-600 hover:text-gray-900"
+                >
+                    ← Menús
+                </router-link>
+                <button
+                    type="button"
+                    @click="salir"
+                    class="text-sm text-gray-600 hover:text-gray-900"
+                >
+                    Salir
+                </button>
+            </div>
 
             <div v-if="loading" class="py-12 text-center text-gray-500">Cargando...</div>
             <div v-else-if="error" class="bg-red-50 border border-red-200 rounded-xl p-6">
@@ -48,26 +57,71 @@
                             <span v-if="group.category.is_required" class="text-red-500">*</span>
                         </h2>
                         <p
-                            v-if="group.category.selection_type === 'none'"
+                            v-if="group.category.selection_type === 'none' && !group.category.is_required"
                             class="text-sm text-gray-500 mb-3"
                         >
-                            Solo informativo
+                            Opcional. Márcalo únicamente si lo necesitas.
                         </p>
 
-                        <div v-if="group.category.selection_type === 'none'" class="space-y-2 mt-2">
+                        <div
+                            v-if="group.category.selection_type === 'none' && !group.category.is_required"
+                            class="space-y-2 mt-2"
+                        >
+                            <label
+                                v-for="item in group.items"
+                                :key="item.id"
+                                class="flex items-start gap-3 p-4 rounded-xl border cursor-pointer hover:bg-gray-50"
+                                :class="
+                                    selectionMultiple(group.category.id).includes(item.id)
+                                        ? 'border-blue-500 bg-blue-50'
+                                        : 'border-gray-200'
+                                "
+                            >
+                                <input
+                                    type="checkbox"
+                                    :value="item.id"
+                                    :checked="selectionMultiple(group.category.id).includes(item.id)"
+                                    :disabled="deadlinePassed"
+                                    class="mt-1 h-5 w-5 rounded border-gray-300 text-blue-600"
+                                    @change="toggleMultiple(group.category.id, item.id)"
+                                />
+                                <span class="flex-1">
+                                    <span class="font-medium text-gray-900">{{ item.name }}</span>
+                                    <span v-if="item.description" class="block text-sm text-gray-500">
+                                        {{ item.description }}
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div
+                            v-if="group.category.selection_type === 'none' && group.category.is_required"
+                            class="space-y-2 mt-2"
+                        >
                             <div
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="py-2 px-4 rounded-xl bg-gray-50 text-gray-900"
+                                class="flex items-center gap-3 p-4 rounded-xl border border-gray-200 bg-gray-50 cursor-not-allowed"
                             >
-                                {{ item.name }}
-                                <span v-if="item.description" class="text-sm text-gray-500 block">
-                                    {{ item.description }}
+                                <input
+                                    type="checkbox"
+                                    :checked="true"
+                                    disabled
+                                    class="h-5 w-5 rounded border-gray-300 text-blue-600"
+                                />
+                                <span class="flex-1">
+                                    <span class="font-medium text-gray-900">{{ item.name }}</span>
+                                    <span v-if="item.description" class="block text-sm text-gray-500">
+                                        {{ item.description }}
+                                    </span>
                                 </span>
                             </div>
                         </div>
 
-                        <div v-else-if="group.category.selection_type === 'single'" class="space-y-2 mt-2">
+                        <div
+                            v-if="group.category.selection_type === 'single'"
+                            class="space-y-2 mt-2"
+                        >
                             <label
                                 v-for="item in group.items"
                                 :key="item.id"
@@ -96,7 +150,10 @@
                             </label>
                         </div>
 
-                        <div v-else class="space-y-2 mt-2">
+                        <div
+                            v-if="group.category.selection_type === 'multiple'"
+                            class="space-y-2 mt-2"
+                        >
                             <label
                                 v-for="item in group.items"
                                 :key="item.id"
@@ -149,10 +206,11 @@
 
 <script setup>
 import { ref, computed, reactive, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import { publicMenuApi, getStoredDiner } from './api';
+import { useRoute, useRouter } from 'vue-router';
+import { publicMenuApi, getStoredDiner, clearStoredDiner } from './api';
 
 const route = useRoute();
+const router = useRouter();
 const code = computed(() => route.params.code);
 const dayId = computed(() => route.params.dayId);
 
@@ -213,6 +271,11 @@ function toggleMultiple(catId, itemId) {
     selectionState.multiple[catId] = [...arr];
 }
 
+function salir() {
+    clearStoredDiner(code.value);
+    router.push({ name: 'public.identify', params: { code: code.value } });
+}
+
 function buildSelections() {
     const ids = [];
     for (const v of Object.values(selectionState.single)) {
@@ -261,10 +324,16 @@ async function fetchDay() {
 
         for (const item of day.value?.items ?? []) {
             const cat = item.menu_category;
-            if (!cat || !ids.includes(item.id)) continue;
+            if (!cat) continue;
             if (cat.selection_type === 'single') {
-                selectionState.single[cat.id] = item.id;
-            } else if (cat.selection_type === 'multiple') {
+                if (ids.includes(item.id)) selectionState.single[cat.id] = item.id;
+            } else if (cat.selection_type === 'multiple' || (cat.selection_type === 'none' && !cat.is_required)) {
+                if (ids.includes(item.id)) {
+                    const arr = selectionState.multiple[cat.id] ?? [];
+                    arr.push(item.id);
+                    selectionState.multiple[cat.id] = arr;
+                }
+            } else if (cat.selection_type === 'none' && cat.is_required) {
                 const arr = selectionState.multiple[cat.id] ?? [];
                 arr.push(item.id);
                 selectionState.multiple[cat.id] = arr;

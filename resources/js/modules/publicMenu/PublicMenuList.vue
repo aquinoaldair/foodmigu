@@ -1,21 +1,13 @@
 <template>
     <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto">
-            <div class="flex items-center justify-between mb-6">
-                <router-link
-                    :to="{ name: 'public.identify', params: { code } }"
-                    class="text-sm text-gray-600 hover:text-gray-900"
-                >
-                    ← Cambiar comensal
-                </router-link>
-                <button
-                    type="button"
-                    @click="switchDiner"
-                    class="text-sm text-blue-600 hover:text-blue-800"
-                >
-                    Cambiar comensal
-                </button>
-            </div>
+            <button
+                type="button"
+                @click="salir"
+                class="inline-block text-sm text-gray-600 hover:text-gray-900 mb-6"
+            >
+                ← Salir
+            </button>
 
             <p v-if="diner" class="text-sm text-gray-600 mb-6">
                 Hola, <strong>{{ diner.name }}</strong>
@@ -70,10 +62,11 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
-import { publicMenuApi, getStoredDiner } from './api';
+import { useRoute, useRouter } from 'vue-router';
+import { publicMenuApi, getStoredDiner, clearStoredDiner } from './api';
 
 const route = useRoute();
+const router = useRouter();
 const code = computed(() => route.params.code);
 
 const diner = ref(null);
@@ -93,6 +86,11 @@ function formatDate(d) {
 
 function hasSelection(dayId) {
     return selectionCache.value[dayId] ?? false;
+}
+
+function salir() {
+    clearStoredDiner(code.value);
+    router.push({ name: 'public.identify', params: { code: code.value } });
 }
 
 async function fetchMenus() {

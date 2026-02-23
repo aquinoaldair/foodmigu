@@ -168,6 +168,11 @@ class PublicMenuController
             $selectedIds = $selected->pluck('id')->toArray();
 
             if ($category->selection_type === MenuCategory::TYPE_NONE) {
+                if ($category->is_required && $selected->isEmpty()) {
+                    return response()->json([
+                        'message' => "La categoría \"{$category->name}\" es obligatoria",
+                    ], 422);
+                }
                 continue;
             }
             if ($category->is_required && $selected->isEmpty()) {
