@@ -45,6 +45,7 @@ const titles = {
     'diners.create': 'Nuevo Comensal',
     'diners.edit': 'Editar Comensal',
     'diners.import': 'Importar Excel',
+    profile: 'Mi Perfil',
 };
 
 const pageTitle = computed(() => titles[route.name] ?? 'Panel');

@@ -23,6 +23,7 @@ import PublicLanding from '../modules/publicMenu/PublicLanding.vue';
 import PublicIdentify from '../modules/publicMenu/PublicIdentify.vue';
 import PublicMenuList from '../modules/publicMenu/PublicMenuList.vue';
 import PublicDayView from '../modules/publicMenu/PublicDayView.vue';
+import ProfileView from '../modules/profile/ProfileView.vue';
 
 const routes = [
     {
@@ -68,6 +69,11 @@ const routes = [
                 path: 'dashboard',
                 name: 'dashboard',
                 component: Dashboard,
+            },
+            {
+                path: 'profile',
+                name: 'profile',
+                component: ProfileView,
             },
             {
                 path: 'menu-categories',

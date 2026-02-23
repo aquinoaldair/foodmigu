@@ -26,6 +26,9 @@
                 <li>
                     <NavItem to="/weekly-menu-builds" label="Construcción Semanal" icon="calendar" />
                 </li>
+                <li>
+                    <NavItem to="/profile" label="Mi Perfil" icon="user" />
+                </li>
             </ul>
         </nav>
     </aside>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\DashboardPdfController;
 use App\Http\Controllers\Api\DinerController;
 use App\Http\Controllers\Api\DiningHallController;
@@ -45,6 +46,13 @@ Route::middleware('auth:sanctum')->prefix('dashboard/pdf')->group(function () {
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user()->load('roles.permissions');
+});
+
+Route::middleware('auth:sanctum')->prefix('profile')->group(function () {
+    Route::get('/', [ProfileController::class, 'show']);
+    Route::put('/update', [ProfileController::class, 'update']);
+    Route::put('/password', [ProfileController::class, 'updatePassword']);
+    Route::post('/logout', [ProfileController::class, 'logout']);
 });
 
 Route::middleware('auth:sanctum')->apiResource('dining-halls', DiningHallController::class);
