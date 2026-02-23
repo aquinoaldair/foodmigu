@@ -16,13 +16,41 @@ use App\Imports\DinersImport;
 
 class DinerController extends Controller
 {
-    public function index(DiningHall $diningHall): JsonResponse
+    public function index(Request $request, DiningHall $diningHall): JsonResponse
     {
-        $diners = $diningHall->diners()->orderBy('id_code')->get();
+        $query = $diningHall->diners()->orderBy('id_code');
+
+        $search = trim((string) $request->query('search'));
+        if ($search !== '') {
+            $query->where(function ($q) use ($search) {
+                $q->where('id_code', 'like', "%{$search}%")
+                    ->orWhere('name', 'like', "%{$search}%");
+            });
+        }
+
+        $diners = $query->paginate(15);
 
         return response()->json([
             'success' => true,
-            'data' => $diners,
+            'data' => $diners->items(),
+            'meta' => [
+                'current_page' => $diners->currentPage(),
+                'last_page' => $diners->lastPage(),
+                'per_page' => $diners->perPage(),
+                'total' => $diners->total(),
+            ],
+        ]);
+    }
+
+    public function show(DiningHall $diningHall, Diner $diner): JsonResponse
+    {
+        if ($diner->dining_hall_id !== (int) $diningHall->id) {
+            return response()->json(['success' => false, 'message' => 'Diner not found.'], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $diner,
         ]);
     }
 

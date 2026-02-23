@@ -22797,21 +22797,18 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     }
     function _fetchDiner() {
       _fetchDiner = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var _data$data, _list$find, _yield$dinerApi$getAl, data, list, _t;
+        var _data$data, _yield$dinerApi$getBy, data, _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
               loadingData.value = true;
               _context.p = 1;
               _context.n = 2;
-              return _api__WEBPACK_IMPORTED_MODULE_3__.dinerApi.getAll(diningHallId.value);
+              return _api__WEBPACK_IMPORTED_MODULE_3__.dinerApi.getById(diningHallId.value, dinerId.value);
             case 2:
-              _yield$dinerApi$getAl = _context.v;
-              data = _yield$dinerApi$getAl.data;
-              list = (_data$data = data.data) !== null && _data$data !== void 0 ? _data$data : [];
-              diner.value = (_list$find = list.find(function (d) {
-                return d.id === Number(dinerId.value);
-              })) !== null && _list$find !== void 0 ? _list$find : null;
+              _yield$dinerApi$getBy = _context.v;
+              data = _yield$dinerApi$getBy.data;
+              diner.value = (_data$data = data.data) !== null && _data$data !== void 0 ? _data$data : null;
               _context.n = 4;
               break;
             case 3:
@@ -23157,6 +23154,14 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
     var dinerToDelete = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
     var deleting = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var searchQuery = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
+    var meta = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
+      current_page: 1,
+      last_page: 1,
+      per_page: 15,
+      total: 0
+    });
+    var searchTimeout = null;
     function fetchDiningHall() {
       return _fetchDiningHall.apply(this, arguments);
     }
@@ -23191,19 +23196,39 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     }
     function _fetchDiners() {
       _fetchDiners = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-        var _data$data, _yield$dinerApi$getAl, data, _e$response$data$mess, _e$response, _t2;
+        var page,
+          _data$data,
+          _data$meta,
+          params,
+          _yield$dinerApi$getAl,
+          data,
+          _e$response$data$mess,
+          _e$response,
+          _args2 = arguments,
+          _t2;
         return _regenerator().w(function (_context2) {
           while (1) switch (_context2.p = _context2.n) {
             case 0:
+              page = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 1;
               loading.value = true;
               error.value = null;
               _context2.p = 1;
+              params = {
+                page: page
+              };
+              if (searchQuery.value.trim()) params.search = searchQuery.value.trim();
               _context2.n = 2;
-              return _api__WEBPACK_IMPORTED_MODULE_2__.dinerApi.getAll(diningHallId.value);
+              return _api__WEBPACK_IMPORTED_MODULE_2__.dinerApi.getAll(diningHallId.value, params);
             case 2:
               _yield$dinerApi$getAl = _context2.v;
               data = _yield$dinerApi$getAl.data;
               diners.value = (_data$data = data.data) !== null && _data$data !== void 0 ? _data$data : [];
+              meta.value = (_data$meta = data.meta) !== null && _data$meta !== void 0 ? _data$meta : {
+                current_page: 1,
+                last_page: 1,
+                per_page: 15,
+                total: 0
+              };
               _context2.n = 4;
               break;
             case 3:
@@ -23220,6 +23245,16 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee2, null, [[1, 3, 4, 5]]);
       }));
       return _fetchDiners.apply(this, arguments);
+    }
+    function goToPage(page) {
+      if (page < 1 || page > meta.value.last_page) return;
+      fetchDiners(page);
+    }
+    function onSearchInput() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(function () {
+        return fetchDiners(1);
+      }, 300);
     }
     function confirmDelete(diner) {
       dinerToDelete.value = diner;
@@ -23244,24 +23279,24 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _context3.n = 3;
               return _api__WEBPACK_IMPORTED_MODULE_2__.dinerApi["delete"](diningHallId.value, dinerToDelete.value.id);
             case 3:
-              diners.value = diners.value.filter(function (d) {
-                return d.id !== dinerToDelete.value.id;
-              });
               dinerToDelete.value = null;
-              _context3.n = 5;
-              break;
+              _context3.n = 4;
+              return fetchDiners(meta.value.current_page);
             case 4:
-              _context3.p = 4;
-              _t3 = _context3.v;
-              error.value = (_e$response$data$mess2 = (_e$response2 = _t3.response) === null || _e$response2 === void 0 || (_e$response2 = _e$response2.data) === null || _e$response2 === void 0 ? void 0 : _e$response2.message) !== null && _e$response$data$mess2 !== void 0 ? _e$response$data$mess2 : 'Error al eliminar';
+              _context3.n = 6;
+              break;
             case 5:
               _context3.p = 5;
-              deleting.value = false;
-              return _context3.f(5);
+              _t3 = _context3.v;
+              error.value = (_e$response$data$mess2 = (_e$response2 = _t3.response) === null || _e$response2 === void 0 || (_e$response2 = _e$response2.data) === null || _e$response2 === void 0 ? void 0 : _e$response2.message) !== null && _e$response$data$mess2 !== void 0 ? _e$response$data$mess2 : 'Error al eliminar';
             case 6:
+              _context3.p = 6;
+              deleting.value = false;
+              return _context3.f(6);
+            case 7:
               return _context3.a(2);
           }
-        }, _callee3, null, [[2, 4, 5, 6]]);
+        }, _callee3, null, [[2, 5, 6, 7]]);
       }));
       return _executeDelete.apply(this, arguments);
     }
@@ -23282,8 +23317,18 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       error: error,
       dinerToDelete: dinerToDelete,
       deleting: deleting,
+      searchQuery: searchQuery,
+      meta: meta,
+      get searchTimeout() {
+        return searchTimeout;
+      },
+      set searchTimeout(v) {
+        searchTimeout = v;
+      },
       fetchDiningHall: fetchDiningHall,
       fetchDiners: fetchDiners,
+      goToPage: goToPage,
+      onSearchInput: onSearchInput,
       confirmDelete: confirmDelete,
       executeDelete: executeDelete,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
@@ -26592,58 +26637,77 @@ var _hoisted_5 = {
   "class": "flex gap-2"
 };
 var _hoisted_6 = {
+  "class": "mb-4"
+};
+var _hoisted_7 = {
   key: 0,
   "class": "py-12 text-center text-gray-500"
 };
-var _hoisted_7 = {
+var _hoisted_8 = {
   key: 1,
   "class": "py-6"
 };
-var _hoisted_8 = {
+var _hoisted_9 = {
   "class": "text-red-600"
 };
-var _hoisted_9 = {
+var _hoisted_10 = {
   key: 2,
   "class": "overflow-x-auto"
 };
-var _hoisted_10 = {
+var _hoisted_11 = {
   "class": "min-w-full divide-y divide-gray-200"
 };
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "bg-white divide-y divide-gray-200"
 };
-var _hoisted_12 = {
+var _hoisted_13 = {
   "class": "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
 };
-var _hoisted_13 = {
+var _hoisted_14 = {
   "class": "px-6 py-4 whitespace-nowrap text-sm text-gray-600"
 };
-var _hoisted_14 = {
+var _hoisted_15 = {
   "class": "px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
 };
-var _hoisted_15 = ["onClick"];
-var _hoisted_16 = {
+var _hoisted_16 = ["onClick"];
+var _hoisted_17 = {
   key: 0
 };
-var _hoisted_17 = {
+var _hoisted_18 = {
+  colspan: "3",
+  "class": "px-6 py-12 text-center text-gray-500"
+};
+var _hoisted_19 = {
   key: 3,
+  "class": "mt-4 flex flex-wrap items-center justify-between gap-4"
+};
+var _hoisted_20 = {
+  "class": "text-sm text-gray-600"
+};
+var _hoisted_21 = {
+  "class": "flex gap-2"
+};
+var _hoisted_22 = ["disabled"];
+var _hoisted_23 = ["disabled"];
+var _hoisted_24 = {
+  key: 4,
   "class": "fixed inset-0 z-50 overflow-y-auto",
   role: "dialog",
   "aria-modal": "true"
 };
-var _hoisted_18 = {
+var _hoisted_25 = {
   "class": "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
 };
-var _hoisted_19 = {
+var _hoisted_26 = {
   "class": "inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
 };
-var _hoisted_20 = {
+var _hoisted_27 = {
   "class": "mt-2 text-sm text-gray-500"
 };
-var _hoisted_21 = {
+var _hoisted_28 = {
   "class": "mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3"
 };
-var _hoisted_22 = ["disabled"];
+var _hoisted_29 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _$setup$diningHall$na, _$setup$diningHall;
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -26654,7 +26718,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-sm text-gray-600 hover:text-gray-900"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return _toConsumableArray(_cache[1] || (_cache[1] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ← Comedores ", -1 /* CACHED */)]));
+      return _toConsumableArray(_cache[4] || (_cache[4] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ← Comedores ", -1 /* CACHED */)]));
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_4, "Comensales — " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$setup$diningHall$na = (_$setup$diningHall = $setup.diningHall) === null || _$setup$diningHall === void 0 ? void 0 : _$setup$diningHall.name) !== null && _$setup$diningHall$na !== void 0 ? _$setup$diningHall$na : '...'), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -26667,7 +26731,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return _toConsumableArray(_cache[2] || (_cache[2] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Importar Excel ", -1 /* CACHED */)]));
+      return _toConsumableArray(_cache[5] || (_cache[5] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Importar Excel ", -1 /* CACHED */)]));
     }),
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -26680,10 +26744,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return _toConsumableArray(_cache[3] || (_cache[3] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Nuevo Comensal ", -1 /* CACHED */)]));
+      return _toConsumableArray(_cache[6] || (_cache[6] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Nuevo Comensal ", -1 /* CACHED */)]));
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["to"])])]), $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, "Cargando...")) : $setup.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.error), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_10, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+  }, 8 /* PROPS */, ["to"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.searchQuery = $event;
+    }),
+    type: "text",
+    placeholder: "Buscar por ID o Nombre...",
+    "class": "block w-full max-w-md px-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm",
+    onInput: $setup.onSearchInput
+  }, null, 544 /* NEED_HYDRATION, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.searchQuery]])]), $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, "Cargando...")) : $setup.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.error), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_11, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
     "class": "bg-gray-50"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
     scope: "col",
@@ -26694,11 +26766,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, "Nombre"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
     scope: "col",
     "class": "px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-  }, "Acciones")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.diners, function (diner) {
+  }, "Acciones")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.diners, function (diner) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: diner.id,
       "class": "hover:bg-gray-50"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(diner.id_code), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(diner.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(diner.id_code), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(diner.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       to: {
         name: 'diners.edit',
         params: {
@@ -26709,7 +26781,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "text-blue-600 hover:text-blue-900 mr-4"
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return _toConsumableArray(_cache[4] || (_cache[4] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar ", -1 /* CACHED */)]));
+        return _toConsumableArray(_cache[7] || (_cache[7] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar ", -1 /* CACHED */)]));
       }),
       _: 1 /* STABLE */
     }, 8 /* PROPS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -26718,26 +26790,37 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $setup.confirmDelete(diner);
       },
       "class": "text-red-600 hover:text-red-900"
-    }, " Eliminar ", 8 /* PROPS */, _hoisted_15)])]);
-  }), 128 /* KEYED_FRAGMENT */)), !$setup.diners.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", _hoisted_16, _toConsumableArray(_cache[5] || (_cache[5] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-    colspan: "3",
-    "class": "px-6 py-12 text-center text-gray-500"
-  }, " No hay comensales. Crea uno o importa desde Excel. ", -1 /* CACHED */)])))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])), $setup.dinerToDelete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    }, " Eliminar ", 8 /* PROPS */, _hoisted_16)])]);
+  }), 128 /* KEYED_FRAGMENT */)), !$setup.diners.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.searchQuery ? 'No hay resultados para la búsqueda.' : 'No hay comensales. Crea uno o importa desde Excel.'), 1 /* TEXT */)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])), !$setup.loading && $setup.meta.total > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_20, " Mostrando " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Math.min(($setup.meta.current_page - 1) * $setup.meta.per_page + 1, $setup.meta.total)) + " - " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Math.min($setup.meta.current_page * $setup.meta.per_page, $setup.meta.total)) + " de " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.meta.total), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    disabled: $setup.meta.current_page <= 1,
+    "class": "px-3 py-1 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed",
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $setup.goToPage($setup.meta.current_page - 1);
+    })
+  }, " Anterior ", 8 /* PROPS */, _hoisted_22), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    disabled: $setup.meta.current_page >= $setup.meta.last_page,
+    "class": "px-3 py-1 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed",
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return $setup.goToPage($setup.meta.current_page + 1);
+    })
+  }, " Siguiente ", 8 /* PROPS */, _hoisted_23)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.dinerToDelete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity",
     "aria-hidden": "true"
-  }, null, -1 /* CACHED */)), _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  }, null, -1 /* CACHED */)), _cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "hidden sm:inline-block sm:align-middle sm:h-screen",
     "aria-hidden": "true"
-  }, "​", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  }, "​", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
     "class": "text-lg font-medium text-gray-900"
-  }, "Confirmar eliminación", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_20, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ¿Eliminar al comensal ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.dinerToDelete.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.dinerToDelete.id_code) + ")? ", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, "Confirmar eliminación", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_27, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ¿Eliminar al comensal ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.dinerToDelete.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.dinerToDelete.id_code) + ")? ", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     onClick: $setup.executeDelete,
     disabled: $setup.deleting,
     "class": "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 disabled:opacity-50 sm:text-sm"
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.deleting ? 'Eliminando...' : 'Eliminar'), 9 /* TEXT, PROPS */, _hoisted_22), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.deleting ? 'Eliminando...' : 'Eliminar'), 9 /* TEXT, PROPS */, _hoisted_29), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
       return $setup.dinerToDelete = null;
     }),
     "class": "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:text-sm"
@@ -28892,7 +28975,13 @@ var getBaseUrl = function getBaseUrl(diningHallId) {
 };
 var dinerApi = {
   getAll: function getAll(diningHallId) {
-    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get(getBaseUrl(diningHallId));
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get(getBaseUrl(diningHallId), {
+      params: params
+    });
+  },
+  getById: function getById(diningHallId, dinerId) {
+    return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("".concat(getBaseUrl(diningHallId), "/").concat(dinerId));
   },
   create: function create(diningHallId, data) {
     return _api_axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(getBaseUrl(diningHallId), data);

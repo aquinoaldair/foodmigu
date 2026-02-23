@@ -26,6 +26,16 @@
             </div>
         </div>
 
+        <div class="mb-4">
+            <input
+                v-model="searchQuery"
+                type="text"
+                placeholder="Buscar por ID o Nombre..."
+                class="block w-full max-w-md px-4 py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                @input="onSearchInput"
+            />
+        </div>
+
         <div v-if="loading" class="py-12 text-center text-gray-500">Cargando...</div>
         <div v-else-if="error" class="py-6">
             <p class="text-red-600">{{ error }}</p>
@@ -57,11 +67,35 @@
                     </tr>
                     <tr v-if="!diners.length">
                         <td colspan="3" class="px-6 py-12 text-center text-gray-500">
-                            No hay comensales. Crea uno o importa desde Excel.
+                            {{ searchQuery ? 'No hay resultados para la búsqueda.' : 'No hay comensales. Crea uno o importa desde Excel.' }}
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div v-if="!loading && meta.total > 0" class="mt-4 flex flex-wrap items-center justify-between gap-4">
+            <p class="text-sm text-gray-600">
+                Mostrando {{ Math.min((meta.current_page - 1) * meta.per_page + 1, meta.total) }} - {{ Math.min(meta.current_page * meta.per_page, meta.total) }} de {{ meta.total }}
+            </p>
+            <div class="flex gap-2">
+                <button
+                    type="button"
+                    :disabled="meta.current_page <= 1"
+                    class="px-3 py-1 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    @click="goToPage(meta.current_page - 1)"
+                >
+                    Anterior
+                </button>
+                <button
+                    type="button"
+                    :disabled="meta.current_page >= meta.last_page"
+                    class="px-3 py-1 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    @click="goToPage(meta.current_page + 1)"
+                >
+                    Siguiente
+                </button>
+            </div>
         </div>
 
         <div v-if="dinerToDelete" class="fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-modal="true">
@@ -111,6 +145,15 @@ const loading = ref(true);
 const error = ref(null);
 const dinerToDelete = ref(null);
 const deleting = ref(false);
+const searchQuery = ref('');
+const meta = ref({
+    current_page: 1,
+    last_page: 1,
+    per_page: 15,
+    total: 0,
+});
+
+let searchTimeout = null;
 
 async function fetchDiningHall() {
     try {
@@ -121,17 +164,30 @@ async function fetchDiningHall() {
     }
 }
 
-async function fetchDiners() {
+async function fetchDiners(page = 1) {
     loading.value = true;
     error.value = null;
     try {
-        const { data } = await dinerApi.getAll(diningHallId.value);
+        const params = { page };
+        if (searchQuery.value.trim()) params.search = searchQuery.value.trim();
+        const { data } = await dinerApi.getAll(diningHallId.value, params);
         diners.value = data.data ?? [];
+        meta.value = data.meta ?? { current_page: 1, last_page: 1, per_page: 15, total: 0 };
     } catch (e) {
         error.value = e.response?.data?.message ?? 'Error al cargar comensales';
     } finally {
         loading.value = false;
     }
+}
+
+function goToPage(page) {
+    if (page < 1 || page > meta.value.last_page) return;
+    fetchDiners(page);
+}
+
+function onSearchInput() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => fetchDiners(1), 300);
 }
 
 function confirmDelete(diner) {
@@ -143,8 +199,8 @@ async function executeDelete() {
     deleting.value = true;
     try {
         await dinerApi.delete(diningHallId.value, dinerToDelete.value.id);
-        diners.value = diners.value.filter((d) => d.id !== dinerToDelete.value.id);
         dinerToDelete.value = null;
+        await fetchDiners(meta.value.current_page);
     } catch (e) {
         error.value = e.response?.data?.message ?? 'Error al eliminar';
     } finally {

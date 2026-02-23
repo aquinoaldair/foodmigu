@@ -44,9 +44,8 @@ function goBack() {
 async function fetchDiner() {
     loadingData.value = true;
     try {
-        const { data } = await dinerApi.getAll(diningHallId.value);
-        const list = data.data ?? [];
-        diner.value = list.find((d) => d.id === Number(dinerId.value)) ?? null;
+        const { data } = await dinerApi.getById(diningHallId.value, dinerId.value);
+        diner.value = data.data ?? null;
     } catch {
         diner.value = null;
     } finally {

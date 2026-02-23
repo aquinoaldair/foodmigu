@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->apiResource('dining-halls', DiningHallController::class);
 Route::middleware('auth:sanctum')->post('dining-halls/{diningHall}/diners/import', [DinerController::class, 'import']);
-Route::middleware('auth:sanctum')->apiResource('dining-halls.diners', DinerController::class)->except(['show']);
+Route::middleware('auth:sanctum')->apiResource('dining-halls.diners', DinerController::class);
 Route::middleware('auth:sanctum')->apiResource('menu-categories', MenuCategoryController::class);
 Route::middleware('auth:sanctum')->apiResource('menus', MenuController::class);
 Route::middleware('auth:sanctum')->put('weekly-menu-builds/{weekly_menu_build}/dining-halls', [WeeklyMenuBuildController::class, 'updateDiningHalls']);

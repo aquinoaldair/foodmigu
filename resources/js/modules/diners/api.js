@@ -3,7 +3,8 @@ import api from '../../api/axios';
 const getBaseUrl = (diningHallId) => `/api/dining-halls/${diningHallId}/diners`;
 
 export const dinerApi = {
-    getAll: (diningHallId) => api.get(getBaseUrl(diningHallId)),
+    getAll: (diningHallId, params = {}) => api.get(getBaseUrl(diningHallId), { params }),
+    getById: (diningHallId, dinerId) => api.get(`${getBaseUrl(diningHallId)}/${dinerId}`),
     create: (diningHallId, data) => api.post(getBaseUrl(diningHallId), data),
     update: (diningHallId, dinerId, data) => api.put(`${getBaseUrl(diningHallId)}/${dinerId}`, data),
     delete: (diningHallId, dinerId) => api.delete(`${getBaseUrl(diningHallId)}/${dinerId}`),
