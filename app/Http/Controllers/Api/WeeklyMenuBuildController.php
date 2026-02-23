@@ -125,6 +125,28 @@ class WeeklyMenuBuildController extends Controller
         }
     }
 
+    public function updateDiningHalls(Request $request, WeeklyMenuBuild $weeklyMenuBuild): JsonResponse
+    {
+        if ($weeklyMenuBuild->status === WeeklyMenuBuild::STATUS_PUBLISHED) {
+            return response()->json([
+                'success' => false,
+                'message' => 'No se puede modificar un menú ya publicado.',
+            ], 403);
+        }
+
+        $validated = $request->validate([
+            'dining_halls' => ['required', 'array'],
+            'dining_halls.*' => ['integer', 'exists:dining_halls,id'],
+        ]);
+
+        $weeklyMenuBuild->diningHalls()->sync($validated['dining_halls']);
+
+        return response()->json([
+            'success' => true,
+            'data' => $weeklyMenuBuild->fresh()->load(['menu.categories', 'days.items.menuCategory', 'diningHalls']),
+        ]);
+    }
+
     public function destroy(WeeklyMenuBuild $weeklyMenuBuild): JsonResponse
     {
         $weeklyMenuBuild->delete();
