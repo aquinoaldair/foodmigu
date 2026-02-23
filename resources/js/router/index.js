@@ -19,6 +19,10 @@ import DinerList from '../modules/diners/DinerList.vue';
 import DinerCreate from '../modules/diners/DinerCreate.vue';
 import DinerEdit from '../modules/diners/DinerEdit.vue';
 import DinerImport from '../modules/diners/DinerImport.vue';
+import PublicLanding from '../modules/publicMenu/PublicLanding.vue';
+import PublicIdentify from '../modules/publicMenu/PublicIdentify.vue';
+import PublicMenuList from '../modules/publicMenu/PublicMenuList.vue';
+import PublicDayView from '../modules/publicMenu/PublicDayView.vue';
 
 const routes = [
     {
@@ -26,6 +30,30 @@ const routes = [
         name: 'login',
         component: Login,
         meta: { guest: true },
+    },
+    {
+        path: '/c/:code',
+        name: 'public.landing',
+        component: PublicLanding,
+        meta: { public: true },
+    },
+    {
+        path: '/c/:code/identify',
+        name: 'public.identify',
+        component: PublicIdentify,
+        meta: { public: true },
+    },
+    {
+        path: '/c/:code/menus',
+        name: 'public.menus',
+        component: PublicMenuList,
+        meta: { public: true },
+    },
+    {
+        path: '/c/:code/day/:dayId',
+        name: 'public.day',
+        component: PublicDayView,
+        meta: { public: true },
     },
     {
         path: '/',

@@ -18,4 +18,9 @@ class Diner extends Model
     {
         return $this->belongsTo(DiningHall::class);
     }
+
+    public function selections()
+    {
+        return $this->hasMany(WeeklyMenuSelection::class);
+    }
 }

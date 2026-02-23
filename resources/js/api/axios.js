@@ -16,7 +16,11 @@ export const setupAxiosInterceptors = (router) => {
     api.interceptors.response.use(
         (response) => response,
         (error) => {
-            if (error.response?.status === 401 && router.currentRoute.value.name !== 'login') {
+            if (
+                error.response?.status === 401 &&
+                router.currentRoute.value.name !== 'login' &&
+                !router.currentRoute.value.meta?.public
+            ) {
                 router.push({ name: 'login' });
             }
             return Promise.reject(error);

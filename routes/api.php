@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\DinerController;
 use App\Http\Controllers\Api\DiningHallController;
 use App\Http\Controllers\Api\MenuCategoryController;
 use App\Http\Controllers\Api\MenuController;
+use App\Http\Controllers\Api\PublicMenuController;
 use App\Http\Controllers\Api\WeeklyMenuBuildController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,17 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::prefix('public')->group(function () {
+    Route::get('{code}', [PublicMenuController::class, 'hall']);
+    Route::post('{code}/identify', [PublicMenuController::class, 'identify']);
+    Route::get('{code}/menus', [PublicMenuController::class, 'menus']);
+});
+Route::prefix('public/day')->group(function () {
+    Route::get('{dayId}', [PublicMenuController::class, 'dayDetail']);
+    Route::post('{dayId}/select', [PublicMenuController::class, 'select']);
+    Route::get('{dayId}/selections', [PublicMenuController::class, 'mySelections']);
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user()->load('roles.permissions');

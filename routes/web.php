@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/c', fn () => redirect('/app/c'));
+Route::get('/c/{path}', fn ($path) => redirect('/app/c/' . $path))->where('path', '.+');
+
 Route::get('/app{any?}', function () {
     return view('app');
 })->where('any', '.*');

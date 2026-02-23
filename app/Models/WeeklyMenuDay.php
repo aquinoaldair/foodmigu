@@ -26,4 +26,9 @@ class WeeklyMenuDay extends Model
     {
         return $this->hasMany(WeeklyMenuDayItem::class, 'weekly_menu_day_id')->orderBy('display_order');
     }
+
+    public function selections()
+    {
+        return $this->hasMany(WeeklyMenuSelection::class);
+    }
 }

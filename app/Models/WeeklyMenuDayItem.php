@@ -30,4 +30,9 @@ class WeeklyMenuDayItem extends Model
     {
         return $this->belongsTo(MenuCategory::class);
     }
+
+    public function selections()
+    {
+        return $this->hasMany(WeeklyMenuSelection::class);
+    }
 }
