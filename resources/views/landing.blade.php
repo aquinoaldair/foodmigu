@@ -105,7 +105,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                         </svg>
                     </div>
-                    <h3 class="mt-4 font-semibold text-gray-900">Gestión de menús semanales</h3>
+                    <h3 class="mt-4 font-semibold text-gray-900">Gestión de menús calendarizados</h3>
                     <p class="mt-2 text-gray-600">Planifica y publica tus menús de forma centralizada.</p>
                 </div>
                 <div class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition-shadow border border-gray-100">
