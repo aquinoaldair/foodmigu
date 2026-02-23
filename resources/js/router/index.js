@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 import Login from '../pages/Login.vue';
 import Dashboard from '../pages/Dashboard.vue';
+import MenuCategoryList from '../modules/menuCategories/MenuCategoryList.vue';
+import MenuCategoryCreate from '../modules/menuCategories/MenuCategoryCreate.vue';
+import MenuCategoryEdit from '../modules/menuCategories/MenuCategoryEdit.vue';
 
 const routes = [
     {
@@ -18,6 +21,24 @@ const routes = [
         path: '/dashboard',
         name: 'dashboard',
         component: Dashboard,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/menu-categories',
+        name: 'menu-categories.index',
+        component: MenuCategoryList,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/menu-categories/create',
+        name: 'menu-categories.create',
+        component: MenuCategoryCreate,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/menu-categories/:id/edit',
+        name: 'menu-categories.edit',
+        component: MenuCategoryEdit,
         meta: { requiresAuth: true },
     },
 ];
