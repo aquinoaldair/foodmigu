@@ -39,19 +39,19 @@
                 >
                     <h2 class="text-lg font-bold text-gray-900 mb-1">{{ build.title }}</h2>
                     <p class="text-sm text-gray-500 mb-4">Selecciona un día</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-col gap-2">
                         <router-link
                             v-for="day in build.days"
                             :key="day.id"
                             :to="{ name: 'public.day', params: { code, dayId: day.id } }"
-                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition active:scale-95"
+                            class="flex items-center justify-between w-full px-4 py-3 rounded-xl text-base font-medium transition active:scale-95"
                             :class="
                                 hasSelection(day.id)
                                     ? 'bg-green-100 text-green-700'
                                     : 'bg-blue-100 text-blue-700'
                             "
                         >
-                            {{ formatDateShort(day.date) }}
+                            <span>{{ formatDateShort(day.date) }}</span>
                             <span v-if="hasSelection(day.id)">✓</span>
                         </router-link>
                     </div>
@@ -77,7 +77,16 @@ const selectionCache = ref({});
 
 function formatDateShort(d) {
     if (!d) return '';
-    const date = typeof d === 'string' ? new Date(d) : d;
+    let date;
+    if (typeof d === 'string') {
+        const parts = d.split('T')[0].split('-');
+        const y = parseInt(parts[0], 10);
+        const m = parseInt(parts[1], 10) - 1;
+        const day = parseInt(parts[2], 10);
+        date = new Date(y, m, day);
+    } else {
+        date = d instanceof Date ? d : new Date(d);
+    }
     return date.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
 }
 

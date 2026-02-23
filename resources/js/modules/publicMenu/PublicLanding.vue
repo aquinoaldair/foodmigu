@@ -23,7 +23,10 @@
             <div v-else class="transition-all duration-200">
                 <div class="bg-white rounded-2xl shadow-sm p-5 mb-4 text-center">
                     <h1 class="text-2xl font-bold text-gray-900 mb-2">{{ hall?.name }}</h1>
-                    <p v-if="hall?.description" class="text-gray-500 text-sm mb-8">{{ hall.description }}</p>
+                    <p v-if="hall?.description" class="text-gray-500 text-sm mb-4">{{ hall.description }}</p>
+                    <p class="text-gray-600 text-sm mb-6 text-left">
+                        Identifícate con tu código y nombre para ver los menús disponibles y elegir tus opciones para cada día de la semana.
+                    </p>
                     <router-link
                         :to="{ name: 'public.identify', params: { code } }"
                         class="inline-flex items-center justify-center w-full py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"

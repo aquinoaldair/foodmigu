@@ -1,21 +1,12 @@
 <template>
     <div class="min-h-screen bg-gray-50 px-4 py-6 pb-24">
         <div class="max-w-md mx-auto">
-            <div class="flex items-center justify-between mb-6">
-                <router-link
-                    :to="{ name: 'public.menus', params: { code } }"
-                    class="py-2 text-gray-600 hover:text-gray-900 transition"
-                >
-                    ← Menús
-                </router-link>
-                <button
-                    type="button"
-                    @click="salir"
-                    class="py-2 text-gray-600 hover:text-gray-900 transition"
-                >
-                    Salir
-                </button>
-            </div>
+            <router-link
+                :to="{ name: 'public.menus', params: { code } }"
+                class="flex items-center justify-center gap-2 py-3 px-4 mb-6 rounded-xl text-base font-semibold bg-gray-200 text-gray-700 active:scale-95 transition"
+            >
+                ← Menús
+            </router-link>
 
             <div v-if="loading" class="flex items-center justify-center py-24 transition-all duration-200">
                 <div class="flex flex-col items-center gap-3">
@@ -179,12 +170,29 @@
                     </div>
 
                     <div v-if="submitError" class="text-red-600 text-sm">{{ submitError }}</div>
-
-                    <div v-if="saved" class="rounded-xl px-4 py-3 bg-green-50 border border-green-200 text-green-800 text-center font-medium">
-                        ✓ Selección guardada correctamente
-                    </div>
                 </form>
             </template>
+        </div>
+
+        <div
+            v-if="saved"
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+            @click.self="saved = false"
+        >
+            <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full text-center">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+                    <span class="text-3xl text-green-600">✓</span>
+                </div>
+                <p class="text-lg font-semibold text-gray-900 mb-2">¡Guardado!</p>
+                <p class="text-gray-600 mb-6">Selección guardada correctamente</p>
+                <button
+                    type="button"
+                    @click="saved = false"
+                    class="w-full py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"
+                >
+                    Aceptar
+                </button>
+            </div>
         </div>
 
         <div
@@ -205,11 +213,10 @@
 
 <script setup>
 import { ref, computed, reactive, onMounted, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { publicMenuApi, getStoredDiner, clearStoredDiner } from './api';
+import { useRoute } from 'vue-router';
+import { publicMenuApi, getStoredDiner } from './api';
 
 const route = useRoute();
-const router = useRouter();
 const code = computed(() => route.params.code);
 const dayId = computed(() => route.params.dayId);
 
@@ -268,11 +275,6 @@ function toggleMultiple(catId, itemId) {
     if (idx >= 0) arr.splice(idx, 1);
     else arr.push(itemId);
     selectionState.multiple[catId] = [...arr];
-}
-
-function salir() {
-    clearStoredDiner(code.value);
-    router.push({ name: 'public.identify', params: { code: code.value } });
 }
 
 function buildSelections() {
