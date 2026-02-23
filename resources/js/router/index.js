@@ -8,6 +8,9 @@ import MenuCategoryEdit from '../modules/menuCategories/MenuCategoryEdit.vue';
 import MenuList from '../modules/menus/MenuList.vue';
 import MenuCreate from '../modules/menus/MenuCreate.vue';
 import MenuEdit from '../modules/menus/MenuEdit.vue';
+import WeeklyMenuBuildList from '../modules/weeklyMenuBuilds/WeeklyMenuBuildList.vue';
+import WeeklyMenuBuildCreate from '../modules/weeklyMenuBuilds/WeeklyMenuBuildCreate.vue';
+import WeeklyMenuBuildEdit from '../modules/weeklyMenuBuilds/WeeklyMenuBuildEdit.vue';
 
 const routes = [
     {
@@ -60,6 +63,24 @@ const routes = [
         path: '/menus/:id/edit',
         name: 'menus.edit',
         component: MenuEdit,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/weekly-menu-builds',
+        name: 'weekly-menu-builds.index',
+        component: WeeklyMenuBuildList,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/weekly-menu-builds/create',
+        name: 'weekly-menu-builds.create',
+        component: WeeklyMenuBuildCreate,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: '/weekly-menu-builds/:id/edit',
+        name: 'weekly-menu-builds.edit',
+        component: WeeklyMenuBuildEdit,
         meta: { requiresAuth: true },
     },
 ];

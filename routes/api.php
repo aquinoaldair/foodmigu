@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MenuCategoryController;
 use App\Http\Controllers\Api\MenuController;
+use App\Http\Controllers\Api\WeeklyMenuBuildController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->apiResource('menu-categories', MenuCategoryController::class);
 Route::middleware('auth:sanctum')->apiResource('menus', MenuController::class);
+Route::middleware('auth:sanctum')->post('weekly-menu-builds/{weekly_menu_build}/publish', [WeeklyMenuBuildController::class, 'publish']);
+Route::middleware('auth:sanctum')->post('weekly-menu-builds/{weekly_menu_build}/archive', [WeeklyMenuBuildController::class, 'archive']);
+Route::middleware('auth:sanctum')->apiResource('weekly-menu-builds', WeeklyMenuBuildController::class);
