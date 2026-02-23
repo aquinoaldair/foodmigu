@@ -93,7 +93,7 @@ const props = defineProps({
         default: () => ({
             name: '',
             selection_type: 'none',
-            is_required: false,
+            is_required: true,
             is_active: true,
             display_order: 0,
         }),
@@ -119,7 +119,7 @@ const selectionTypes = SELECTION_TYPES;
 const form = reactive({
     name: props.modelValue?.name ?? '',
     selection_type: props.modelValue?.selection_type ?? 'none',
-    is_required: props.modelValue?.is_required ?? false,
+    is_required: props.modelValue?.is_required ?? true,
     is_active: props.modelValue?.is_active ?? true,
     display_order: props.modelValue?.display_order ?? 0,
 });
@@ -130,7 +130,7 @@ watch(
         if (newVal) {
             form.name = newVal.name ?? '';
             form.selection_type = newVal.selection_type ?? 'none';
-            form.is_required = newVal.is_required ?? false;
+            form.is_required = newVal.is_required ?? true;
             form.is_active = newVal.is_active ?? true;
             form.display_order = newVal.display_order ?? 0;
         }

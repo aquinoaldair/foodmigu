@@ -32,7 +32,7 @@ const router = useRouter();
 const initialValues = {
     name: '',
     selection_type: 'none',
-    is_required: false,
+    is_required: true,
     is_active: true,
     display_order: 0,
 };

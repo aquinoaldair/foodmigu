@@ -24236,7 +24236,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     var initialValues = {
       name: '',
       selection_type: 'none',
-      is_required: false,
+      is_required: true,
       is_active: true,
       display_order: 0
     };
@@ -24500,7 +24500,7 @@ __webpack_require__.r(__webpack_exports__);
         return {
           name: '',
           selection_type: 'none',
-          is_required: false,
+          is_required: true,
           is_active: true,
           display_order: 0
         };
@@ -24533,7 +24533,7 @@ __webpack_require__.r(__webpack_exports__);
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       name: (_props$modelValue$nam = (_props$modelValue = props.modelValue) === null || _props$modelValue === void 0 ? void 0 : _props$modelValue.name) !== null && _props$modelValue$nam !== void 0 ? _props$modelValue$nam : '',
       selection_type: (_props$modelValue$sel = (_props$modelValue2 = props.modelValue) === null || _props$modelValue2 === void 0 ? void 0 : _props$modelValue2.selection_type) !== null && _props$modelValue$sel !== void 0 ? _props$modelValue$sel : 'none',
-      is_required: (_props$modelValue$is_ = (_props$modelValue3 = props.modelValue) === null || _props$modelValue3 === void 0 ? void 0 : _props$modelValue3.is_required) !== null && _props$modelValue$is_ !== void 0 ? _props$modelValue$is_ : false,
+      is_required: (_props$modelValue$is_ = (_props$modelValue3 = props.modelValue) === null || _props$modelValue3 === void 0 ? void 0 : _props$modelValue3.is_required) !== null && _props$modelValue$is_ !== void 0 ? _props$modelValue$is_ : true,
       is_active: (_props$modelValue$is_2 = (_props$modelValue4 = props.modelValue) === null || _props$modelValue4 === void 0 ? void 0 : _props$modelValue4.is_active) !== null && _props$modelValue$is_2 !== void 0 ? _props$modelValue$is_2 : true,
       display_order: (_props$modelValue$dis = (_props$modelValue5 = props.modelValue) === null || _props$modelValue5 === void 0 ? void 0 : _props$modelValue5.display_order) !== null && _props$modelValue$dis !== void 0 ? _props$modelValue$dis : 0
     });
@@ -24544,7 +24544,7 @@ __webpack_require__.r(__webpack_exports__);
         var _newVal$name, _newVal$selection_typ, _newVal$is_required, _newVal$is_active, _newVal$display_order;
         form.name = (_newVal$name = newVal.name) !== null && _newVal$name !== void 0 ? _newVal$name : '';
         form.selection_type = (_newVal$selection_typ = newVal.selection_type) !== null && _newVal$selection_typ !== void 0 ? _newVal$selection_typ : 'none';
-        form.is_required = (_newVal$is_required = newVal.is_required) !== null && _newVal$is_required !== void 0 ? _newVal$is_required : false;
+        form.is_required = (_newVal$is_required = newVal.is_required) !== null && _newVal$is_required !== void 0 ? _newVal$is_required : true;
         form.is_active = (_newVal$is_active = newVal.is_active) !== null && _newVal$is_active !== void 0 ? _newVal$is_active : true;
         form.display_order = (_newVal$display_order = newVal.display_order) !== null && _newVal$display_order !== void 0 ? _newVal$display_order : 0;
       }
