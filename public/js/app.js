@@ -25411,6 +25411,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     icon: "chart",
     exact: true
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavItem"], {
+    to: "/dining-halls",
+    label: "Comedores",
+    icon: "building"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavItem"], {
     to: "/menu-categories",
     label: "Categorías de Menú",
     icon: "folder"
@@ -25422,10 +25426,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     to: "/weekly-menu-builds",
     label: "Construcción Semanal",
     icon: "calendar"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavItem"], {
-    to: "/dining-halls",
-    label: "Comedores",
-    icon: "building"
   })])])])], 2 /* CLASS */);
 }
 
