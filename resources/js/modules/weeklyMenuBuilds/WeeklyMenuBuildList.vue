@@ -23,6 +23,7 @@
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Título</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Menú base</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comedores</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha publicación</th>
                                 <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
@@ -32,6 +33,16 @@
                             <tr v-for="build in builds" :key="build.id" class="hover:bg-gray-50 transition-colors">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ build.title }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{{ build.menu?.name ?? '-' }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">
+                                    <span
+                                        v-for="h in (build.dining_halls || [])"
+                                        :key="h.id"
+                                        class="inline-block px-2 py-0.5 rounded text-xs bg-gray-100 text-gray-700 mr-1 mb-1"
+                                    >
+                                        {{ h.name }}
+                                    </span>
+                                    <span v-if="!(build.dining_halls || []).length" class="text-gray-400">—</span>
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
                                         :class="build.status === 'published'
@@ -70,7 +81,7 @@
                                 </td>
                             </tr>
                             <tr v-if="!builds.length">
-                                <td colspan="5" class="px-6 py-12 text-center text-gray-500">No hay menús semanales.</td>
+                                <td colspan="6" class="px-6 py-12 text-center text-gray-500">No hay menús semanales.</td>
                             </tr>
                         </tbody>
                     </table>

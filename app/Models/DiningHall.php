@@ -18,4 +18,10 @@ class DiningHall extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public function weeklyMenuBuilds()
+    {
+        return $this->belongsToMany(WeeklyMenuBuild::class, 'weekly_menu_build_dining_hall')
+            ->withTimestamps();
+    }
 }

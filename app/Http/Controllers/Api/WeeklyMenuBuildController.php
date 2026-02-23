@@ -14,7 +14,7 @@ class WeeklyMenuBuildController extends Controller
 {
     public function index(): JsonResponse
     {
-        $builds = WeeklyMenuBuild::with('menu', 'days')->orderBy('created_at', 'desc')->get();
+        $builds = WeeklyMenuBuild::with('menu', 'days', 'diningHalls')->orderBy('created_at', 'desc')->get();
 
         return response()->json([
             'success' => true,
@@ -29,6 +29,8 @@ class WeeklyMenuBuildController extends Controller
             'menu_id' => ['required', 'exists:menus,id'],
             'start_date' => ['required', 'date'],
             'end_date' => ['required', 'date', 'after_or_equal:start_date'],
+            'dining_halls' => ['array'],
+            'dining_halls.*' => ['exists:dining_halls,id'],
         ]);
 
         $build = WeeklyMenuBuild::create([
@@ -39,9 +41,11 @@ class WeeklyMenuBuildController extends Controller
             'status' => WeeklyMenuBuild::STATUS_DRAFT,
         ]);
 
+        $build->diningHalls()->sync($request->dining_halls ?? []);
+
         return response()->json([
             'success' => true,
-            'data' => $build->load('menu'),
+            'data' => $build->load(['menu', 'diningHalls']),
         ], 201);
     }
 

@@ -62,6 +62,31 @@
                         </select>
                         <p v-if="errors.menu_id" class="mt-1 text-sm text-red-600">{{ Array.isArray(errors.menu_id) ? errors.menu_id[0] : errors.menu_id }}</p>
                     </div>
+                    <div class="rounded-lg border border-gray-200 p-4 bg-gray-50/50">
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Comedores asignados</h3>
+                        <p v-if="loadingDiningHalls" class="text-sm text-gray-500">Cargando comedores...</p>
+                        <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label
+                                v-for="hall in activeDiningHalls"
+                                :key="hall.id"
+                                class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer"
+                            >
+                                <input
+                                    v-model="form.dining_halls"
+                                    type="checkbox"
+                                    :value="hall.id"
+                                    class="rounded border-gray-300 text-blue-600 focus:ring-blue-500 shrink-0"
+                                />
+                                <div class="min-w-0">
+                                    <div class="text-sm font-medium text-gray-900">{{ hall.name }}</div>
+                                    <div class="text-xs text-gray-500">{{ hall.code }}</div>
+                                </div>
+                            </label>
+                            <p v-if="!loadingDiningHalls && !activeDiningHalls.length" class="col-span-2 text-sm text-gray-500">
+                                No hay comedores activos disponibles.
+                            </p>
+                        </div>
+                    </div>
                     <div class="flex gap-3 pt-4">
                         <button
                             type="submit"
@@ -84,10 +109,11 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { weeklyMenuBuildApi } from './api';
 import { menuApi } from '../menus/api';
+import { diningHallApi } from '../diningHalls/api';
 
 const router = useRouter();
 const form = reactive({
@@ -95,10 +121,15 @@ const form = reactive({
     menu_id: '',
     start_date: '',
     end_date: '',
+    dining_halls: [],
 });
 const menus = ref([]);
+const diningHalls = ref([]);
+const loadingDiningHalls = ref(false);
 const loading = ref(false);
 const errors = reactive({});
+
+const activeDiningHalls = computed(() => (diningHalls.value ?? []).filter((h) => h.is_active));
 
 async function fetchMenus() {
     try {
@@ -107,6 +138,18 @@ async function fetchMenus() {
         if (menus.value.length && !form.menu_id) form.menu_id = String(menus.value[0].id);
     } catch {
         menus.value = [];
+    }
+}
+
+async function fetchDiningHalls() {
+    loadingDiningHalls.value = true;
+    try {
+        const { data } = await diningHallApi.getAll();
+        diningHalls.value = data.data ?? [];
+    } catch {
+        diningHalls.value = [];
+    } finally {
+        loadingDiningHalls.value = false;
     }
 }
 
@@ -133,6 +176,7 @@ async function handleSubmit() {
             menu_id: Number(form.menu_id),
             start_date: form.start_date,
             end_date: form.end_date,
+            dining_halls: (form.dining_halls ?? []).map(Number),
         });
         router.push({ name: 'weekly-menu-builds.edit', params: { id: data.data.id } });
     } catch (e) {
@@ -148,5 +192,6 @@ onMounted(() => {
     if (!form.start_date) form.start_date = def.start;
     if (!form.end_date) form.end_date = def.end;
     fetchMenus();
+    fetchDiningHalls();
 });
 </script>

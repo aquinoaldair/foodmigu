@@ -35,4 +35,10 @@ class WeeklyMenuBuild extends Model
     {
         return $this->hasMany(WeeklyMenuDay::class, 'weekly_menu_build_id');
     }
+
+    public function diningHalls()
+    {
+        return $this->belongsToMany(DiningHall::class, 'weekly_menu_build_dining_hall')
+            ->withTimestamps();
+    }
 }
