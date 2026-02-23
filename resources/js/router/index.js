@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 import Login from '../pages/Login.vue';
+import AdminLayout from '../layouts/AdminLayout.vue';
 import Dashboard from '../pages/Dashboard.vue';
 import MenuCategoryList from '../modules/menuCategories/MenuCategoryList.vue';
 import MenuCategoryCreate from '../modules/menuCategories/MenuCategoryCreate.vue';
@@ -14,74 +15,71 @@ import WeeklyMenuBuildEdit from '../modules/weeklyMenuBuilds/WeeklyMenuBuildEdit
 
 const routes = [
     {
-        path: '/',
-        redirect: { name: 'dashboard' },
-    },
-    {
         path: '/login',
         name: 'login',
         component: Login,
         meta: { guest: true },
     },
     {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: Dashboard,
+        path: '/',
+        component: AdminLayout,
         meta: { requiresAuth: true },
-    },
-    {
-        path: '/menu-categories',
-        name: 'menu-categories.index',
-        component: MenuCategoryList,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/menu-categories/create',
-        name: 'menu-categories.create',
-        component: MenuCategoryCreate,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/menu-categories/:id/edit',
-        name: 'menu-categories.edit',
-        component: MenuCategoryEdit,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/menus',
-        name: 'menus.index',
-        component: MenuList,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/menus/create',
-        name: 'menus.create',
-        component: MenuCreate,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/menus/:id/edit',
-        name: 'menus.edit',
-        component: MenuEdit,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/weekly-menu-builds',
-        name: 'weekly-menu-builds.index',
-        component: WeeklyMenuBuildList,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/weekly-menu-builds/create',
-        name: 'weekly-menu-builds.create',
-        component: WeeklyMenuBuildCreate,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/weekly-menu-builds/:id/edit',
-        name: 'weekly-menu-builds.edit',
-        component: WeeklyMenuBuildEdit,
-        meta: { requiresAuth: true },
+        children: [
+            {
+                path: '',
+                redirect: { name: 'dashboard' },
+            },
+            {
+                path: 'dashboard',
+                name: 'dashboard',
+                component: Dashboard,
+            },
+            {
+                path: 'menu-categories',
+                name: 'menu-categories.index',
+                component: MenuCategoryList,
+            },
+            {
+                path: 'menu-categories/create',
+                name: 'menu-categories.create',
+                component: MenuCategoryCreate,
+            },
+            {
+                path: 'menu-categories/:id/edit',
+                name: 'menu-categories.edit',
+                component: MenuCategoryEdit,
+            },
+            {
+                path: 'menus',
+                name: 'menus.index',
+                component: MenuList,
+            },
+            {
+                path: 'menus/create',
+                name: 'menus.create',
+                component: MenuCreate,
+            },
+            {
+                path: 'menus/:id/edit',
+                name: 'menus.edit',
+                component: MenuEdit,
+            },
+            {
+                path: 'weekly-menu-builds',
+                name: 'weekly-menu-builds.index',
+                component: WeeklyMenuBuildList,
+            },
+            {
+                path: 'weekly-menu-builds/create',
+                name: 'weekly-menu-builds.create',
+                component: WeeklyMenuBuildCreate,
+            },
+            {
+                path: 'weekly-menu-builds/:id/edit',
+                name: 'weekly-menu-builds.edit',
+                component: WeeklyMenuBuildEdit,
+            },
+        ],
     },
 ];
 
