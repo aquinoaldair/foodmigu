@@ -41,6 +41,10 @@ const titles = {
     'dining-halls.index': 'Comedores',
     'dining-halls.create': 'Nuevo Comedor',
     'dining-halls.edit': 'Editar Comedor',
+    'diners.index': 'Comensales',
+    'diners.create': 'Nuevo Comensal',
+    'diners.edit': 'Editar Comensal',
+    'diners.import': 'Importar Excel',
 };
 
 const pageTitle = computed(() => titles[route.name] ?? 'Panel');

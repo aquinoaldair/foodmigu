@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\DinerController;
 use App\Http\Controllers\Api\DiningHallController;
 use App\Http\Controllers\Api\MenuCategoryController;
 use App\Http\Controllers\Api\MenuController;
@@ -23,8 +24,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->apiResource('dining-halls', DiningHallController::class);
+Route::middleware('auth:sanctum')->post('dining-halls/{diningHall}/diners/import', [DinerController::class, 'import']);
+Route::middleware('auth:sanctum')->apiResource('dining-halls.diners', DinerController::class)->except(['show']);
 Route::middleware('auth:sanctum')->apiResource('menu-categories', MenuCategoryController::class);
 Route::middleware('auth:sanctum')->apiResource('menus', MenuController::class);
+Route::middleware('auth:sanctum')->put('weekly-menu-builds/{weekly_menu_build}/dining-halls', [WeeklyMenuBuildController::class, 'updateDiningHalls']);
 Route::middleware('auth:sanctum')->post('weekly-menu-builds/{weekly_menu_build}/publish', [WeeklyMenuBuildController::class, 'publish']);
 Route::middleware('auth:sanctum')->post('weekly-menu-builds/{weekly_menu_build}/archive', [WeeklyMenuBuildController::class, 'archive']);
 Route::middleware('auth:sanctum')->apiResource('weekly-menu-builds', WeeklyMenuBuildController::class);

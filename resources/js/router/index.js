@@ -15,6 +15,10 @@ import WeeklyMenuBuildEdit from '../modules/weeklyMenuBuilds/WeeklyMenuBuildEdit
 import DiningHallList from '../modules/diningHalls/DiningHallList.vue';
 import DiningHallCreate from '../modules/diningHalls/DiningHallCreate.vue';
 import DiningHallEdit from '../modules/diningHalls/DiningHallEdit.vue';
+import DinerList from '../modules/diners/DinerList.vue';
+import DinerCreate from '../modules/diners/DinerCreate.vue';
+import DinerEdit from '../modules/diners/DinerEdit.vue';
+import DinerImport from '../modules/diners/DinerImport.vue';
 
 const routes = [
     {
@@ -96,6 +100,26 @@ const routes = [
                 path: 'dining-halls/:id/edit',
                 name: 'dining-halls.edit',
                 component: DiningHallEdit,
+            },
+            {
+                path: 'dining-halls/:id/diners',
+                name: 'diners.index',
+                component: DinerList,
+            },
+            {
+                path: 'dining-halls/:id/diners/create',
+                name: 'diners.create',
+                component: DinerCreate,
+            },
+            {
+                path: 'dining-halls/:id/diners/import',
+                name: 'diners.import',
+                component: DinerImport,
+            },
+            {
+                path: 'dining-halls/:id/diners/:dinerId/edit',
+                name: 'diners.edit',
+                component: DinerEdit,
             },
         ],
     },

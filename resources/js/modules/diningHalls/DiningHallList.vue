@@ -25,6 +25,7 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Activo</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comensales</th>
                         <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
                     </tr>
                 </thead>
@@ -45,6 +46,14 @@
                                 {{ hall.is_active ? 'Sí' : 'No' }}
                             </span>
                         </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            <router-link
+                                :to="{ name: 'diners.index', params: { id: hall.id } }"
+                                class="text-blue-600 hover:text-blue-900"
+                            >
+                                Ver Comensales
+                            </router-link>
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <router-link
                                 :to="{ name: 'dining-halls.edit', params: { id: hall.id } }"
@@ -62,7 +71,7 @@
                         </td>
                     </tr>
                     <tr v-if="!halls.length">
-                        <td colspan="4" class="px-6 py-12 text-center text-gray-500">
+                        <td colspan="5" class="px-6 py-12 text-center text-gray-500">
                             No hay comedores registrados. Crea uno para comenzar.
                         </td>
                     </tr>
