@@ -5,21 +5,13 @@
                 <h1 class="text-2xl font-bold text-gray-900">
                     {{ viewTitle }}
                 </h1>
-                <div class="flex gap-2">
+                <div v-if="view !== 'weeks'" class="flex gap-2">
                     <button
-                        v-if="view !== 'weeks'"
                         type="button"
                         @click="goBack"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
                     >
                         ← Volver
-                    </button>
-                    <button
-                        @click="handleLogout"
-                        :disabled="loading"
-                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 disabled:opacity-50"
-                    >
-                        {{ loading ? 'Cerrando...' : 'Cerrar sesión' }}
                     </button>
                 </div>
             </div>
@@ -260,13 +252,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import { useAuthStore } from '../stores/auth';
 import { dashboardApi } from '../modules/dashboard/api';
-
-const router = useRouter();
-const authStore = useAuthStore();
-const loading = ref(false);
 const loadingData = ref(false);
 const error = ref(null);
 
@@ -454,16 +440,6 @@ function goBack() {
         fetchWeeks();
     }
 }
-
-const handleLogout = async () => {
-    loading.value = true;
-    try {
-        await authStore.logout();
-        router.push({ name: 'login' });
-    } finally {
-        loading.value = false;
-    }
-};
 
 onMounted(() => {
     if (view.value === 'weeks') fetchWeeks();
