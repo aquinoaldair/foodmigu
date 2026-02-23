@@ -77,4 +77,16 @@ class DiningHallController extends Controller
             'data' => null,
         ]);
     }
+
+    public function publicUrl(DiningHall $diningHall): JsonResponse
+    {
+        $url = rtrim(config('app.url'), '/') . '/c/' . $diningHall->code;
+
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'url' => $url,
+            ],
+        ]);
+    }
 }

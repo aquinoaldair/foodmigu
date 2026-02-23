@@ -56,6 +56,13 @@
                             </router-link>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <button
+                                type="button"
+                                @click="openShareModal(hall)"
+                                class="text-blue-600 hover:text-blue-900 mr-4"
+                            >
+                                Compartir
+                            </button>
                             <router-link
                                 :to="{ name: 'dining-halls.edit', params: { id: hall.id } }"
                                 class="text-blue-600 hover:text-blue-900 mr-4"
@@ -120,6 +127,12 @@
                 </div>
             </div>
         </div>
+
+        <DiningHallShareModal
+            v-if="hallToShare"
+            :dining-hall="hallToShare"
+            @close="hallToShare = null"
+        />
     </div>
 </template>
 
@@ -127,12 +140,18 @@
 import { ref, onMounted } from 'vue';
 import { diningHallApi } from './api';
 import LoadingOverlay from '../../components/LoadingOverlay.vue';
+import DiningHallShareModal from './DiningHallShareModal.vue';
 
 const halls = ref([]);
 const loading = ref(true);
 const error = ref(null);
 const hallToDelete = ref(null);
+const hallToShare = ref(null);
 const deleting = ref(false);
+
+function openShareModal(hall) {
+    hallToShare.value = hall;
+}
 
 async function fetchHalls() {
     loading.value = true;
