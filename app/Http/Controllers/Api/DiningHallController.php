@@ -9,7 +9,6 @@ use App\Models\DiningHall;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 
 class DiningHallController extends Controller
 {
@@ -60,12 +59,12 @@ class DiningHallController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string'],
-            'code' => ['required', 'string', Rule::unique('dining_halls', 'code')->ignore($diningHall->id)],
             'description' => ['nullable', 'string'],
             'is_active' => ['boolean'],
         ]);
 
         $validated['is_active'] = $validated['is_active'] ?? true;
+        $validated['code'] = $this->generateUniqueCode($validated['name'], $diningHall->id);
 
         $diningHall->update($validated);
 
@@ -85,14 +84,22 @@ class DiningHallController extends Controller
         ]);
     }
 
-    private function generateUniqueCode(string $name): string
+    private function generateUniqueCode(string $name, ?int $excludeId = null): string
     {
         $baseSlug = Str::slug($name);
         $code = $baseSlug ?: 'comedor';
         $counter = 1;
-        while (DiningHall::where('code', $code)->exists()) {
+        $query = DiningHall::where('code', $code);
+        if ($excludeId !== null) {
+            $query->where('id', '!=', $excludeId);
+        }
+        while ($query->exists()) {
             $code = $baseSlug . '-' . $counter;
             $counter++;
+            $query = DiningHall::where('code', $code);
+            if ($excludeId !== null) {
+                $query->where('id', '!=', $excludeId);
+            }
         }
 
         return $code;

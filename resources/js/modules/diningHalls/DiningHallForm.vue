@@ -63,7 +63,6 @@ const props = defineProps({
         type: Object,
         default: () => ({
             name: '',
-            code: '',
             description: '',
             is_active: true,
         }),
@@ -80,18 +79,12 @@ const props = defineProps({
         type: String,
         default: 'Guardar',
     },
-    mode: {
-        type: String,
-        default: 'create',
-        validator: (v) => ['create', 'edit'].includes(v),
-    },
 });
 
 const emit = defineEmits(['submit', 'cancel', 'update:modelValue']);
 
 const form = reactive({
     name: props.modelValue?.name ?? '',
-    code: props.modelValue?.code ?? '',
     description: props.modelValue?.description ?? '',
     is_active: props.modelValue?.is_active ?? true,
 });
@@ -101,7 +94,6 @@ watch(
     (newVal) => {
         if (newVal) {
             form.name = newVal.name ?? '';
-            form.code = newVal.code ?? '';
             form.description = newVal.description ?? '';
             form.is_active = newVal.is_active ?? true;
         }
@@ -114,7 +106,6 @@ watch(form, (val) => emit('update:modelValue', val), { deep: true });
 function handleSubmit() {
     const payload = {
         name: form.name.trim(),
-        ...(props.mode === 'edit' && { code: form.code.trim() }),
         description: form.description?.trim() || null,
         is_active: Boolean(form.is_active),
     };

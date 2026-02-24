@@ -23745,12 +23745,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   __name: 'DiningHallForm',
@@ -23760,7 +23754,6 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       "default": function _default() {
         return {
           name: '',
-          code: '',
           description: '',
           is_active: true
         };
@@ -23779,18 +23772,11 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
     submitLabel: {
       type: String,
       "default": 'Guardar'
-    },
-    mode: {
-      type: String,
-      "default": 'create',
-      validator: function validator(v) {
-        return ['create', 'edit'].includes(v);
-      }
     }
   },
   emits: ['submit', 'cancel', 'update:modelValue'],
   setup: function setup(__props, _ref) {
-    var _props$modelValue$nam, _props$modelValue, _props$modelValue$cod, _props$modelValue2, _props$modelValue$des, _props$modelValue3, _props$modelValue$is_, _props$modelValue4;
+    var _props$modelValue$nam, _props$modelValue, _props$modelValue$des, _props$modelValue2, _props$modelValue$is_, _props$modelValue3;
     var __expose = _ref.expose,
       __emit = _ref.emit;
     __expose();
@@ -23798,17 +23784,15 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
     var emit = __emit;
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       name: (_props$modelValue$nam = (_props$modelValue = props.modelValue) === null || _props$modelValue === void 0 ? void 0 : _props$modelValue.name) !== null && _props$modelValue$nam !== void 0 ? _props$modelValue$nam : '',
-      code: (_props$modelValue$cod = (_props$modelValue2 = props.modelValue) === null || _props$modelValue2 === void 0 ? void 0 : _props$modelValue2.code) !== null && _props$modelValue$cod !== void 0 ? _props$modelValue$cod : '',
-      description: (_props$modelValue$des = (_props$modelValue3 = props.modelValue) === null || _props$modelValue3 === void 0 ? void 0 : _props$modelValue3.description) !== null && _props$modelValue$des !== void 0 ? _props$modelValue$des : '',
-      is_active: (_props$modelValue$is_ = (_props$modelValue4 = props.modelValue) === null || _props$modelValue4 === void 0 ? void 0 : _props$modelValue4.is_active) !== null && _props$modelValue$is_ !== void 0 ? _props$modelValue$is_ : true
+      description: (_props$modelValue$des = (_props$modelValue2 = props.modelValue) === null || _props$modelValue2 === void 0 ? void 0 : _props$modelValue2.description) !== null && _props$modelValue$des !== void 0 ? _props$modelValue$des : '',
+      is_active: (_props$modelValue$is_ = (_props$modelValue3 = props.modelValue) === null || _props$modelValue3 === void 0 ? void 0 : _props$modelValue3.is_active) !== null && _props$modelValue$is_ !== void 0 ? _props$modelValue$is_ : true
     });
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(function () {
       return props.modelValue;
     }, function (newVal) {
       if (newVal) {
-        var _newVal$name, _newVal$code, _newVal$description, _newVal$is_active;
+        var _newVal$name, _newVal$description, _newVal$is_active;
         form.name = (_newVal$name = newVal.name) !== null && _newVal$name !== void 0 ? _newVal$name : '';
-        form.code = (_newVal$code = newVal.code) !== null && _newVal$code !== void 0 ? _newVal$code : '';
         form.description = (_newVal$description = newVal.description) !== null && _newVal$description !== void 0 ? _newVal$description : '';
         form.is_active = (_newVal$is_active = newVal.is_active) !== null && _newVal$is_active !== void 0 ? _newVal$is_active : true;
       }
@@ -23822,14 +23806,11 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
     });
     function handleSubmit() {
       var _form$description;
-      var payload = _objectSpread(_objectSpread({
-        name: form.name.trim()
-      }, props.mode === 'edit' && {
-        code: form.code.trim()
-      }), {}, {
+      var payload = {
+        name: form.name.trim(),
         description: ((_form$description = form.description) === null || _form$description === void 0 ? void 0 : _form$description.trim()) || null,
         is_active: Boolean(form.is_active)
-      });
+      };
       emit('submit', payload);
     }
     var __returned__ = {
@@ -28743,7 +28724,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "model-value": $setup.initialValues,
     loading: $setup.loading,
     errors: $setup.errors,
-    mode: "create",
     "submit-label": "Crear comedor",
     onSubmit: $setup.handleSubmit,
     onCancel: $setup.goToList
@@ -28787,12 +28767,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8 /* PROPS */, ["show"]), $setup.successMessage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.successMessage), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.loadingData ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, " Cargando... ")) : $setup.hall ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 2
   }, [_cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-    "class": "text-xl font-semibold text-gray-900 mb-6"
-  }, "Editar Comedor", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DiningHallForm"], {
+    "class": "text-xl font-semibold text-gray-900 mb-4"
+  }, "Editar Comedor", -1 /* CACHED */)), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-sm text-amber-800"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "Importante:"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Si modificas el nombre del comedor, se generará automáticamente una nueva URL y un nuevo código QR. Cualquier enlace o QR que hayas compartido antes dejará de funcionar y tendrás que compartir el nuevo. ")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DiningHallForm"], {
     "model-value": $setup.hall,
     loading: $setup.loading,
     errors: $setup.errors,
-    mode: "edit",
     onSubmit: $setup.handleSubmit,
     onCancel: $setup.goToList
   }, null, 8 /* PROPS */, ["model-value", "loading", "errors"])], 64 /* STABLE_FRAGMENT */)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, " Comedor no encontrado. "))]);

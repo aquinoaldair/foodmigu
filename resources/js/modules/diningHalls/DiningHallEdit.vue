@@ -8,12 +8,17 @@
             Cargando...
         </div>
         <template v-else-if="hall">
-            <h1 class="text-xl font-semibold text-gray-900 mb-6">Editar Comedor</h1>
+            <h1 class="text-xl font-semibold text-gray-900 mb-4">Editar Comedor</h1>
+            <div class="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200">
+                <p class="text-sm text-amber-800">
+                    <strong>Importante:</strong> Si modificas el nombre del comedor, se generará automáticamente una nueva URL y un nuevo código QR.
+                    Cualquier enlace o QR que hayas compartido antes dejará de funcionar y tendrás que compartir el nuevo.
+                </p>
+            </div>
             <DiningHallForm
                 :model-value="hall"
                 :loading="loading"
                 :errors="errors"
-                mode="edit"
                 @submit="handleSubmit"
                 @cancel="goToList"
             />
