@@ -105,9 +105,10 @@ class DiningHallController extends Controller
         return $code;
     }
 
-    public function publicUrl(DiningHall $diningHall): JsonResponse
+    public function publicUrl(Request $request, DiningHall $diningHall): JsonResponse
     {
-        $url = rtrim(config('app.url'), '/') . '/c/' . $diningHall->code;
+        $baseUrl = rtrim($request->getSchemeAndHttpHost(), '/');
+        $url = $baseUrl . '/c/' . $diningHall->code;
 
         return response()->json([
             'success' => true,
