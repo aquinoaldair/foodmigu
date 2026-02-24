@@ -22498,7 +22498,8 @@ __webpack_require__.r(__webpack_exports__);
       menu: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>',
       calendar: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>',
       building: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>',
-      user: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>'
+      user: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>',
+      book: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>'
     };
     var iconSvg = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _icons$props$icon;
@@ -22611,7 +22612,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       'diners.create': 'Nuevo Comensal',
       'diners.edit': 'Editar Comensal',
       'diners.import': 'Importar Excel',
-      profile: 'Mi Perfil'
+      profile: 'Mi Perfil',
+      'system-guide': 'Guía del sistema'
     };
     var pageTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _titles$route$name;
@@ -28002,6 +28004,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     label: "Construcción Semanal",
     icon: "calendar"
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavItem"], {
+    to: "/guia-del-sistema",
+    label: "Guía del sistema",
+    icon: "book"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavItem"], {
     to: "/profile",
     label: "Mi Perfil",
     icon: "user"
@@ -28897,71 +28903,88 @@ var _hoisted_2 = {
   "class": "flex justify-between items-center mb-6"
 };
 var _hoisted_3 = {
+  "class": "flex items-center gap-3"
+};
+var _hoisted_4 = {
   key: 0,
   "class": "py-12 text-center text-gray-500"
 };
-var _hoisted_4 = {
+var _hoisted_5 = {
   key: 1,
   "class": "py-6"
 };
-var _hoisted_5 = {
+var _hoisted_6 = {
   "class": "text-red-600"
 };
-var _hoisted_6 = {
+var _hoisted_7 = {
   key: 2,
   "class": "overflow-x-auto"
 };
-var _hoisted_7 = {
+var _hoisted_8 = {
   "class": "min-w-full divide-y divide-gray-200"
 };
-var _hoisted_8 = {
+var _hoisted_9 = {
   "class": "bg-white divide-y divide-gray-200"
 };
-var _hoisted_9 = {
+var _hoisted_10 = {
   "class": "px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
 };
-var _hoisted_10 = {
+var _hoisted_11 = {
   "class": "px-6 py-4 whitespace-nowrap"
 };
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "px-6 py-4 whitespace-nowrap text-sm"
 };
-var _hoisted_12 = {
+var _hoisted_13 = {
   "class": "px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
 };
-var _hoisted_13 = ["onClick"];
 var _hoisted_14 = ["onClick"];
-var _hoisted_15 = {
+var _hoisted_15 = ["onClick"];
+var _hoisted_16 = {
   key: 0
 };
-var _hoisted_16 = {
+var _hoisted_17 = {
   key: 3,
   "class": "fixed inset-0 z-50 overflow-y-auto",
   "aria-labelledby": "modal-title",
   role: "dialog",
   "aria-modal": "true"
 };
-var _hoisted_17 = {
+var _hoisted_18 = {
   "class": "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
 };
-var _hoisted_18 = {
+var _hoisted_19 = {
   "class": "inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
 };
-var _hoisted_19 = {
+var _hoisted_20 = {
   "class": "mt-2 text-sm text-gray-500"
 };
-var _hoisted_20 = {
+var _hoisted_21 = {
   "class": "mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense"
 };
-var _hoisted_21 = ["disabled"];
+var _hoisted_22 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LoadingOverlay"], {
     show: $setup.deleting,
     message: "Eliminando..."
-  }, null, 8 /* PROPS */, ["show"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  }, null, 8 /* PROPS */, ["show"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
     "class": "text-xl font-semibold text-gray-900"
-  }, "Comedores", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }, "Comedores", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "/layout_prueba.xlsx",
+    download: "layout_prueba.xlsx",
+    "class": "inline-flex items-center gap-2 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+    "class": "w-4 h-4",
+    fill: "none",
+    stroke: "currentColor",
+    viewBox: "0 0 24 24"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    "stroke-width": "2",
+    d: "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Descargar layout de importación ")], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'dining-halls.create'
     },
@@ -28971,7 +28994,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _toConsumableArray(_cache[2] || (_cache[2] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Nuevo Comedor ", -1 /* CACHED */)]));
     }),
     _: 1 /* STABLE */
-  })]), $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, " Cargando... ")) : $setup.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.error), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_7, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+  })])]), $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, " Cargando... ")) : $setup.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.error), 1 /* TEXT */)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_8, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
     "class": "bg-gray-50"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
     scope: "col",
@@ -28985,13 +29008,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, "Comensales"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
     scope: "col",
     "class": "px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-  }, "Acciones")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.halls, function (hall) {
+  }, "Acciones")])], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.halls, function (hall) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: hall.id,
       "class": "hover:bg-gray-50 transition-colors"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(hall.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(hall.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(hall.is_active ? 'px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800' : 'px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600')
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(hall.is_active ? 'Sí' : 'No'), 3 /* TEXT, CLASS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(hall.is_active ? 'Sí' : 'No'), 3 /* TEXT, CLASS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       to: {
         name: 'diners.index',
         params: {
@@ -29001,16 +29024,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "text-blue-600 hover:text-blue-900"
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return _toConsumableArray(_cache[4] || (_cache[4] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Ver Comensales ", -1 /* CACHED */)]));
+        return _toConsumableArray(_cache[5] || (_cache[5] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Ver Comensales ", -1 /* CACHED */)]));
       }),
       _: 1 /* STABLE */
-    }, 8 /* PROPS */, ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    }, 8 /* PROPS */, ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       type: "button",
       onClick: function onClick($event) {
         return $setup.openShareModal(hall);
       },
       "class": "text-blue-600 hover:text-blue-900 mr-4"
-    }, " Compartir ", 8 /* PROPS */, _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, " Compartir ", 8 /* PROPS */, _hoisted_14), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       to: {
         name: 'dining-halls.edit',
         params: {
@@ -29020,7 +29043,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "text-blue-600 hover:text-blue-900 mr-4"
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return _toConsumableArray(_cache[5] || (_cache[5] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar ", -1 /* CACHED */)]));
+        return _toConsumableArray(_cache[6] || (_cache[6] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar ", -1 /* CACHED */)]));
       }),
       _: 1 /* STABLE */
     }, 8 /* PROPS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -29029,25 +29052,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $setup.confirmDelete(hall);
       },
       "class": "text-red-600 hover:text-red-900"
-    }, " Eliminar ", 8 /* PROPS */, _hoisted_14)])]);
-  }), 128 /* KEYED_FRAGMENT */)), !$setup.halls.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", _hoisted_15, _toConsumableArray(_cache[6] || (_cache[6] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+    }, " Eliminar ", 8 /* PROPS */, _hoisted_15)])]);
+  }), 128 /* KEYED_FRAGMENT */)), !$setup.halls.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", _hoisted_16, _toConsumableArray(_cache[7] || (_cache[7] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
     colspan: "4",
     "class": "px-6 py-12 text-center text-gray-500"
-  }, " No hay comedores registrados. Crea uno para comenzar. ", -1 /* CACHED */)])))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])), $setup.hallToDelete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, " No hay comedores registrados. Crea uno para comenzar. ", -1 /* CACHED */)])))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])), $setup.hallToDelete ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity",
     "aria-hidden": "true"
-  }, null, -1 /* CACHED */)), _cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  }, null, -1 /* CACHED */)), _cache[13] || (_cache[13] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "hidden sm:inline-block sm:align-middle sm:h-screen",
     "aria-hidden": "true"
-  }, "​", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  }, "​", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
     "class": "text-lg leading-6 font-medium text-gray-900",
     id: "modal-title"
-  }, " Confirmar eliminación ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ¿Estás seguro de eliminar el comedor ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.hallToDelete.name), 1 /* TEXT */), _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("? Esta acción no se puede deshacer. ", -1 /* CACHED */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, " Confirmar eliminación ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_20, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ¿Estás seguro de eliminar el comedor ", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.hallToDelete.name), 1 /* TEXT */), _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("? Esta acción no se puede deshacer. ", -1 /* CACHED */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     onClick: $setup.executeDelete,
     disabled: $setup.deleting,
     "class": "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 sm:col-start-2 sm:text-sm disabled:opacity-50"
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.deleting ? 'Eliminando...' : 'Eliminar'), 9 /* TEXT, PROPS */, _hoisted_21), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.deleting ? 'Eliminando...' : 'Eliminar'), 9 /* TEXT, PROPS */, _hoisted_22), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.hallToDelete = null;
@@ -32148,6 +32171,36 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ },
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/SystemGuideView.vue?vue&type=template&id=026ffed9"
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/SystemGuideView.vue?vue&type=template&id=026ffed9 ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "max-w-4xl mx-auto space-y-8"
+};
+function render(_ctx, _cache) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+    "class": "text-xl font-semibold text-gray-900"
+  }, "Guía del sistema", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sección 1: Introducción "), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "bg-white rounded-xl shadow-sm border border-gray-100 p-6"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+    "class": "text-xl font-semibold text-gray-900 mb-4"
+  }, "Introducción"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-gray-600 leading-relaxed"
+  }, " Foodmigu es un sistema diseñado para administrar menús de comedores industriales y empresariales. Permite registrar las elecciones de alimentos de los comensales, generar reportes diarios y semanales, y optimizar la producción de cocina mediante conteos precisos por día y por comedor. ")], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sección 2: Flujo general "), _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"bg-white rounded-xl shadow-sm border border-gray-100 p-6\"><h2 class=\"text-xl font-semibold text-gray-900 mb-4\">Flujo general del sistema</h2><ol class=\"space-y-4 list-decimal list-inside text-gray-600\"><li class=\"pl-2\"><strong class=\"text-gray-900\">Registrar comedores</strong> — Crea los lugares físicos donde se sirven los alimentos (ej.: Comedor Norte, Comedor Administrativo). </li><li class=\"pl-2\"><strong class=\"text-gray-900\">Crear menús semanales</strong> — Define los platillos de cada día en la Construcción Semanal, asignando menús base y asociándolos a los comedores. </li><li class=\"pl-2\"><strong class=\"text-gray-900\">Compartir enlace público o QR</strong> — Cada comedor genera una URL única y un código QR que los comensales pueden escanear o visitar desde su dispositivo. </li><li class=\"pl-2\"><strong class=\"text-gray-900\">Comensales seleccionan alimentos</strong> — Los comensales se identifican con su ID, eligen el menú del día y seleccionan las opciones según la configuración de cada categoría. </li><li class=\"pl-2\"><strong class=\"text-gray-900\">Generar reportes diarios y semanales</strong> — Desde el Dashboard obtén conteos en tiempo real y descarga PDF con el detalle de elecciones por día o por semana. </li></ol></div>", 1)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sección 3: Explicación de módulos "), _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"bg-white rounded-xl shadow-sm border border-gray-100 p-6\"><h2 class=\"text-xl font-semibold text-gray-900 mb-6\">Explicación de módulos</h2><div class=\"space-y-6\"><div><h3 class=\"text-lg font-medium text-gray-900 mb-2\">Comedores</h3><p class=\"text-gray-600 leading-relaxed\"> Aquí se registran los lugares donde se sirven los alimentos. Cada comedor tiene un nombre y genera automáticamente un enlace público y un código QR. Puedes activar o desactivar comedores y gestionar la lista de comensales asignados a cada uno. </p></div><div><h3 class=\"text-lg font-medium text-gray-900 mb-2\">Menús</h3><p class=\"text-gray-600 leading-relaxed\"> Los menús base definen los platillos disponibles organizados por categorías (ej.: Proteína, Guarnición, Postre). Las categorías pueden ser solo informativas, de selección única o múltiple. En la Construcción Semanal se asignan estos menús a cada día de la semana y se vinculan a los comedores. </p></div><div><h3 class=\"text-lg font-medium text-gray-900 mb-2\">Elecciones de comensales</h3><p class=\"text-gray-600 leading-relaxed\"> Los comensales acceden mediante el enlace público o el QR del comedor. Se identifican con su código de empleado y luego seleccionan su menú del día según las reglas definidas (obligatorio, opcional, una o varias opciones). Las elecciones se guardan y pueden modificarse hasta la fecha límite configurada. </p></div><div><h3 class=\"text-lg font-medium text-gray-900 mb-2\">Dashboard y reportes</h3><p class=\"text-gray-600 leading-relaxed\"> El Dashboard muestra un resumen de los conteos por día y comedor. Desde allí se pueden generar reportes PDF diarios (detalle por comensal y sus elecciones) y semanales (resumen consolidado). Estos reportes son útiles para producción y auditoría. </p></div></div></div>", 1)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sección 4: Preguntas frecuentes "), _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"bg-white rounded-xl shadow-sm border border-gray-100 p-6\"><h2 class=\"text-xl font-semibold text-gray-900 mb-6\">Preguntas frecuentes</h2><div class=\"space-y-6\"><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Qué pasa si un comensal no elige comida?</h3><p class=\"text-gray-600 leading-relaxed\"> El comensal aparecerá como &quot;Pendiente&quot; en los reportes. Si la categoría es obligatoria y tiene fecha límite, el comensal podrá elegir hasta que venza ese plazo. Después de la fecha límite, las elecciones no se pueden modificar y el reporte reflejará el estado final (eligió o pendiente). </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Puedo modificar un menú después de publicarlo?</h3><p class=\"text-gray-600 leading-relaxed\"> Sí. Puedes editar la Construcción Semanal y los menús base en cualquier momento. Los cambios se reflejarán de inmediato para los comensales que aún no hayan elegido o que estén dentro del plazo de modificación. Ten en cuenta que alterar categorías o platillos puede afectar elecciones ya realizadas, por lo que se recomienda hacer cambios con precaución. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Cómo comparto el menú con los comensales?</h3><p class=\"text-gray-600 leading-relaxed\"> En el listado de Comedores, usa el botón &quot;Compartir&quot; del comedor deseado. Se mostrará la URL pública y un código QR que puedes imprimir o enviar por correo/WhatsApp. Los comensales pueden escanear el QR con el celular o abrir el enlace directamente. Si cambias el nombre del comedor, se generará una nueva URL y QR; los antiguos dejarán de funcionar. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Qué diferencia hay entre Menús Base y Construcción Semanal?</h3><p class=\"text-gray-600 leading-relaxed\"> Los Menús Base son plantillas reutilizables que definen los platillos y categorías para un día (ej.: &quot;Menú Lunes Standard&quot;). La Construcción Semanal es el calendario donde asignas qué menú base corresponde a cada día de la semana y qué comedores tendrán acceso a esa semana. Un mismo menú base puede usarse en varias semanas. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Cómo agrego comensales a un comedor?</h3><p class=\"text-gray-600 leading-relaxed\"> Desde el listado de Comedores, haz clic en &quot;Ver Comensales&quot; del comedor. Ahí puedes crear comensales uno por uno o usar &quot;Importar Excel&quot; para cargar una lista masiva. Cada comensal necesita un código de identificación único (ej.: número de empleado) que usará para identificarse al elegir su menú. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Qué son los tipos de selección en las categorías (solo informativo, única, múltiple)?</h3><p class=\"text-gray-600 leading-relaxed\"><strong>Solo informativo:</strong> El comensal solo ve la opción, no puede elegirla (ej.: sopa que se sirve a todos). <strong>Selección única:</strong> El comensal debe elegir exactamente una opción (ej.: pollo o carne). <strong>Selección múltiple:</strong> El comensal puede elegir varias opciones (ej.: arroz, frijoles, ensalada). Además, una categoría puede ser obligatoria u opcional. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Hasta cuándo pueden los comensales elegir o cambiar su menú?</h3><p class=\"text-gray-600 leading-relaxed\"> La fecha límite se configura en la Construcción Semanal. Una vez vencida, los comensales ya no pueden modificar sus elecciones y el sistema mostrará un mensaje indicando que el plazo ha finalizado. Los reportes reflejarán el estado final de cada comensal en ese momento. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Puedo tener varios comedores con menús diferentes?</h3><p class=\"text-gray-600 leading-relaxed\"> Sí. Cada comedor tiene su propio enlace y QR. Puedes asignar la misma Construcción Semanal a varios comedores (todos verán el mismo menú) o crear construcciones semanales distintas si necesitas ofrecer opciones diferentes por ubicación o tipo de servicio. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Para qué sirven los reportes PDF?</h3><p class=\"text-gray-600 leading-relaxed\"> El reporte diario lista cada comensal con sus elecciones (o &quot;Pendiente&quot; si no eligió), útil para producción en cocina. El reporte semanal ofrece un resumen consolidado. Ambos se pueden descargar desde el Dashboard o desde la vista de cada día/semana y sirven para auditoría, planeación de compras y control de inventario. </p></div><div><h3 class=\"text-base font-medium text-gray-900 mb-2\">¿Qué pasa si un comensal intenta acceder sin estar registrado?</h3><p class=\"text-gray-600 leading-relaxed\"> El comensal debe identificarse con un código que exista en la lista de comensales del comedor. Si el código no está registrado, no podrá continuar. El administrador debe agregar al comensal en &quot;Ver Comensales&quot; del comedor correspondiente antes de que pueda elegir su menú. </p></div></div></div>", 1))]);
+}
+
+/***/ },
+
 /***/ "./resources/js/api/axios.js"
 /*!***********************************!*\
   !*** ./resources/js/api/axios.js ***!
@@ -32641,10 +32694,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_publicMenu_PublicMenuList_vue__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../modules/publicMenu/PublicMenuList.vue */ "./resources/js/modules/publicMenu/PublicMenuList.vue");
 /* harmony import */ var _modules_publicMenu_PublicDayView_vue__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../modules/publicMenu/PublicDayView.vue */ "./resources/js/modules/publicMenu/PublicDayView.vue");
 /* harmony import */ var _modules_profile_ProfileView_vue__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../modules/profile/ProfileView.vue */ "./resources/js/modules/profile/ProfileView.vue");
+/* harmony import */ var _pages_SystemGuideView_vue__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../pages/SystemGuideView.vue */ "./resources/js/pages/SystemGuideView.vue");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
 
 
 
@@ -32725,6 +32780,10 @@ var routes = [{
     path: 'profile',
     name: 'profile',
     component: _modules_profile_ProfileView_vue__WEBPACK_IMPORTED_MODULE_25__["default"]
+  }, {
+    path: 'guia-del-sistema',
+    name: 'system-guide',
+    component: _pages_SystemGuideView_vue__WEBPACK_IMPORTED_MODULE_26__["default"]
   }, {
     path: 'menu-categories',
     name: 'menu-categories.index',
@@ -57187,6 +57246,33 @@ if (false) // removed by dead control flow
 
 /***/ },
 
+/***/ "./resources/js/pages/SystemGuideView.vue"
+/*!************************************************!*\
+  !*** ./resources/js/pages/SystemGuideView.vue ***!
+  \************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SystemGuideView_vue_vue_type_template_id_026ffed9__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SystemGuideView.vue?vue&type=template&id=026ffed9 */ "./resources/js/pages/SystemGuideView.vue?vue&type=template&id=026ffed9");
+/* harmony import */ var _home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+const script = {}
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_aquino_personal_laravel_foodmigu_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_SystemGuideView_vue_vue_type_template_id_026ffed9__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/pages/SystemGuideView.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ },
+
 /***/ "./resources/js/components/LoadingOverlay.vue?vue&type=script&setup=true&lang=js"
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/LoadingOverlay.vue?vue&type=script&setup=true&lang=js ***!
@@ -58319,6 +58405,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_template_id_3b6adb30__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_template_id_3b6adb30__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Login.vue?vue&type=template&id=3b6adb30 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Login.vue?vue&type=template&id=3b6adb30");
+
+
+/***/ },
+
+/***/ "./resources/js/pages/SystemGuideView.vue?vue&type=template&id=026ffed9"
+/*!******************************************************************************!*\
+  !*** ./resources/js/pages/SystemGuideView.vue?vue&type=template&id=026ffed9 ***!
+  \******************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SystemGuideView_vue_vue_type_template_id_026ffed9__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SystemGuideView_vue_vue_type_template_id_026ffed9__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SystemGuideView.vue?vue&type=template&id=026ffed9 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/SystemGuideView.vue?vue&type=template&id=026ffed9");
 
 
 /***/ },

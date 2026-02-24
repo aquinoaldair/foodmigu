@@ -97,6 +97,7 @@ const titles = {
     'diners.edit': 'Editar Comensal',
     'diners.import': 'Importar Excel',
     profile: 'Mi Perfil',
+    'system-guide': 'Guía del sistema',
 };
 
 const pageTitle = computed(() => titles[route.name] ?? 'Panel');

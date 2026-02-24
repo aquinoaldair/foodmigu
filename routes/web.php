@@ -26,5 +26,6 @@ Route::get('/app{any?}', function () {
 })->where('any', '.*');
 
 // SPA Authentication (cookie-based with Sanctum)
+Route::get('/login', fn () => redirect('/app/login'))->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');

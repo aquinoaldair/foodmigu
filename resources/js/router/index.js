@@ -24,6 +24,7 @@ import PublicIdentify from '../modules/publicMenu/PublicIdentify.vue';
 import PublicMenuList from '../modules/publicMenu/PublicMenuList.vue';
 import PublicDayView from '../modules/publicMenu/PublicDayView.vue';
 import ProfileView from '../modules/profile/ProfileView.vue';
+import SystemGuideView from '../pages/SystemGuideView.vue';
 
 const routes = [
     {
@@ -74,6 +75,11 @@ const routes = [
                 path: 'profile',
                 name: 'profile',
                 component: ProfileView,
+            },
+            {
+                path: 'guia-del-sistema',
+                name: 'system-guide',
+                component: SystemGuideView,
             },
             {
                 path: 'menu-categories',
