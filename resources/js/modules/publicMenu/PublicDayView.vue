@@ -76,10 +76,24 @@
                                         : 'border-gray-200 bg-white'
                                 "
                             >
-                                <span class="flex-1">
-                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                    <span v-if="item.description" class="text-sm text-gray-500">
-                                        {{ item.description }}
+                                <span class="flex-1 flex items-start gap-3 min-w-0">
+                                    <button
+                                        v-if="item.image?.url"
+                                        type="button"
+                                        class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        @click.stop="openLightbox(item.image.url)"
+                                    >
+                                        <img
+                                            :src="item.image.url"
+                                            :alt="item.name"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    </button>
+                                    <span class="min-w-0">
+                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500">
+                                            {{ item.description }}
+                                        </span>
                                     </span>
                                 </span>
                                 <input
@@ -102,10 +116,24 @@
                                 :key="item.id"
                                 class="flex justify-between items-center gap-3 p-4 rounded-xl border border-gray-200 bg-gray-50 cursor-not-allowed"
                             >
-                                <span class="flex-1">
-                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                    <span v-if="item.description" class="text-sm text-gray-500">
-                                        {{ item.description }}
+                                <span class="flex-1 flex items-start gap-3 min-w-0">
+                                    <button
+                                        v-if="item.image?.url"
+                                        type="button"
+                                        class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        @click="openLightbox(item.image.url)"
+                                    >
+                                        <img
+                                            :src="item.image.url"
+                                            :alt="item.name"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    </button>
+                                    <span class="min-w-0">
+                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500">
+                                            {{ item.description }}
+                                        </span>
                                     </span>
                                 </span>
                                 <input type="checkbox" :checked="true" disabled class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0" />
@@ -123,10 +151,24 @@
                                         : 'border-gray-200 bg-white'
                                 "
                             >
-                                <span class="flex-1">
-                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                    <span v-if="item.description" class="text-sm text-gray-500">
-                                        {{ item.description }}
+                                <span class="flex-1 flex items-start gap-3 min-w-0">
+                                    <button
+                                        v-if="item.image?.url"
+                                        type="button"
+                                        class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        @click.stop="openLightbox(item.image.url)"
+                                    >
+                                        <img
+                                            :src="item.image.url"
+                                            :alt="item.name"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    </button>
+                                    <span class="min-w-0">
+                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500">
+                                            {{ item.description }}
+                                        </span>
                                     </span>
                                 </span>
                                 <input
@@ -152,10 +194,24 @@
                                         : 'border-gray-200 bg-white'
                                 "
                             >
-                                <span class="flex-1">
-                                    <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                    <span v-if="item.description" class="text-sm text-gray-500">
-                                        {{ item.description }}
+                                <span class="flex-1 flex items-start gap-3 min-w-0">
+                                    <button
+                                        v-if="item.image?.url"
+                                        type="button"
+                                        class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        @click.stop="openLightbox(item.image.url)"
+                                    >
+                                        <img
+                                            :src="item.image.url"
+                                            :alt="item.name"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    </button>
+                                    <span class="min-w-0">
+                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500">
+                                            {{ item.description }}
+                                        </span>
                                     </span>
                                 </span>
                                 <input
@@ -174,6 +230,37 @@
                 </form>
             </template>
         </div>
+
+        <Teleport to="body">
+            <div
+                ref="lightboxRef"
+                v-if="lightboxImage"
+                class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Ver imagen"
+                tabindex="-1"
+                @click.self="closeLightbox"
+                @keydown="onLightboxKeydown"
+            >
+                <button
+                    type="button"
+                    class="absolute top-4 right-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30 active:scale-95 transition touch-manipulation"
+                    aria-label="Cerrar"
+                    @click="closeLightbox"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <img
+                    :src="lightboxImage"
+                    alt="Imagen ampliada"
+                    class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg"
+                    @click.stop
+                />
+            </div>
+        </Teleport>
 
         <div
             v-if="saved"
@@ -232,6 +319,8 @@ const saved = ref(false);
 const submitError = ref(null);
 
 const selectionState = reactive({ single: {}, multiple: {} });
+const lightboxImage = ref(null);
+const lightboxRef = ref(null);
 
 const byCategory = computed(() => {
     if (!day.value?.items) return [];
@@ -248,6 +337,18 @@ const byCategory = computed(() => {
         (a, b) => (a.category.display_order ?? 0) - (b.category.display_order ?? 0)
     );
 });
+
+function openLightbox(url) {
+    lightboxImage.value = url;
+}
+
+function closeLightbox() {
+    lightboxImage.value = null;
+}
+
+function onLightboxKeydown(e) {
+    if (e.key === 'Escape') closeLightbox();
+}
 
 function formatDate(d) {
     if (!d) return '';
@@ -348,6 +449,12 @@ async function fetchDay() {
         loading.value = false;
     }
 }
+
+watch(lightboxImage, (url) => {
+    if (url) {
+        setTimeout(() => lightboxRef.value?.focus(), 50);
+    }
+});
 
 watch(dayId, () => {
     Object.keys(selectionState.single).forEach((k) => delete selectionState.single[k]);

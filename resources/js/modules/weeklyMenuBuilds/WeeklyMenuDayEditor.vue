@@ -35,29 +35,41 @@
                         class="flex gap-3 items-start p-3 bg-gray-50 rounded-lg"
                     >
                         <div class="flex-1 space-y-2">
-                            <input
-                                v-model="item.name"
-                                type="text"
-                                placeholder="Nombre del platillo"
-                                class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
-                                :disabled="readonly"
-                            />
-                            <textarea
-                                v-model="item.description"
-                                rows="2"
-                                placeholder="Descripción"
-                                class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
-                                :disabled="readonly"
-                            />
-                            <input
-                                v-model.number="item.price"
-                                type="number"
-                                step="0.01"
-                                min="0"
-                                placeholder="Precio"
-                                class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
-                                :disabled="readonly"
-                            />
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <ImagePicker
+                                        v-model="item.image_id"
+                                        :preview-url="item.image_preview_url ?? item.image?.url ?? ''"
+                                        :readonly="readonly"
+                                        @update:preview-url="item.image_preview_url = $event"
+                                    />
+                                </div>
+                                <div class="flex-1 space-y-2 min-w-0">
+                                    <input
+                                        v-model="item.name"
+                                        type="text"
+                                        placeholder="Nombre del platillo"
+                                        class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                                        :disabled="readonly"
+                                    />
+                                    <textarea
+                                        v-model="item.description"
+                                        rows="2"
+                                        placeholder="Descripción"
+                                        class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                                        :disabled="readonly"
+                                    />
+                                    <input
+                                        v-model.number="item.price"
+                                        type="number"
+                                        step="0.01"
+                                        min="0"
+                                        placeholder="Precio"
+                                        class="block w-full px-4 py-2.5 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                                        :disabled="readonly"
+                                    />
+                                </div>
+                            </div>
                         </div>
                         <button
                             v-if="!readonly"
@@ -83,7 +95,8 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, computed } from 'vue';
+import { ref, reactive, watch } from 'vue';
+import ImagePicker from '../../components/ImagePicker.vue';
 
 const props = defineProps({
     date: { type: String, required: true },
@@ -120,6 +133,9 @@ watch(
                     description: it.description ?? '',
                     price: it.price ?? null,
                     display_order: it.display_order ?? 0,
+                    image_id: it.image_id ?? null,
+                    image: it.image ?? null,
+                    image_preview_url: it.image?.url ?? null,
                 });
             });
             props.categories.forEach((c) => {
@@ -145,6 +161,8 @@ function addItem(categoryId) {
         description: '',
         price: null,
         display_order: itemsByCategory[categoryId].length,
+        image_id: null,
+        image_preview_url: null,
     });
 }
 
@@ -169,6 +187,7 @@ function buildPayload() {
                     description: item.description?.trim() || null,
                     price: item.price ? Number(item.price) : null,
                     display_order: i,
+                    image_id: item.image_id ?? null,
                 });
             }
         });

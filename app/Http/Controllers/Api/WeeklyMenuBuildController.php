@@ -51,7 +51,7 @@ class WeeklyMenuBuildController extends Controller
 
     public function show(WeeklyMenuBuild $weeklyMenuBuild): JsonResponse
     {
-        $weeklyMenuBuild->load(['menu.categories', 'days.items.menuCategory']);
+        $weeklyMenuBuild->load(['menu.categories', 'days.items.menuCategory', 'days.items.image']);
 
         return response()->json([
             'success' => true,
@@ -78,6 +78,7 @@ class WeeklyMenuBuildController extends Controller
             'days.*.items.*.description' => ['nullable', 'string'],
             'days.*.items.*.price' => ['nullable', 'numeric'],
             'days.*.items.*.display_order' => ['nullable', 'integer'],
+            'days.*.items.*.image_id' => ['nullable', 'integer', 'exists:images,id'],
         ]);
 
         try {
@@ -103,6 +104,7 @@ class WeeklyMenuBuildController extends Controller
                             'description' => $itemData['description'] ?? null,
                             'price' => $itemData['price'] ?? null,
                             'display_order' => $itemData['display_order'] ?? $index,
+                            'image_id' => $itemData['image_id'] ?? null,
                         ];
                     }
 
@@ -117,7 +119,7 @@ class WeeklyMenuBuildController extends Controller
 
             return response()->json([
                 'success' => true,
-                'data' => $weeklyMenuBuild->fresh()->load(['menu.categories', 'days.items.menuCategory']),
+                'data' => $weeklyMenuBuild->fresh()->load(['menu.categories', 'days.items.menuCategory', 'days.items.image']),
             ]);
         } catch (\Throwable $e) {
             DB::rollBack();
@@ -143,7 +145,7 @@ class WeeklyMenuBuildController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $weeklyMenuBuild->fresh()->load(['menu.categories', 'days.items.menuCategory', 'diningHalls']),
+            'data' => $weeklyMenuBuild->fresh()->load(['menu.categories', 'days.items.menuCategory', 'days.items.image', 'diningHalls']),
         ]);
     }
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\DiningHallController;
 use App\Http\Controllers\Api\MenuCategoryController;
 use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\PublicMenuController;
+use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\WeeklyMenuBuildController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,7 @@ Route::middleware('auth:sanctum')->apiResource('dining-halls', DiningHallControl
 Route::middleware('auth:sanctum')->post('dining-halls/{diningHall}/diners/import', [DinerController::class, 'import']);
 Route::middleware('auth:sanctum')->apiResource('dining-halls.diners', DinerController::class);
 Route::middleware('auth:sanctum')->apiResource('menu-categories', MenuCategoryController::class);
+Route::middleware('auth:sanctum')->apiResource('images', ImageController::class)->only(['index', 'store', 'destroy']);
 Route::middleware('auth:sanctum')->apiResource('menus', MenuController::class);
 Route::middleware('auth:sanctum')->put('weekly-menu-builds/{weekly_menu_build}/dining-halls', [WeeklyMenuBuildController::class, 'updateDiningHalls']);
 Route::middleware('auth:sanctum')->post('weekly-menu-builds/{weekly_menu_build}/publish', [WeeklyMenuBuildController::class, 'publish']);

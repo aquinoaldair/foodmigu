@@ -15,6 +15,7 @@ class WeeklyMenuDayItem extends Model
         'description',
         'price',
         'display_order',
+        'image_id',
     ];
 
     protected $casts = [
@@ -29,6 +30,11 @@ class WeeklyMenuDayItem extends Model
     public function menuCategory()
     {
         return $this->belongsTo(MenuCategory::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 
     public function selections()

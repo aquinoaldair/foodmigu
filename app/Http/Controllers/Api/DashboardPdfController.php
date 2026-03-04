@@ -23,7 +23,8 @@ class DashboardPdfController
             return response()->json(['message' => 'dining_hall_id es requerido'], 422);
         }
 
-        $day = WeeklyMenuDay::with(['weeklyMenuBuild', 'items.menuCategory'])
+        $day = WeeklyMenuDay::with(['weeklyMenuBuild', 'items.menuCategory',
+            'items.image'])
             ->find($dayId);
         if (!$day) {
             return response()->json(['message' => 'Día no encontrado'], 404);
@@ -97,7 +98,7 @@ class DashboardPdfController
             return response()->json(['message' => 'dining_hall_id es requerido'], 422);
         }
 
-        $build = WeeklyMenuBuild::with(['days.items.menuCategory', 'diningHalls'])
+        $build = WeeklyMenuBuild::with(['days.items.menuCategory', 'days.items.image', 'diningHalls'])
             ->find($weekId);
         if (!$build) {
             return response()->json(['message' => 'Semana no encontrada'], 404);

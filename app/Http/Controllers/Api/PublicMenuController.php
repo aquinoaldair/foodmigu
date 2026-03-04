@@ -83,6 +83,7 @@ class PublicMenuController
             ->with([
                 'days' => fn ($q) => $q->where('date', '>=', $today)->orderBy('date'),
                 'days.items.menuCategory',
+                'days.items.image',
             ])
             ->orderByDesc('start_date')
             ->get();
@@ -100,7 +101,8 @@ class PublicMenuController
 
     public function dayDetail(string $dayId): JsonResponse
     {
-        $day = WeeklyMenuDay::with(['weeklyMenuBuild.diningHalls', 'items.menuCategory'])
+        $day = WeeklyMenuDay::with(['weeklyMenuBuild.diningHalls', 'items.menuCategory',
+            'items.image'])
             ->find($dayId);
         if (!$day) {
             return response()->json(['message' => 'Día no encontrado'], 404);
@@ -133,7 +135,8 @@ class PublicMenuController
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $day = WeeklyMenuDay::with(['weeklyMenuBuild.diningHalls', 'items.menuCategory'])
+        $day = WeeklyMenuDay::with(['weeklyMenuBuild.diningHalls', 'items.menuCategory',
+            'items.image'])
             ->find($dayId);
         if (!$day) {
             return response()->json(['message' => 'Día no encontrado'], 404);

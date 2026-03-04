@@ -115,7 +115,8 @@ class DashboardController
             return response()->json(['message' => 'dining_hall_id es requerido'], 422);
         }
 
-        $day = WeeklyMenuDay::with(['weeklyMenuBuild.diningHalls', 'items.menuCategory'])
+        $day = WeeklyMenuDay::with(['weeklyMenuBuild.diningHalls', 'items.menuCategory',
+            'items.image'])
             ->find($dayId);
 
         if (!$day) {
