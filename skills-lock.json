@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "laravel-best-practices": {
+      "source": "asyrafhussin/agent-skills",
+      "sourceType": "github",
+      "computedHash": "82fd2887e1b49b46230325fa16e0a1e4f4d20a9dca7a2cef510d5b26ea3695e7"
+    }
+  }
+}

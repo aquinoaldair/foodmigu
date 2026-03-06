@@ -1,10 +1,12 @@
 <template>
-    <div class="min-h-screen bg-gray-50 px-4 py-6 pb-24">
+    <div class="min-h-screen bg-gray-50 px-4 py-6 pb-24" spellcheck="false" autocorrect="off">
         <LoadingOverlay :show="saving" message="Guardando selección..." />
         <div class="max-w-md mx-auto">
             <router-link
                 :to="{ name: 'public.menus', params: { code } }"
                 class="flex items-center justify-center gap-2 py-3 px-4 mb-6 rounded-xl text-base font-semibold bg-gray-200 text-gray-700 active:scale-95 transition"
+                spellcheck="false"
+                autocorrect="off"
             >
                 ← Menús
             </router-link>
@@ -12,35 +14,37 @@
             <div v-if="loading" class="flex items-center justify-center py-24 transition-all duration-200">
                 <div class="flex flex-col items-center gap-3">
                     <div class="w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
-                    <p class="text-base text-gray-500">Cargando...</p>
+                    <p class="text-base text-gray-500" spellcheck="false" autocorrect="off">Cargando...</p>
                 </div>
             </div>
             <div v-else-if="error" class="bg-white rounded-2xl shadow-sm p-5 mb-4">
                 <div class="bg-red-50 border border-red-200 rounded-xl p-5">
-                    <p class="text-red-700">{{ error }}</p>
+                    <p class="text-red-700" spellcheck="false" autocorrect="off">{{ error }}</p>
                 </div>
             </div>
             <div v-else-if="!diner" class="bg-white rounded-2xl shadow-sm p-5 mb-4">
-                <p class="text-amber-800 mb-4">Debes identificarte primero.</p>
+                <p class="text-amber-800 mb-4" spellcheck="false" autocorrect="off">Debes identificarte primero.</p>
                 <router-link
                     :to="{ name: 'public.identify', params: { code } }"
                     class="inline-flex items-center justify-center w-full py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"
+                    spellcheck="false"
+                    autocorrect="off"
                 >
                     Identificarse
                 </router-link>
             </div>
             <template v-else>
                 <div class="mb-6">
-                    <h1 class="text-xl font-bold text-gray-900">
+                    <h1 class="text-xl font-bold text-gray-900" spellcheck="false" autocorrect="off">
                         {{ day ? formatDate(day.date) : '' }}
                     </h1>
-                    <p v-if="day?.weekly_menu_build?.title" class="text-gray-500 text-sm mt-1">
+                    <p v-if="day?.weekly_menu_build?.title" class="text-gray-500 text-sm mt-1" spellcheck="false" autocorrect="off">
                         {{ day.weekly_menu_build.title }}
                     </p>
                 </div>
 
                 <div v-if="deadlinePassed" class="mb-6 rounded-xl px-4 py-3 bg-red-50 border border-red-200">
-                    <p class="text-red-700 font-medium">
+                    <p class="text-red-700 font-medium" spellcheck="false" autocorrect="off">
                         El plazo para modificar la selección ha finalizado.
                     </p>
                 </div>
@@ -51,13 +55,15 @@
                         :key="group.category.id"
                         class="bg-white rounded-2xl shadow-sm p-5 mb-4"
                     >
-                        <h2 class="text-lg font-semibold text-gray-900 mb-3">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-3" spellcheck="false" autocorrect="off">
                             {{ group.category.name }}
                             <span v-if="group.category.is_required" class="text-red-500">*</span>
                         </h2>
                         <p
                             v-if="group.category.selection_type === 'none' && !group.category.is_required"
                             class="text-sm text-gray-500 mb-3"
+                            spellcheck="false"
+                            autocorrect="off"
                         >
                             Opcional. Márcalo si lo vas a requerir.
                         </p>
@@ -66,7 +72,7 @@
                             v-if="group.category.selection_type === 'none' && !group.category.is_required"
                             class="space-y-2"
                         >
-                            <label
+                            <div
                                 v-for="item in group.items"
                                 :key="item.id"
                                 class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
@@ -75,13 +81,14 @@
                                         ? 'border-blue-500 bg-blue-50'
                                         : 'border-gray-200 bg-white'
                                 "
+                                @click="onCardClick($event, group, item)"
                             >
                                 <span class="flex-1 flex items-start gap-3 min-w-0">
                                     <button
                                         v-if="item.image?.url"
                                         type="button"
                                         class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        @click.stop="openLightbox(item.image.url)"
+                                        @click="openLightbox(item.image.url)"
                                     >
                                         <img
                                             :src="item.image.url"
@@ -89,11 +96,9 @@
                                             class="w-full h-full object-cover"
                                         />
                                     </button>
-                                    <span class="min-w-0">
-                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                        <span v-if="item.description" class="text-sm text-gray-500">
-                                            {{ item.description }}
-                                        </span>
+                                    <span class="min-w-0 flex-1 flex flex-col">
+                                        <span class="font-medium text-gray-900 block" spellcheck="false" autocorrect="off">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500 block" spellcheck="false" autocorrect="off">{{ item.description }}</span>
                                     </span>
                                 </span>
                                 <input
@@ -102,9 +107,11 @@
                                     :checked="selectionMultiple(group.category.id).includes(item.id)"
                                     :disabled="deadlinePassed"
                                     class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0"
+                                    spellcheck="false"
+                                    autocorrect="off"
                                     @change="toggleMultiple(group.category.id, item.id)"
                                 />
-                            </label>
+                            </div>
                         </div>
 
                         <div
@@ -130,18 +137,16 @@
                                         />
                                     </button>
                                     <span class="min-w-0">
-                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                        <span v-if="item.description" class="text-sm text-gray-500">
-                                            {{ item.description }}
-                                        </span>
+                                        <span class="font-medium text-gray-900 block" spellcheck="false" autocorrect="off">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500" spellcheck="false" autocorrect="off">{{ item.description }}</span>
                                     </span>
                                 </span>
-                                <input type="checkbox" :checked="true" disabled class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0" />
+                                <input type="checkbox" :checked="true" disabled class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0" spellcheck="false" autocorrect="off" />
                             </div>
                         </div>
 
                         <div v-if="group.category.selection_type === 'single'" class="space-y-2">
-                            <label
+                            <div
                                 v-for="item in group.items"
                                 :key="item.id"
                                 class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
@@ -150,13 +155,14 @@
                                         ? 'border-blue-500 bg-blue-50'
                                         : 'border-gray-200 bg-white'
                                 "
+                                @click="onCardClick($event, group, item)"
                             >
                                 <span class="flex-1 flex items-start gap-3 min-w-0">
                                     <button
                                         v-if="item.image?.url"
                                         type="button"
                                         class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        @click.stop="openLightbox(item.image.url)"
+                                        @click="openLightbox(item.image.url)"
                                     >
                                         <img
                                             :src="item.image.url"
@@ -164,11 +170,9 @@
                                             class="w-full h-full object-cover"
                                         />
                                     </button>
-                                    <span class="min-w-0">
-                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                        <span v-if="item.description" class="text-sm text-gray-500">
-                                            {{ item.description }}
-                                        </span>
+                                    <span class="min-w-0 flex-1 flex flex-col">
+                                        <span class="font-medium text-gray-900 block" spellcheck="false" autocorrect="off">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500 block" spellcheck="false" autocorrect="off">{{ item.description }}</span>
                                     </span>
                                 </span>
                                 <input
@@ -178,13 +182,15 @@
                                     :checked="selectionSingle(group.category.id) === item.id"
                                     :disabled="deadlinePassed"
                                     class="h-5 w-5 text-blue-600 shrink-0"
+                                    spellcheck="false"
+                                    autocorrect="off"
                                     @change="setSingle(group.category.id, item.id)"
                                 />
-                            </label>
+                            </div>
                         </div>
 
                         <div v-if="group.category.selection_type === 'multiple'" class="space-y-2">
-                            <label
+                            <div
                                 v-for="item in group.items"
                                 :key="item.id"
                                 class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
@@ -193,13 +199,14 @@
                                         ? 'border-blue-500 bg-blue-50'
                                         : 'border-gray-200 bg-white'
                                 "
+                                @click="onCardClick($event, group, item)"
                             >
                                 <span class="flex-1 flex items-start gap-3 min-w-0">
                                     <button
                                         v-if="item.image?.url"
                                         type="button"
                                         class="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        @click.stop="openLightbox(item.image.url)"
+                                        @click="openLightbox(item.image.url)"
                                     >
                                         <img
                                             :src="item.image.url"
@@ -207,11 +214,9 @@
                                             class="w-full h-full object-cover"
                                         />
                                     </button>
-                                    <span class="min-w-0">
-                                        <span class="font-medium text-gray-900 block">{{ item.name }}</span>
-                                        <span v-if="item.description" class="text-sm text-gray-500">
-                                            {{ item.description }}
-                                        </span>
+                                    <span class="min-w-0 flex-1 flex flex-col">
+                                        <span class="font-medium text-gray-900 block" spellcheck="false" autocorrect="off">{{ item.name }}</span>
+                                        <span v-if="item.description" class="text-sm text-gray-500 block" spellcheck="false" autocorrect="off">{{ item.description }}</span>
                                     </span>
                                 </span>
                                 <input
@@ -220,13 +225,15 @@
                                     :checked="selectionMultiple(group.category.id).includes(item.id)"
                                     :disabled="deadlinePassed"
                                     class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0"
+                                    spellcheck="false"
+                                    autocorrect="off"
                                     @change="toggleMultiple(group.category.id, item.id)"
                                 />
-                            </label>
+                            </div>
                         </div>
                     </div>
 
-                    <div v-if="submitError" class="text-red-600 text-sm">{{ submitError }}</div>
+                    <div v-if="submitError" class="text-red-600 text-sm" spellcheck="false" autocorrect="off">{{ submitError }}</div>
                 </form>
             </template>
         </div>
@@ -269,14 +276,16 @@
         >
             <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full text-center">
                 <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
-                    <span class="text-3xl text-green-600">✓</span>
+                    <span class="text-3xl text-green-600" spellcheck="false" autocorrect="off">✓</span>
                 </div>
-                <p class="text-lg font-semibold text-gray-900 mb-2">¡Guardado!</p>
-                <p class="text-gray-600 mb-6">Selección guardada correctamente</p>
+                <p class="text-lg font-semibold text-gray-900 mb-2" spellcheck="false" autocorrect="off">¡Guardado!</p>
+                <p class="text-gray-600 mb-6" spellcheck="false" autocorrect="off">Selección guardada correctamente</p>
                 <button
                     type="button"
                     @click="saved = false"
                     class="w-full py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"
+                    spellcheck="false"
+                    autocorrect="off"
                 >
                     Aceptar
                 </button>
@@ -292,6 +301,8 @@
                 :disabled="saving"
                 @click="submit"
                 class="w-full py-4 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                spellcheck="false"
+                autocorrect="off"
             >
                 {{ saving ? 'Guardando...' : 'Guardar selección' }}
             </button>
@@ -352,7 +363,13 @@ function onLightboxKeydown(e) {
 
 function formatDate(d) {
     if (!d) return '';
-    const date = typeof d === 'string' ? new Date(d) : d;
+    let date;
+    if (typeof d === 'string') {
+        const parts = d.split('T')[0].split('-').map(Number);
+        date = parts.length >= 3 ? new Date(parts[0], parts[1] - 1, parts[2]) : new Date(d);
+    } else {
+        date = d instanceof Date ? d : new Date(d);
+    }
     return date.toLocaleDateString('es-ES', {
         weekday: 'long',
         day: 'numeric',
@@ -380,6 +397,16 @@ function toggleMultiple(catId, itemId) {
     selectionState.multiple[catId] = [...arr];
 }
 
+function onCardClick(e, group, item) {
+    if (e.target.closest('button') || e.target.closest('input')) return;
+    const cat = group.category;
+    if (cat.selection_type === 'single') {
+        setSingle(cat.id, item.id);
+    } else if (cat.selection_type === 'multiple' || (cat.selection_type === 'none' && !cat.is_required)) {
+        toggleMultiple(cat.id, item.id);
+    }
+}
+
 function buildSelections() {
     const ids = [];
     for (const v of Object.values(selectionState.single)) {
@@ -403,10 +430,40 @@ async function submit() {
         });
         saved.value = true;
         submitError.value = null;
+        syncSelectionsFromApi().catch(() => {});
     } catch (e) {
         submitError.value = e.response?.data?.message ?? 'Error al guardar';
     } finally {
         saving.value = false;
+    }
+}
+
+async function syncSelectionsFromApi() {
+    if (!diner.value || !day.value) return;
+    try {
+        const { data } = await publicMenuApi.mySelections(dayId.value, diner.value.id, { _t: Date.now() });
+        const ids = data.selections ?? [];
+        Object.keys(selectionState.single).forEach((k) => delete selectionState.single[k]);
+        Object.keys(selectionState.multiple).forEach((k) => delete selectionState.multiple[k]);
+        for (const item of day.value?.items ?? []) {
+            const cat = item.menu_category;
+            if (!cat) continue;
+            if (cat.selection_type === 'single') {
+                if (ids.includes(item.id)) selectionState.single[cat.id] = item.id;
+            } else if (cat.selection_type === 'multiple' || (cat.selection_type === 'none' && !cat.is_required)) {
+                if (ids.includes(item.id)) {
+                    const arr = selectionState.multiple[cat.id] ?? [];
+                    arr.push(item.id);
+                    selectionState.multiple[cat.id] = arr;
+                }
+            } else if (cat.selection_type === 'none' && cat.is_required) {
+                const arr = selectionState.multiple[cat.id] ?? [];
+                arr.push(item.id);
+                selectionState.multiple[cat.id] = arr;
+            }
+        }
+    } catch {
+        // Ignore sync errors; UI keeps current state
     }
 }
 

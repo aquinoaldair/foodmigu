@@ -27,6 +27,8 @@ export const publicMenuApi = {
     menus: (code) => api.get(`/api/public/${code}/menus`),
     dayDetail: (dayId) => api.get(`/api/public/day/${dayId}`),
     select: (dayId, data) => api.post(`/api/public/day/${dayId}/select`, data),
-    mySelections: (dayId, dinerId) =>
-        api.get(`/api/public/day/${dayId}/selections`, { params: { diner_id: dinerId } }),
+    mySelections: (dayId, dinerId, options = {}) =>
+        api.get(`/api/public/day/${dayId}/selections`, {
+            params: { diner_id: dinerId, ...options },
+        }),
 };
