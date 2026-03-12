@@ -31,4 +31,8 @@ export const publicMenuApi = {
         api.get(`/api/public/day/${dayId}/selections`, {
             params: { diner_id: dinerId, ...options },
         }),
+    selectionsPdfUrl: (code, dinerId) => {
+        const base = typeof window !== 'undefined' ? window.location.origin : '';
+        return `${base}/api/public/${code}/selections-pdf?diner_id=${dinerId}`;
+    },
 };

@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('public')->group(function () {
+    Route::get('{code}/selections-pdf', [PublicMenuController::class, 'selectionsPdf']);
     Route::get('{code}', [PublicMenuController::class, 'hall']);
     Route::post('{code}/identify', [PublicMenuController::class, 'identify']);
     Route::get('{code}/menus', [PublicMenuController::class, 'menus']);

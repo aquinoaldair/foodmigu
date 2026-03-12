@@ -272,7 +272,7 @@
         <div
             v-if="saved"
             class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
-            @click.self="saved = false"
+            @click.self="onSavedAccept"
         >
             <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full text-center">
                 <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
@@ -282,7 +282,7 @@
                 <p class="text-gray-600 mb-6" spellcheck="false" autocorrect="off">Selección guardada correctamente</p>
                 <button
                     type="button"
-                    @click="saved = false"
+                    @click="onSavedAccept"
                     class="w-full py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"
                     spellcheck="false"
                     autocorrect="off"
@@ -312,11 +312,12 @@
 
 <script setup>
 import { ref, computed, reactive, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { publicMenuApi, getStoredDiner } from './api';
 import LoadingOverlay from '../../components/LoadingOverlay.vue';
 
 const route = useRoute();
+const router = useRouter();
 const code = computed(() => route.params.code);
 const dayId = computed(() => route.params.dayId);
 
@@ -355,6 +356,11 @@ function openLightbox(url) {
 
 function closeLightbox() {
     lightboxImage.value = null;
+}
+
+function onSavedAccept() {
+    saved.value = false;
+    router.push({ name: 'public.menus', params: { code: code.value } });
 }
 
 function onLightboxKeydown(e) {

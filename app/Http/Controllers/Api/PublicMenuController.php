@@ -10,6 +10,7 @@ use App\Models\MenuCategory;
 use App\Models\WeeklyMenuBuild;
 use App\Models\WeeklyMenuDay;
 use App\Models\WeeklyMenuSelection;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -219,10 +220,94 @@ class PublicMenuController
             return response()->json(['message' => 'Día no encontrado'], 404);
         }
 
-        $ids = WeeklyMenuSelection::where('weekly_menu_day_id', $day->id)
+        $selections = WeeklyMenuSelection::where('weekly_menu_day_id', $day->id)
             ->where('diner_id', $dinerId)
-            ->pluck('weekly_menu_day_item_id');
+            ->get(['weekly_menu_day_item_id', 'updated_at']);
 
-        return response()->json(['selections' => $ids]);
+        $ids = $selections->pluck('weekly_menu_day_item_id')->values()->all();
+        $updatedAt = $selections->max('updated_at');
+
+        return response()->json([
+            'selections' => $ids,
+            'updated_at' => $updatedAt?->toIso8601String(),
+        ]);
+    }
+
+    public function selectionsPdf(Request $request, string $code)
+    {
+        $dinerId = $request->query('diner_id');
+        if (!$dinerId) {
+            return response()->json(['message' => 'diner_id requerido'], 422);
+        }
+
+        $hall = $this->findDiningHall($code);
+        if (!$hall) {
+            return response()->json(['message' => 'Comedor no encontrado o inactivo'], 404);
+        }
+
+        $diner = Diner::where('dining_hall_id', $hall->id)->find($dinerId);
+        if (!$diner) {
+            return response()->json(['message' => 'Comensal no encontrado'], 404);
+        }
+
+        $today = Carbon::today();
+        $builds = WeeklyMenuBuild::where('status', WeeklyMenuBuild::STATUS_PUBLISHED)
+            ->whereHas('diningHalls', fn ($q) => $q->where('dining_halls.id', $hall->id))
+            ->with([
+                'days' => fn ($q) => $q->where('date', '>=', $today)->orderBy('date'),
+                'days.items.menuCategory',
+            ])
+            ->orderByDesc('start_date')
+            ->get();
+
+        $daysData = [];
+        foreach ($builds as $build) {
+            foreach ($build->days ?? [] as $day) {
+                $selections = WeeklyMenuSelection::where('weekly_menu_day_id', $day->id)
+                    ->where('diner_id', $diner->id)
+                    ->with('weeklyMenuDayItem.menuCategory')
+                    ->get();
+
+                if ($selections->isEmpty()) {
+                    continue;
+                }
+
+                $updatedAt = $selections->max('updated_at');
+
+                $byCategory = [];
+                foreach ($selections as $sel) {
+                    $item = $sel->weeklyMenuDayItem;
+                    $cat = $item?->menuCategory;
+                    if (!$cat) continue;
+                    $cid = $cat->id;
+                    if (!isset($byCategory[$cid])) {
+                        $byCategory[$cid] = ['name' => $cat->name, 'items' => []];
+                    }
+                    $byCategory[$cid]['items'][] = $item->name ?? '-';
+                }
+                $byCategory = array_values($byCategory);
+
+                $daysData[] = [
+                    'date' => $day->date->locale('es')->isoFormat('dddd D [de] MMMM'),
+                    'build_title' => $build->title,
+                    'updated_at' => $updatedAt?->locale('es')->isoFormat('D MMM Y, HH:mm'),
+                    'categories' => $byCategory,
+                ];
+            }
+        }
+
+        if (empty($daysData)) {
+            return response()->json(['message' => 'No tienes selecciones registradas'], 404);
+        }
+
+        $filename = 'mis_selecciones_' . \Illuminate\Support\Str::slug($diner->name) . '.pdf';
+
+        $pdf = Pdf::loadView('pdf.selections-diner', [
+            'diner' => $diner,
+            'comedor' => $hall->name,
+            'days' => $daysData,
+        ]);
+
+        return $pdf->stream($filename, ['Attachment' => false]);
     }
 }
