@@ -23,6 +23,14 @@ class DashboardPdfController
             return response()->json(['message' => 'dining_hall_id es requerido'], 422);
         }
 
+        $user = $request->user();
+        if (!$user->hasRole('admin')) {
+            $isAssigned = $user->diningHalls()->where('dining_halls.id', $diningHallId)->exists();
+            if (!$isAssigned) {
+                return response()->json(['message' => 'No tienes acceso a este comedor'], 403);
+            }
+        }
+
         $day = WeeklyMenuDay::with(['weeklyMenuBuild', 'items.menuCategory',
             'items.image'])
             ->find($dayId);
@@ -96,6 +104,14 @@ class DashboardPdfController
         $diningHallId = $request->query('dining_hall_id');
         if (!$diningHallId) {
             return response()->json(['message' => 'dining_hall_id es requerido'], 422);
+        }
+
+        $user = $request->user();
+        if (!$user->hasRole('admin')) {
+            $isAssigned = $user->diningHalls()->where('dining_halls.id', $diningHallId)->exists();
+            if (!$isAssigned) {
+                return response()->json(['message' => 'No tienes acceso a este comedor'], 403);
+            }
         }
 
         $build = WeeklyMenuBuild::with(['days.items.menuCategory', 'days.items.image', 'diningHalls'])

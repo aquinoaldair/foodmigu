@@ -14,23 +14,28 @@
                 <li>
                     <NavItem to="/dashboard" label="Dashboard" icon="chart" :exact="true" />
                 </li>
-                <li>
-                    <NavItem to="/dining-halls" label="Comedores" icon="building" />
-                </li>
-                <li>
-                    <NavItem to="/menu-categories" label="Categorías de Menú" icon="folder" />
-                </li>
-                <li>
-                    <NavItem to="/menus" label="Menús Base" icon="menu" />
-                </li>
-                <li>
-                    <NavItem to="/weekly-menu-builds" label="Construcción Semanal" icon="calendar" />
-                </li>
+                <template v-if="authStore.isAdmin">
+                    <li>
+                        <NavItem to="/dining-halls" label="Comedores" icon="building" />
+                    </li>
+                    <li>
+                        <NavItem to="/menu-categories" label="Categorías de Menú" icon="folder" />
+                    </li>
+                    <li>
+                        <NavItem to="/menus" label="Menús Base" icon="menu" />
+                    </li>
+                    <li>
+                        <NavItem to="/weekly-menu-builds" label="Construcción Semanal" icon="calendar" />
+                    </li>
+                </template>
                 <li>
                     <NavItem to="/guia-del-sistema" label="Guía del sistema" icon="book" />
                 </li>
                 <li>
                     <NavItem to="/profile" label="Mi Perfil" icon="user" />
+                </li>
+                <li v-if="authStore.isAdmin">
+                    <NavItem to="/users" label="Usuarios" icon="users" />
                 </li>
             </ul>
         </nav>
@@ -39,8 +44,11 @@
 
 <script setup>
 import NavItem from './NavItem.vue';
+import { useAuthStore } from '../../stores/auth';
 
 defineProps({
     isOpen: { type: Boolean, default: true },
 });
+
+const authStore = useAuthStore();
 </script>

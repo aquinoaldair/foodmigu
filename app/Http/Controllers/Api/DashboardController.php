@@ -36,6 +36,12 @@ class DashboardController
             $query->where('dining_halls.id', $diningHallId);
         }
 
+        $user = $request->user();
+        if (!$user->hasRole('admin')) {
+            $allowedIds = $user->diningHalls()->pluck('dining_halls.id')->toArray();
+            $query->whereIn('dining_halls.id', $allowedIds);
+        }
+
         $rows = $query->orderByDesc('weekly_menu_builds.published_at')
             ->orderByDesc('weekly_menu_builds.created_at')
             ->get();
@@ -60,6 +66,14 @@ class DashboardController
         $diningHallId = $request->query('dining_hall_id');
         if (!$diningHallId) {
             return response()->json(['message' => 'dining_hall_id es requerido'], 422);
+        }
+
+        $user = $request->user();
+        if (!$user->hasRole('admin')) {
+            $isAssigned = $user->diningHalls()->where('dining_halls.id', $diningHallId)->exists();
+            if (!$isAssigned) {
+                return response()->json(['message' => 'No tienes acceso a este comedor'], 403);
+            }
         }
 
         $build = WeeklyMenuBuild::with(['days' => fn ($q) => $q->orderBy('date')])
@@ -120,6 +134,14 @@ class DashboardController
         $diningHallId = $request->query('dining_hall_id');
         if (!$diningHallId) {
             return response()->json(['message' => 'dining_hall_id es requerido'], 422);
+        }
+
+        $user = $request->user();
+        if (!$user->hasRole('admin')) {
+            $isAssigned = $user->diningHalls()->where('dining_halls.id', $diningHallId)->exists();
+            if (!$isAssigned) {
+                return response()->json(['message' => 'No tienes acceso a este comedor'], 403);
+            }
         }
 
         $day = WeeklyMenuDay::with(['weeklyMenuBuild.diningHalls', 'items.menuCategory',

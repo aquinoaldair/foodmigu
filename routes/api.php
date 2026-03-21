@@ -57,6 +57,10 @@ Route::middleware('auth:sanctum')->prefix('profile')->group(function () {
     Route::post('/logout', [ProfileController::class, 'logout']);
 });
 
+Route::middleware(['auth:sanctum', \App\Http\Middleware\EnsureUserIsAdmin::class])->group(function () {
+    Route::apiResource('users', \App\Http\Controllers\Api\UserController::class);
+});
+
 Route::middleware('auth:sanctum')->get('dining-halls/{diningHall}/public-url', [DiningHallController::class, 'publicUrl']);
 Route::middleware('auth:sanctum')->apiResource('dining-halls', DiningHallController::class);
 Route::middleware('auth:sanctum')->post('dining-halls/{diningHall}/diners/import', [DinerController::class, 'import']);

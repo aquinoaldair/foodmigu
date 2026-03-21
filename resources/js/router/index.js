@@ -25,6 +25,9 @@ import PublicMenuList from '../modules/publicMenu/PublicMenuList.vue';
 import PublicDayView from '../modules/publicMenu/PublicDayView.vue';
 import ProfileView from '../modules/profile/ProfileView.vue';
 import SystemGuideView from '../pages/SystemGuideView.vue';
+import UserList from '../modules/users/UserList.vue';
+import UserCreate from '../modules/users/UserCreate.vue';
+import UserEdit from '../modules/users/UserEdit.vue';
 
 const routes = [
     {
@@ -82,84 +85,118 @@ const routes = [
                 component: SystemGuideView,
             },
             {
+                path: 'users',
+                name: 'users.index',
+                component: UserList,
+                meta: { requiresAdmin: true },
+            },
+            {
+                path: 'users/create',
+                name: 'users.create',
+                component: UserCreate,
+                meta: { requiresAdmin: true },
+            },
+            {
+                path: 'users/:id/edit',
+                name: 'users.edit',
+                component: UserEdit,
+                meta: { requiresAdmin: true },
+            },
+            {
                 path: 'menu-categories',
                 name: 'menu-categories.index',
                 component: MenuCategoryList,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'menu-categories/create',
                 name: 'menu-categories.create',
                 component: MenuCategoryCreate,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'menu-categories/:id/edit',
                 name: 'menu-categories.edit',
                 component: MenuCategoryEdit,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'menus',
                 name: 'menus.index',
                 component: MenuList,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'menus/create',
                 name: 'menus.create',
                 component: MenuCreate,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'menus/:id/edit',
                 name: 'menus.edit',
                 component: MenuEdit,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'weekly-menu-builds',
                 name: 'weekly-menu-builds.index',
                 component: WeeklyMenuBuildList,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'weekly-menu-builds/create',
                 name: 'weekly-menu-builds.create',
                 component: WeeklyMenuBuildCreate,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'weekly-menu-builds/:id/edit',
                 name: 'weekly-menu-builds.edit',
                 component: WeeklyMenuBuildEdit,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'dining-halls',
                 name: 'dining-halls.index',
                 component: DiningHallList,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'dining-halls/create',
                 name: 'dining-halls.create',
                 component: DiningHallCreate,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'dining-halls/:id/edit',
                 name: 'dining-halls.edit',
                 component: DiningHallEdit,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'dining-halls/:id/diners',
                 name: 'diners.index',
                 component: DinerList,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'dining-halls/:id/diners/create',
                 name: 'diners.create',
                 component: DinerCreate,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'dining-halls/:id/diners/import',
                 name: 'diners.import',
                 component: DinerImport,
+                meta: { requiresAdmin: true },
             },
             {
                 path: 'dining-halls/:id/diners/:dinerId/edit',
                 name: 'diners.edit',
                 component: DinerEdit,
+                meta: { requiresAdmin: true },
             },
         ],
     },
@@ -173,7 +210,7 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
     const authStore = useAuthStore();
 
-    if (to.meta.requiresAuth) {
+    if (to.meta.requiresAuth || to.meta.requiresAdmin) {
         if (!authStore.authenticated && !authStore.user) {
             try {
                 await authStore.fetchUser();
@@ -186,6 +223,11 @@ router.beforeEach(async (to, from, next) => {
             next({ name: 'login' });
             return;
         }
+    }
+
+    if (to.meta.requiresAdmin && !authStore.isAdmin) {
+        next({ name: 'dashboard' });
+        return;
     }
 
     if (to.meta.guest && authStore.authenticated) {

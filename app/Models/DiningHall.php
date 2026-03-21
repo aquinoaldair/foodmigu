@@ -29,4 +29,10 @@ class DiningHall extends Model
         return $this->belongsToMany(WeeklyMenuBuild::class, 'weekly_menu_build_dining_hall')
             ->withTimestamps();
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'dining_hall_user')
+            ->withTimestamps();
+    }
 }

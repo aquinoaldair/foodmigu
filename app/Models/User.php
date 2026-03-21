@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function diningHalls()
+    {
+        return $this->belongsToMany(DiningHall::class, 'dining_hall_user')
+            ->withTimestamps();
+    }
 }
