@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController
 {
-    public function weeks(): JsonResponse
+    public function weeks(Request $request): JsonResponse
     {
-        $rows = DB::table('weekly_menu_build_dining_hall')
+        $diningHallId = $request->query('dining_hall_id');
+
+        $query = DB::table('weekly_menu_build_dining_hall')
             ->join('weekly_menu_builds', 'weekly_menu_builds.id', '=', 'weekly_menu_build_dining_hall.weekly_menu_build_id')
             ->join('dining_halls', 'dining_halls.id', '=', 'weekly_menu_build_dining_hall.dining_hall_id')
             ->select(
@@ -28,8 +30,13 @@ class DashboardController
                 'dining_halls.id as dining_hall_id',
                 'dining_halls.name as dining_hall_name',
                 'dining_halls.code as dining_hall_code'
-            )
-            ->orderByDesc('weekly_menu_builds.published_at')
+            );
+
+        if ($diningHallId) {
+            $query->where('dining_halls.id', $diningHallId);
+        }
+
+        $rows = $query->orderByDesc('weekly_menu_builds.published_at')
             ->orderByDesc('weekly_menu_builds.created_at')
             ->get();
 

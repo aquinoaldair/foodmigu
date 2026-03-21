@@ -252,7 +252,10 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { dashboardApi } from '../modules/dashboard/api';
+
+const route = useRoute();
 const loadingData = ref(false);
 const error = ref(null);
 
@@ -311,7 +314,8 @@ async function fetchWeeks() {
     loadingData.value = true;
     error.value = null;
     try {
-        const { data } = await dashboardApi.weeks();
+        const diningHallId = route.query.dining_hall_id;
+        const { data } = await dashboardApi.weeks(diningHallId);
         weeks.value = data.data ?? [];
     } catch (e) {
         error.value = e.response?.data?.message ?? 'Error al cargar';

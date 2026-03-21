@@ -64,6 +64,12 @@
                             </router-link>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <router-link
+                                :to="{ name: 'dashboard', query: { dining_hall_id: hall.id } }"
+                                class="text-blue-600 hover:text-blue-900 mr-4"
+                            >
+                                Dashboard
+                            </router-link>
                             <button
                                 type="button"
                                 @click="openShareModal(hall)"

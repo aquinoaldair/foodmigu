@@ -1,7 +1,7 @@
 import api from '../../api/axios';
 
 export const dashboardApi = {
-    weeks: () => api.get('/api/dashboard/weeks'),
+    weeks: (diningHallId = null) => api.get('/api/dashboard/weeks', { params: { dining_hall_id: diningHallId } }),
     week: (id, diningHallId) =>
         api.get(`/api/dashboard/week/${id}`, { params: { dining_hall_id: diningHallId } }),
     day: (dayId, diningHallId) =>
