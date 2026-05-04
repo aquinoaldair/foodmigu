@@ -16,4 +16,6 @@ export const dashboardApi = {
             params: { dining_hall_id: diningHallId },
             responseType: 'blob',
         }),
+    resetSelection: (dayId, dinerId) =>
+        api.post(`/api/dashboard/day/${dayId}/reset-selection`, { diner_id: dinerId }),
 };

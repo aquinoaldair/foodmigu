@@ -159,6 +159,16 @@ class PublicMenuController
             return response()->json(['message' => 'Fecha no disponible'], 403);
         }
 
+        // Prevent re-submission if the diner already has saved selections for this day
+        $existingSelections = WeeklyMenuSelection::where('weekly_menu_day_id', $day->id)
+            ->where('diner_id', $diner->id)
+            ->exists();
+        if ($existingSelections) {
+            return response()->json([
+                'message' => 'Ya has guardado tu selección para este día. No es posible modificarla.',
+            ], 403);
+        }
+
         $itemIds = collect($request->input('selections'));
         $items = $day->items->keyBy('id');
 

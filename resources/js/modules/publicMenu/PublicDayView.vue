@@ -49,6 +49,12 @@
                     </p>
                 </div>
 
+                <div v-if="selectionLocked && !deadlinePassed" class="mb-6 rounded-xl px-4 py-3 bg-amber-50 border border-amber-200">
+                    <p class="text-amber-800 font-medium" spellcheck="false" autocorrect="off">
+                        Ya has guardado tu selección para este día. No es posible modificarla.
+                    </p>
+                </div>
+
                 <form @submit.prevent="submit" class="space-y-6 transition-all duration-200">
                     <div
                         v-for="group in byCategory"
@@ -75,13 +81,14 @@
                             <div
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
-                                :class="
+                                class="flex justify-between items-center gap-3 p-4 rounded-xl border transition"
+                                :class="[
                                     selectionMultiple(group.category.id).includes(item.id)
                                         ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200 bg-white'
-                                "
-                                @click="onCardClick($event, group, item)"
+                                        : 'border-gray-200 bg-white',
+                                    (deadlinePassed || selectionLocked) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer active:scale-95'
+                                ]"
+                                @click="!(deadlinePassed || selectionLocked) && onCardClick($event, group, item)"
                             >
                                 <span class="flex-1 flex items-start gap-3 min-w-0">
                                     <button
@@ -105,7 +112,7 @@
                                     type="checkbox"
                                     :value="item.id"
                                     :checked="selectionMultiple(group.category.id).includes(item.id)"
-                                    :disabled="deadlinePassed"
+                                    :disabled="deadlinePassed || selectionLocked"
                                     class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0"
                                     spellcheck="false"
                                     autocorrect="off"
@@ -149,13 +156,14 @@
                             <div
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
-                                :class="
+                                class="flex justify-between items-center gap-3 p-4 rounded-xl border transition"
+                                :class="[
                                     selectionSingle(group.category.id) === item.id
                                         ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200 bg-white'
-                                "
-                                @click="onCardClick($event, group, item)"
+                                        : 'border-gray-200 bg-white',
+                                    (deadlinePassed || selectionLocked) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer active:scale-95'
+                                ]"
+                                @click="!(deadlinePassed || selectionLocked) && onCardClick($event, group, item)"
                             >
                                 <span class="flex-1 flex items-start gap-3 min-w-0">
                                     <button
@@ -180,7 +188,7 @@
                                     :name="`cat_${group.category.id}`"
                                     :value="item.id"
                                     :checked="selectionSingle(group.category.id) === item.id"
-                                    :disabled="deadlinePassed"
+                                    :disabled="deadlinePassed || selectionLocked"
                                     class="h-5 w-5 text-blue-600 shrink-0"
                                     spellcheck="false"
                                     autocorrect="off"
@@ -193,13 +201,14 @@
                             <div
                                 v-for="item in group.items"
                                 :key="item.id"
-                                class="flex justify-between items-center gap-3 p-4 rounded-xl border cursor-pointer transition active:scale-95"
-                                :class="
+                                class="flex justify-between items-center gap-3 p-4 rounded-xl border transition"
+                                :class="[
                                     selectionMultiple(group.category.id).includes(item.id)
                                         ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200 bg-white'
-                                "
-                                @click="onCardClick($event, group, item)"
+                                        : 'border-gray-200 bg-white',
+                                    (deadlinePassed || selectionLocked) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer active:scale-95'
+                                ]"
+                                @click="!(deadlinePassed || selectionLocked) && onCardClick($event, group, item)"
                             >
                                 <span class="flex-1 flex items-start gap-3 min-w-0">
                                     <button
@@ -223,7 +232,7 @@
                                     type="checkbox"
                                     :value="item.id"
                                     :checked="selectionMultiple(group.category.id).includes(item.id)"
-                                    :disabled="deadlinePassed"
+                                    :disabled="deadlinePassed || selectionLocked"
                                     class="h-5 w-5 rounded border-gray-300 text-blue-600 shrink-0"
                                     spellcheck="false"
                                     autocorrect="off"
@@ -292,14 +301,51 @@
             </div>
         </div>
 
+        <!-- Confirmation dialog -->
         <div
-            v-if="diner && !loading && !error && day && !deadlinePassed"
+            v-if="showConfirmDialog"
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+            @click.self="showConfirmDialog = false"
+        >
+            <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full text-center">
+                <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center">
+                    <span class="text-3xl text-amber-600" spellcheck="false" autocorrect="off">⚠</span>
+                </div>
+                <p class="text-lg font-semibold text-gray-900 mb-2" spellcheck="false" autocorrect="off">¿Confirmar selección?</p>
+                <p class="text-gray-600 mb-6" spellcheck="false" autocorrect="off">
+                    Una vez guardada tu selección, <strong>no podrás modificarla</strong>. ¿Estás seguro de que deseas continuar?
+                </p>
+                <div class="flex gap-3">
+                    <button
+                        type="button"
+                        @click="showConfirmDialog = false"
+                        class="flex-1 py-3 rounded-xl text-lg font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 active:scale-95 transition"
+                        spellcheck="false"
+                        autocorrect="off"
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        type="button"
+                        @click="confirmSubmit"
+                        class="flex-1 py-3 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition"
+                        spellcheck="false"
+                        autocorrect="off"
+                    >
+                        Sí, guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div
+            v-if="diner && !loading && !error && day && !deadlinePassed && !selectionLocked"
             class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg"
         >
             <button
                 type="button"
                 :disabled="saving"
-                @click="submit"
+                @click="requestConfirmation"
                 class="w-full py-4 rounded-xl text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 spellcheck="false"
                 autocorrect="off"
@@ -329,6 +375,8 @@ const deadlinePassed = ref(false);
 const saving = ref(false);
 const saved = ref(false);
 const submitError = ref(null);
+const selectionLocked = ref(false);
+const showConfirmDialog = ref(false);
 
 const selectionState = reactive({ single: {}, multiple: {} });
 const lightboxImage = ref(null);
@@ -424,8 +472,18 @@ function buildSelections() {
     return ids;
 }
 
+function requestConfirmation() {
+    if (deadlinePassed.value || selectionLocked.value) return;
+    showConfirmDialog.value = true;
+}
+
+async function confirmSubmit() {
+    showConfirmDialog.value = false;
+    await submit();
+}
+
 async function submit() {
-    if (deadlinePassed.value) return;
+    if (deadlinePassed.value || selectionLocked.value) return;
     saving.value = true;
     submitError.value = null;
     saved.value = false;
@@ -436,6 +494,7 @@ async function submit() {
         });
         saved.value = true;
         submitError.value = null;
+        selectionLocked.value = true;
         syncSelectionsFromApi().catch(() => {});
     } catch (e) {
         submitError.value = e.response?.data?.message ?? 'Error al guardar';
@@ -488,6 +547,11 @@ async function fetchDay() {
 
         const { data: sel } = await publicMenuApi.mySelections(dayId.value, diner.value.id);
         const ids = sel.selections ?? [];
+
+        // Lock the form if the user already has saved selections
+        if (ids.length > 0) {
+            selectionLocked.value = true;
+        }
 
         for (const item of day.value?.items ?? []) {
             const cat = item.menu_category;

@@ -260,4 +260,39 @@ class DashboardController
             ],
         ]);
     }
+
+    public function resetSelection(Request $request, string $dayId): JsonResponse
+    {
+        $dinerId = $request->input('diner_id');
+        if (!$dinerId) {
+            return response()->json(['message' => 'diner_id es requerido'], 422);
+        }
+
+        $day = WeeklyMenuDay::with('weeklyMenuBuild.diningHalls')->find($dayId);
+        if (!$day) {
+            return response()->json(['message' => 'Día no encontrado'], 404);
+        }
+
+        $diner = Diner::find($dinerId);
+        if (!$diner) {
+            return response()->json(['message' => 'Comensal no encontrado'], 404);
+        }
+
+        $user = $request->user();
+        if (!$user->hasRole('admin')) {
+            $isAssigned = $user->diningHalls()->where('dining_halls.id', $diner->dining_hall_id)->exists();
+            if (!$isAssigned) {
+                return response()->json(['message' => 'No tienes acceso a este comedor'], 403);
+            }
+        }
+
+        $deleted = WeeklyMenuSelection::where('weekly_menu_day_id', $day->id)
+            ->where('diner_id', $dinerId)
+            ->delete();
+
+        return response()->json([
+            'message' => 'Selección eliminada correctamente. El comensal puede volver a elegir.',
+            'deleted_count' => $deleted,
+        ]);
+    }
 }

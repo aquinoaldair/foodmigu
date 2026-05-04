@@ -40,6 +40,7 @@ Route::middleware('auth:sanctum')->prefix('dashboard')->group(function () {
     Route::get('/weeks', [DashboardController::class, 'weeks']);
     Route::get('/week/{id}', [DashboardController::class, 'week']);
     Route::get('/day/{dayId}', [DashboardController::class, 'day']);
+    Route::post('/day/{dayId}/reset-selection', [DashboardController::class, 'resetSelection']);
 });
 Route::middleware('auth:sanctum')->prefix('dashboard/pdf')->group(function () {
     Route::get('/day/{dayId}', [DashboardPdfController::class, 'day']);

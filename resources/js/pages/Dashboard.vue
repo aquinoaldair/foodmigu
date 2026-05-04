@@ -205,6 +205,7 @@
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Nombre</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Opciones elegidas</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200">
@@ -222,6 +223,16 @@
                                                     {{ cat.items?.join(', ') || '-' }}
                                                 </span>
                                             </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <button
+                                                type="button"
+                                                :disabled="resettingDinerId === d.diner_id"
+                                                @click="confirmResetSelection(d)"
+                                                class="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-amber-100 text-amber-800 hover:bg-amber-200 active:scale-95 transition disabled:opacity-50"
+                                            >
+                                                {{ resettingDinerId === d.diner_id ? 'Procesando...' : 'Habilitar edición' }}
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -246,6 +257,43 @@
                     </div>
                 </div>
             </template>
+
+            <!-- Reset selection confirmation modal -->
+            <div
+                v-if="resetConfirmDiner"
+                class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+                @click.self="resetConfirmDiner = null"
+            >
+                <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full text-center">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center">
+                        <span class="text-3xl text-amber-600">⚠</span>
+                    </div>
+                    <p class="text-lg font-semibold text-gray-900 mb-2">¿Habilitar edición?</p>
+                    <p class="text-gray-600 mb-2">
+                        Se eliminarán las selecciones de <strong>{{ resetConfirmDiner.name }}</strong> para este día.
+                    </p>
+                    <p class="text-gray-500 text-sm mb-6">
+                        El comensal podrá volver a elegir desde su enlace público.
+                    </p>
+                    <div class="flex gap-3">
+                        <button
+                            type="button"
+                            @click="resetConfirmDiner = null"
+                            class="flex-1 py-3 rounded-xl text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 active:scale-95 transition"
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            type="button"
+                            @click="executeResetSelection"
+                            :disabled="resettingDinerId !== null"
+                            class="flex-1 py-3 rounded-xl text-sm font-semibold text-white bg-amber-600 hover:bg-amber-700 active:scale-95 transition disabled:opacity-50"
+                        >
+                            Sí, habilitar
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -267,6 +315,8 @@ const weekDetail = ref(null);
 const dayDetail = ref(null);
 const activeTab = ref('selected');
 const downloadingPdf = ref(false);
+const resetConfirmDiner = ref(null);
+const resettingDinerId = ref(null);
 
 const viewTitle = computed(() => {
     if (view.value === 'weeks') return 'Métricas de Menús Semanales';
@@ -442,6 +492,27 @@ function goBack() {
         selectedWeekId.value = null;
         selectedDiningHallId.value = null;
         fetchWeeks();
+    }
+}
+
+function confirmResetSelection(diner) {
+    resetConfirmDiner.value = diner;
+}
+
+async function executeResetSelection() {
+    if (!resetConfirmDiner.value || !dayDetail.value?.day?.id) return;
+    const dinerId = resetConfirmDiner.value.diner_id;
+    resettingDinerId.value = dinerId;
+    resetConfirmDiner.value = null;
+    try {
+        await dashboardApi.resetSelection(dayDetail.value.day.id, dinerId);
+        // Refresh the day detail data
+        const { data } = await dashboardApi.day(dayDetail.value.day.id, selectedDiningHallId.value);
+        dayDetail.value = data.data;
+    } catch (e) {
+        error.value = e.response?.data?.message ?? 'Error al habilitar edición';
+    } finally {
+        resettingDinerId.value = null;
     }
 }
 
